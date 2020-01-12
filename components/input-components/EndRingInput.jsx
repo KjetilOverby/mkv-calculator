@@ -11,6 +11,8 @@ const EndRingInput = props => {
         submit={props.submit}
         value={props.value}
         deleteAllDimensionRings={props.deleteAllEndRings}
+        background='outer-rings-background'
+        backgroundBtn='outer-btn-background'
       />
     </div>
   );

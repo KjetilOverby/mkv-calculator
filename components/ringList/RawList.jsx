@@ -12,7 +12,7 @@ const RawList = (props) => {
                 .raw-list-container {
                     height: 100vh;
                   width: 15vw;
-                  background: green;
+                  background: var(--inner-ring);
                   position: absolute;
                   right: -15vw;
                 }
@@ -35,7 +35,7 @@ const RawList = (props) => {
               @keyframes showRawList {
                   100% {transform: translateX(-15vw); display: none}
               }
-              
+
               @keyframes hideRawList {
                   100% {transform: translateX(15vw) }
                }

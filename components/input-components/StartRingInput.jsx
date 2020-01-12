@@ -11,6 +11,7 @@ const StartRingInput = (props) => {
                 submit={props.submit}
                 value={props.value}
                 deleteAllDimensionRings={props.deleteAllStartRings}
+                background='outer-rings-background'
             />
         </div>
     )

@@ -2,17 +2,17 @@ import React from 'react'
 
 const InputComponent = (props) => {
     return (
-        <div className="raw-input-container">
+        <div className={`raw-input-container ${props.background}`}>
         <h3>{props.title}</h3>
         <form onSubmit={props.submit} className='common-input-form'>
           <input className='input-fields' type="text" value={props.value} onChange={props.inputDataOnChange}/>
-          <button className='btn-common-input' >Legg til</button>
+          <button className={`btn-common-input ${props.backgroundBtn}`} >Legg til</button>
           
         </form>
-        <div className='common-input-form-btn'>
-        <button onClick={props.deleteAllDimensionRings} className='btn-common-input' >Slett alle</button>
-        <button className='btn-common-input' >Angre</button>
-          <button className='btn-common-input' >Lukk</button>
+        <div className={`common-input-form-btn`}>
+        <button onClick={props.deleteAllDimensionRings} className={`btn-common-input ${props.backgroundBtn}`} >Slett alle</button>
+        <button className={`btn-common-input ${props.backgroundBtn}`} >Angre</button>
+          <button className={`btn-common-input ${props.backgroundBtn}`} >Lukk</button>
           </div>
           <style jsx>{`
           .input-fields {
@@ -28,11 +28,17 @@ const InputComponent = (props) => {
     display: flex;
     align-items: center;
 }
+ .raw-input-background {
+    background: var(--inner-ring)
+ }
+ .outer-rings-background {
+    background: var(--outer-ring)
+ }
 .raw-input-container {
     position: absolute;
     height: 15vh;
     width: 20vw;
-    background-color: rgba(107, 212, 190, 0.486); 
+     
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -51,7 +57,12 @@ const InputComponent = (props) => {
      margin: .2rem .5rem;
      border-radius: 10px;
      outline: none;
-     background-color: var(--middle-bright);
+    } 
+ .raw-btn-background {
+     background: var(--middle-bright)
+ }
+ .outer-btn-background {
+     background: var(--bright)
  }
  .common-input-form-btn {
      display: flex;
@@ -59,7 +70,7 @@ const InputComponent = (props) => {
      width: 100%;
      margin-top: 2rem;
      
- }
+
           `}</style>
       </div>
     )
