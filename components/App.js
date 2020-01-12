@@ -250,8 +250,9 @@ const App = () => {
       >
         {sidebar ? 'Lukk' : 'Åpne'}
       </button>
-      <RawList openRawList={openRawList}/>
+      
       <RingList openRingList={openRingList}/>
+      <RawList openRawList={openRawList}/>
      
       {sidebar && (
         <SideBar

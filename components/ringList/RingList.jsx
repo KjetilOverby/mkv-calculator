@@ -5,7 +5,7 @@ const RingList = props => {
     <div className={props.openRingList}>
       <h1>Ring Liste</h1>
       <div className="list-container">
-        <h2>Utfyllingsringer</h2>
+        <h2>små ringer</h2>
         <ul className="fill">
           <li>1</li>
           <li>2</li>
@@ -74,7 +74,8 @@ const RingList = props => {
                   display: flex;
                   justify-content: center;
                   align-items: center;
-                  color: white
+                  color: white;
+                  z-index: 100
                    }
                    .list-container {
                        display: flex;
@@ -91,7 +92,12 @@ const RingList = props => {
                        display: flex;
                        justify-content: center;
                        align-items: center;
-                       color: white
+                       color: white;
+                       font-size: 1.2rem
+                   }
+                   .list-container ul li:hover {
+                       cursor: pointer;
+                       background: red
                    }
                    .fill {
                       
