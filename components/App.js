@@ -9,8 +9,12 @@ import DistanceRing from './distance-rings/DistanceRing';
 import EndRingInput from './input-components/EndRingInput';
 import StartLabel from './labels/StartLabel';
 import BladeThickChooser from './bladeThicknessCooser/BladeThickChooser';
+import RingList from './ringList/RingList';
+import RawList from './ringList/RawList';
 
 const App = () => {
+  const [openRingList, setOpenRingList] = useState('ring-list-container hide-ring-list')
+  const [openRawList, setOpenRawList] = useState('raw-list-container hide-raw-list')
   /*********************** Blade **************************/
   const [bladeThickness, setBladeThickness] = useState(2.8);
   const [sagSnitt, setSagSnitt] = useState(4.2);
@@ -18,7 +22,8 @@ const App = () => {
   const [sagSnittSumCalculated, setSagSnittSumCalculated] = useState([]);
   const vigg = 0.7;
   const viggDouble = 1.4;
-  const [openBladeThicknessChooser, setOpenBladeThicknessChooser] = useState(true)
+  const [openBladeThicknessChooser, setOpenBladeThicknessChooser] = useState(false)
+
   /************************ Start Rings **********************/
 
   const [dimensionRingAddition, setDimensionRingAddition] = useState('');
@@ -103,6 +108,25 @@ const App = () => {
     console.log(finalCalcLabel);
   });
 
+  useEffect(() => {
+    if (startInputWindow === true || endInputWindow === true) {
+      setOpenRingList('ring-list-container show-ring-list')
+    } else {
+      setOpenRingList('ring-list-container hide-ring-list')
+    }
+
+ 
+  
+  
+  })
+  useEffect(() => {
+   if (rawInputWindow) {
+     setOpenRawList('raw-list-container show-raw-list')
+   } else {
+     setOpenRawList('raw-list-container hide-raw-list')
+   }
+  })
+
   /*********************** EndRing input ***********************/
   const [endRingInput, setEndRingInput] = useState('');
   const [endRingInputData, setEndRingInputData] = useState([]);
@@ -167,16 +191,19 @@ const App = () => {
     setStartInputWindow(!startInputWindow);
     setRawInputWindow(false);
     setEndInputWindow(false);
+    
   };
   const openCloseRawInputWindow = () => {
     setRawInputWindow(!rawInputWindow);
     setStartInputWindow(false);
     setEndInputWindow(false);
+    setOpenRingList('ring-list-container hide-ring-list')
   };
   const openCloseEndInputWindow = () => {
     setEndInputWindow(!endInputWindow);
     setStartInputWindow(false);
     setRawInputWindow(false);
+    
   };
   const openCloseBladeThicknessChooser = () => {
     setOpenBladeThicknessChooser(!openBladeThicknessChooser)
@@ -213,6 +240,7 @@ const App = () => {
     setSagSnittSumCalculated([0]);
     setSagSnittSum([0]);
   };
+  
 
   return (
     <div className="app-container">
@@ -222,6 +250,9 @@ const App = () => {
       >
         {sidebar ? 'Lukk' : 'Åpne'}
       </button>
+      <RawList openRawList={openRawList}/>
+      <RingList openRingList={openRingList}/>
+     
       {sidebar && (
         <SideBar
           openCloseRawInputWindow={openCloseRawInputWindow}

@@ -31,6 +31,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.4)), url('https://images.unsplash.com/photo-1532538014654-28b063b09d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80');
   background-size: cover;
+  heigth: 100vh;
+  width: 100vw;
+ overFlow: hidden;
 }
 
 code {

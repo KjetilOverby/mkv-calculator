@@ -27,7 +27,7 @@ const BladeThickChooser = props => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          box-shadow: 10px 10px 20px black
+          box-shadow: 10px 10px 20px rgba(0,0,0,.5)
         }
         .blade-thick-container ul li {
           color: white;
