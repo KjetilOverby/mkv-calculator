@@ -11,12 +11,12 @@ const DistanceRing = (props) => {
         <style jsx>{`
          .distance-ring {
     
-    height: 8rem;
+    height: 9rem;
     width: 3rem;
     margin: 0 .3rem;
     display: flex;
     justify-content: center;
-    padding: .5rem;
+    padding: .5rem .7rem;
     font-size: 1.3rem;
     font-weight: bold;
     border: 1px solid var(--bright);

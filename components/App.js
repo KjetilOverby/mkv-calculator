@@ -8,6 +8,7 @@ import StartRingInput from './input-components/StartRingInput';
 import DistanceRing from './distance-rings/DistanceRing';
 import EndRingInput from './input-components/EndRingInput';
 import StartLabel from './labels/StartLabel';
+import BladeThickChooser from './bladeThicknessCooser/BladeThickChooser';
 
 const App = () => {
   /*********************** Blade **************************/
@@ -17,6 +18,7 @@ const App = () => {
   const [sagSnittSumCalculated, setSagSnittSumCalculated] = useState([]);
   const vigg = 0.7;
   const viggDouble = 1.4;
+  const [openBladeThicknessChooser, setOpenBladeThicknessChooser] = useState(true)
   /************************ Start Rings **********************/
 
   const [dimensionRingAddition, setDimensionRingAddition] = useState('');
@@ -73,20 +75,22 @@ const App = () => {
   useEffect(() => {
     if (startRingInputData.length > 0) {
       setStartRingsumForLabel(
-        startRingInputData.reduce(
-          (num, { input }) => Number(num) + Number(input),
-          0
-        )
-      );
+        startRingInputData.reduce((num, { input }) => Number(num) + Number(input), 0));
     }
   });
+  useEffect(() => {
+    if(endRingInputData.length > 0) { 
+    setEndRingInputForLabel(endRingInputData.reduce((num, {input}) => Number(num) + Number(input), 0));
+    console.log('endIputSum: ' + endRingInputForLabel);
+    }
+  })
 
   useEffect(() => {
     const calculations =
       Number(rawInputDataSum) + Number(sagSnittSumCalculated);
     const finalCalcLabel = calculations / 2;
 
-    if (rawInputData.length > 0 || startRingInputData.length > 0) {
+    if (rawInputData.length > 0 || startRingInputData.length > 0 || endRingInput.length > 0) {
       setRawInputDataSum(
         rawInputData.reduce((num, { input }) => Number(num) + Number(input), 0)
       );
@@ -94,7 +98,7 @@ const App = () => {
 
       setSagSnittSumCalculated(sagSnittSum.reduce((num1, num2) => num1 + num2));
       setStartLabel(200 - startRingsumForLabel - finalCalcLabel);
-      setEndLabel(217.2 - finalCalcLabel);
+      setEndLabel(217.2 - endRingInputForLabel - finalCalcLabel);
     }
     console.log(finalCalcLabel);
   });
@@ -102,6 +106,7 @@ const App = () => {
   /*********************** EndRing input ***********************/
   const [endRingInput, setEndRingInput] = useState('');
   const [endRingInputData, setEndRingInputData] = useState([]);
+  const [endRingInputForLabel, setEndRingInputForLabel] = useState([0])
 
   const outerRingsEnd = 'distance-ring outer-distance-ring outer-endRing';
 
@@ -116,10 +121,42 @@ const App = () => {
     ]);
     setEndRingInput('');
   };
+
   /*********************** Labels ***********************/
   const [startLabel, setStartLabel] = useState(200);
   const [endLabel, setEndLabel] = useState(217.2);
 
+  /*********************** SawBlade thickness ***********************/
+    const blade1 = () => {
+      setBladeThickness(2.2)
+      setSagSnitt(3.6)
+      setOpenBladeThicknessChooser(false)
+    }
+    const blade2 = () => {
+      setBladeThickness(2.4)
+      setSagSnitt(3.8)
+      setOpenBladeThicknessChooser(false)
+    }
+    const blade3 = () => {
+      setBladeThickness(2.6)
+      setSagSnitt(4.0)
+      setOpenBladeThicknessChooser(false)
+    }
+    const blade4 = () => {
+      setBladeThickness(2.8)
+      setSagSnitt(4.2)
+      setOpenBladeThicknessChooser(false)
+    }
+    const blade5 = () => {
+      setBladeThickness(3.0)
+      setSagSnitt(4.4)
+      setOpenBladeThicknessChooser(false)
+    }
+    const blade6 = () => {
+      setBladeThickness(3.2)
+      setSagSnitt(4.6)
+      setOpenBladeThicknessChooser(false)
+    }
   /*********************** Open and Close ***********************/
   const [sidebar, setSidebar] = useState(false);
   const [rawInputWindow, setRawInputWindow] = useState(false);
@@ -141,11 +178,14 @@ const App = () => {
     setStartInputWindow(false);
     setRawInputWindow(false);
   };
+  const openCloseBladeThicknessChooser = () => {
+    setOpenBladeThicknessChooser(!openBladeThicknessChooser)
+  }
   const testPost = () => {
     setStartRingInputData([
-      { input: 34.6, id: uuid() },
-      { input: 30.4, id: uuid() },
-      { input: 27.6, id: uuid() },
+      { input: 1, id: uuid() },
+      { input: 5, id: uuid() },
+      { input: 40, id: uuid() },
       { input: 53.1, id: uuid() }
     ]);
     setEndRingInputData([
@@ -207,6 +247,15 @@ const App = () => {
           value={rawInput}
         />
       )}
+      {openBladeThicknessChooser &&
+      <BladeThickChooser 
+        blade1={blade1}
+        blade2={blade2}
+        blade3={blade3}
+        blade4={blade4}
+        blade5={blade5}
+        blade6={blade6}
+      />}
 
       {endInputWindow && (
         <EndRingInput
@@ -219,7 +268,7 @@ const App = () => {
 
       <div className="ring-component-container">
         <Hylse
-          startLabel={(startLabel - 1.4).toFixed(2)}
+          startLabel={(startLabel - bladeThickness / 2).toFixed(2)}
           endLabel={(endLabel - 1.4).toFixed(2)}
         />
 
@@ -231,7 +280,7 @@ const App = () => {
           />
         ))}
 
-        <div className="blade">
+        <div onClick={openCloseBladeThicknessChooser} className="blade">
           <div className="blade-thickness-top">{bladeThickness}</div>
           <div className="blade-thickness-bottom">{bladeThickness}</div>
         </div>
@@ -245,6 +294,7 @@ const App = () => {
               2
             )}
             rawValue={rawInputrings.input}
+            openBladeThicknessChooser={openCloseBladeThicknessChooser}
           />
         ))}
 
@@ -303,6 +353,7 @@ const App = () => {
           width: 0.4rem;
           background-color: var(--darker-bright);
           position: relative;
+          cursor: pointer;
         }
         .blade-thickness-top {
           position: absolute;

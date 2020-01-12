@@ -31,7 +31,7 @@ const Hylse = (props) => {
         .hylse {
     background:linear-gradient(rgb(200, 200, 200),rgb(66, 66, 66));
     height: 7rem;
-    width: 60rem;
+    width: 64rem;
     position: absolute;
     top: 9rem;
     display: flex;
@@ -39,16 +39,16 @@ const Hylse = (props) => {
 }
 .hylse-shadow {
     height: 2rem;
-    width: 59.5rem;
+    width: 63.5rem;
     background: linear-gradient(rgb(204, 204, 204),rgb(70, 69, 69));
     box-shadow: 5px 5px 30px black;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
     
 }
 .hylse-light-reflection {
     height: 1rem;
-    width: 60rem;
+    width: 64rem;
     background: linear-gradient(rgba(0, 0, 0, 0.205), rgba(46, 42, 42, 0.102));
     margin-top: 8rem;
     position: absolute;

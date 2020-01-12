@@ -9,7 +9,7 @@ const DimensionRings = (props) => {
         <p className='raw-input-label'>{props.rawValue}</p>
          <DistanceRing ringStyle={props.ringStyle} ringValue={props.ringValue} deleteDimensionRing={props.deleteDimensionRing}/>
   
-          <div className="blade">
+          <div onClick={props.openBladeThicknessChooser} className="blade">
             <div className="blade-thickness-top">{props.bladeThickness}</div>
             <div className="blade-thickness-bottom">{props.bladeThickness}</div>
           </div>
@@ -33,6 +33,8 @@ const DimensionRings = (props) => {
     width: .4rem;
     background-color: var(--darker-bright);
     position: relative;
+    cursor: pointer;
+   
    
 }
 .blade-thickness-top {
@@ -41,6 +43,7 @@ const DimensionRings = (props) => {
     left: 50%;
     transform: translateX(-50%);
     color: var(--darker-bright);
+    
     
 
 }
