@@ -7,61 +7,61 @@ const RingList = props => {
       <div className="list-container">
         <h2>små ringer</h2>
         <ul className="fill">
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-          <li>7</li>
-          <li>10</li>
-          <li>10.25</li>
-          <li>10.5</li>
-          <li>10.75</li>
-          <li>11</li>
-          <li>11.25</li>
-          <li>11.5</li>
-          <li>11.75</li>
-          <li>12</li>
-          <li>12.5</li>
-          <li>12.75</li>
-          <li>15</li>
-          <li>20</li>
-          <li>40</li>
-          <li>80</li>
+          <li onClick={() => props.getRings(1)}>1</li>
+          <li onClick={() => props.getRings(2)}>2</li>
+          <li onClick={() => props.getRings(3)}>3</li>
+          <li onClick={() => props.getRings(4)}>4</li>
+          <li onClick={() => props.getRings(5)}>5</li>
+          <li onClick={() => props.getRings(6)}>6</li>
+          <li onClick={() => props.getRings(7)}>7</li>
+          <li onClick={() => props.getRings(10)}>10</li>
+          <li onClick={() => props.getRings(10.25)}>10.25</li>
+          <li onClick={() => props.getRings(10.5)}>10.5</li>
+          <li onClick={() => props.getRings(10.75)}>10.75</li>
+          <li onClick={() => props.getRings(11)}>11</li>
+          <li onClick={() => props.getRings(11.25)}>11.25</li>
+          <li onClick={() => props.getRings(11.5)}>11.5</li>
+          <li onClick={() => props.getRings(11.75)}>11.75</li>
+          <li onClick={() => props.getRings(12)}>12</li>
+          <li onClick={() => props.getRings(12.5)}>12.5</li>
+          <li onClick={() => props.getRings(12.75)}>12.75</li>
+          <li onClick={() => props.getRings(15)}>15</li>
+          <li onClick={() => props.getRings(20)}>20</li>
+          <li onClick={() => props.getRings(40)}>40</li>
+          <li onClick={() => props.getRings(80)}>80</li>
         </ul>
         <h2>Store ringer</h2>
         <ul className="full-size">
-          <li>2.2</li>
-          <li>2.4</li>
-          <li>2.6</li>
-          <li>2.8</li>
-          <li>3</li>
-          <li>3.2</li>
-          <li>21.4</li>
-          <li>25.1</li>
-          <li>25.6</li>
-          <li>27.6</li>
-          <li>30.4</li>
-          <li>34.6</li>
-          <li>37</li>
-          <li>37.5</li>
-          <li>40</li>
-          <li>40.8</li>
-          <li>41.3</li>
-          <li>44.9</li>
-          <li>46.9</li>
-          <li>47.9</li>
-          <li>53.1</li>
-          <li>54.6</li>
-          <li>66.4</li>
-          <li>78.7</li>
+          <li onClick={() => props.getRings(2.2)}>2.2</li>
+          <li onClick={() => props.getRings(2.4)}>2.4</li>
+          <li onClick={() => props.getRings(2.6)}>2.6</li>
+          <li onClick={() => props.getRings(2.8)}>2.8</li>
+          <li onClick={() => props.getRings(3)}>3</li>
+          <li onClick={() => props.getRings(3.2)}>3.2</li>
+          <li onClick={() => props.getRings(21.4)}>21.4</li>
+          <li onClick={() => props.getRings(25.1)}>25.1</li>
+          <li onClick={() => props.getRings(25.6)}>25.6</li>
+          <li onClick={() => props.getRings(27.6)}>27.6</li>
+          <li onClick={() => props.getRings(30.4)}>30.4</li>
+          <li onClick={() => props.getRings(34.6)}>34.6</li>
+          <li onClick={() => props.getRings(37)}>37</li>
+          <li onClick={() => props.getRings(37.5)}>37.5</li>
+          <li onClick={() => props.getRings(40)}>40</li>
+          <li onClick={() => props.getRings(40.8)}>40.8</li>
+          <li onClick={() => props.getRings(41.3)}>41.3</li>
+          <li onClick={() => props.getRings(44.9)}>44.9</li>
+          <li onClick={() => props.getRings(46.9)}>46.9</li>
+          <li onClick={() => props.getRings(47.9)}>47.9</li>
+          <li onClick={() => props.getRings(53.1)}>53.1</li>
+          <li onClick={() => props.getRings(54.6)}>54.6</li>
+          <li onClick={() => props.getRings(66.4)}>66.4</li>
+          <li onClick={() => props.getRings(78.3)}>78.7</li>
         </ul>
         <h2>Skims</h2>
         <ul>
-          <li>0.3</li>
-          <li>0.5</li>
-          <li>1</li>
+          <li onClick={() => props.getRings(0.3)}>0.3</li>
+          <li onClick={() => props.getRings(0.5)}>0.5</li>
+          <li onClick={() => props.getRings(1)}>1</li>
         </ul>
       </div>
       <style jsx>{`

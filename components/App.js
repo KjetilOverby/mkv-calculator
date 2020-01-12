@@ -13,8 +13,12 @@ import RingList from './ringList/RingList';
 import RawList from './ringList/RawList';
 
 const App = () => {
-  const [openRingList, setOpenRingList] = useState('ring-list-container hide-ring-list')
-  const [openRawList, setOpenRawList] = useState('raw-list-container hide-raw-list')
+  const [openRingList, setOpenRingList] = useState(
+    'ring-list-container hide-ring-list'
+  );
+  const [openRawList, setOpenRawList] = useState(
+    'raw-list-container hide-raw-list'
+  );
   /*********************** Blade **************************/
   const [bladeThickness, setBladeThickness] = useState(2.8);
   const [sagSnitt, setSagSnitt] = useState(4.2);
@@ -22,7 +26,9 @@ const App = () => {
   const [sagSnittSumCalculated, setSagSnittSumCalculated] = useState([]);
   const vigg = 0.7;
   const viggDouble = 1.4;
-  const [openBladeThicknessChooser, setOpenBladeThicknessChooser] = useState(false)
+  const [openBladeThicknessChooser, setOpenBladeThicknessChooser] = useState(
+    false
+  );
 
   /************************ Start Rings **********************/
 
@@ -80,22 +86,35 @@ const App = () => {
   useEffect(() => {
     if (startRingInputData.length > 0) {
       setStartRingsumForLabel(
-        startRingInputData.reduce((num, { input }) => Number(num) + Number(input), 0));
+        startRingInputData.reduce(
+          (num, { input }) => Number(num) + Number(input),
+          0
+        )
+      );
     }
   });
   useEffect(() => {
-    if(endRingInputData.length > 0) { 
-    setEndRingInputForLabel(endRingInputData.reduce((num, {input}) => Number(num) + Number(input), 0));
-    console.log('endIputSum: ' + endRingInputForLabel);
+    if (endRingInputData.length > 0) {
+      setEndRingInputForLabel(
+        endRingInputData.reduce(
+          (num, { input }) => Number(num) + Number(input),
+          0
+        )
+      );
+      console.log('endIputSum: ' + endRingInputForLabel);
     }
-  })
+  });
 
   useEffect(() => {
     const calculations =
       Number(rawInputDataSum) + Number(sagSnittSumCalculated);
     const finalCalcLabel = calculations / 2;
 
-    if (rawInputData.length > 0 || startRingInputData.length > 0 || endRingInput.length > 0) {
+    if (
+      rawInputData.length > 0 ||
+      startRingInputData.length > 0 ||
+      endRingInput.length > 0
+    ) {
       setRawInputDataSum(
         rawInputData.reduce((num, { input }) => Number(num) + Number(input), 0)
       );
@@ -110,27 +129,23 @@ const App = () => {
 
   useEffect(() => {
     if (startInputWindow === true || endInputWindow === true) {
-      setOpenRingList('ring-list-container show-ring-list')
+      setOpenRingList('ring-list-container show-ring-list');
     } else {
-      setOpenRingList('ring-list-container hide-ring-list')
+      setOpenRingList('ring-list-container hide-ring-list');
     }
-
- 
-  
-  
-  })
+  });
   useEffect(() => {
-   if (rawInputWindow) {
-     setOpenRawList('raw-list-container show-raw-list')
-   } else {
-     setOpenRawList('raw-list-container hide-raw-list')
-   }
-  })
+    if (rawInputWindow) {
+      setOpenRawList('raw-list-container show-raw-list');
+    } else {
+      setOpenRawList('raw-list-container hide-raw-list');
+    }
+  });
 
   /*********************** EndRing input ***********************/
   const [endRingInput, setEndRingInput] = useState('');
   const [endRingInputData, setEndRingInputData] = useState([]);
-  const [endRingInputForLabel, setEndRingInputForLabel] = useState([0])
+  const [endRingInputForLabel, setEndRingInputForLabel] = useState([0]);
 
   const outerRingsEnd = 'distance-ring outer-distance-ring outer-endRing';
 
@@ -151,36 +166,59 @@ const App = () => {
   const [endLabel, setEndLabel] = useState(217.2);
 
   /*********************** SawBlade thickness ***********************/
-    const blade1 = () => {
-      setBladeThickness(2.2)
-      setSagSnitt(3.6)
-      setOpenBladeThicknessChooser(false)
+  const blade1 = () => {
+    setBladeThickness(2.2);
+    setSagSnitt(3.6);
+    setOpenBladeThicknessChooser(false);
+  };
+  const blade2 = () => {
+    setBladeThickness(2.4);
+    setSagSnitt(3.8);
+    setOpenBladeThicknessChooser(false);
+  };
+  const blade3 = () => {
+    setBladeThickness(2.6);
+    setSagSnitt(4.0);
+    setOpenBladeThicknessChooser(false);
+  };
+  const blade4 = () => {
+    setBladeThickness(2.8);
+    setSagSnitt(4.2);
+    setOpenBladeThicknessChooser(false);
+  };
+  const blade5 = () => {
+    setBladeThickness(3.0);
+    setSagSnitt(4.4);
+    setOpenBladeThicknessChooser(false);
+  };
+  const blade6 = () => {
+    setBladeThickness(3.2);
+    setSagSnitt(4.6);
+    setOpenBladeThicknessChooser(false);
+  };
+  /*********************** Numbers from ring list ***********************/
+  const getNumbersFromList = digits => {
+    if (startInputWindow) {
+      setStartRingInputData([
+        ...startRingInputData,
+        { input: digits, id: uuid() }
+      ]);
+    } else if (endInputWindow) {
+      setEndRingInputData([...endRingInputData, { input: digits, id: uuid() }]);
     }
-    const blade2 = () => {
-      setBladeThickness(2.4)
-      setSagSnitt(3.8)
-      setOpenBladeThicknessChooser(false)
+  };
+  /*********************** Numbers from raw list ***********************/
+
+  const getNumbersFromRawList = digit => {
+    if (rawInputData.length > 7) {
+      alert('Du kan ikke legge inn fler enn 8 plank')
+    } else {
+      setRawInputData([...rawInputData, { input: digit, id: uuid() }]);
+      setSagSnittSum([...sagSnittSum, sagSnitt]);
+      setRawInput('');
     }
-    const blade3 = () => {
-      setBladeThickness(2.6)
-      setSagSnitt(4.0)
-      setOpenBladeThicknessChooser(false)
-    }
-    const blade4 = () => {
-      setBladeThickness(2.8)
-      setSagSnitt(4.2)
-      setOpenBladeThicknessChooser(false)
-    }
-    const blade5 = () => {
-      setBladeThickness(3.0)
-      setSagSnitt(4.4)
-      setOpenBladeThicknessChooser(false)
-    }
-    const blade6 = () => {
-      setBladeThickness(3.2)
-      setSagSnitt(4.6)
-      setOpenBladeThicknessChooser(false)
-    }
+  };
+
   /*********************** Open and Close ***********************/
   const [sidebar, setSidebar] = useState(false);
   const [rawInputWindow, setRawInputWindow] = useState(false);
@@ -191,23 +229,21 @@ const App = () => {
     setStartInputWindow(!startInputWindow);
     setRawInputWindow(false);
     setEndInputWindow(false);
-    
   };
   const openCloseRawInputWindow = () => {
     setRawInputWindow(!rawInputWindow);
     setStartInputWindow(false);
     setEndInputWindow(false);
-    setOpenRingList('ring-list-container hide-ring-list')
+    setOpenRingList('ring-list-container hide-ring-list');
   };
   const openCloseEndInputWindow = () => {
     setEndInputWindow(!endInputWindow);
     setStartInputWindow(false);
     setRawInputWindow(false);
-    
   };
   const openCloseBladeThicknessChooser = () => {
-    setOpenBladeThicknessChooser(!openBladeThicknessChooser)
-  }
+    setOpenBladeThicknessChooser(!openBladeThicknessChooser);
+  };
   const testPost = () => {
     setStartRingInputData([
       { input: 1, id: uuid() },
@@ -240,7 +276,6 @@ const App = () => {
     setSagSnittSumCalculated([0]);
     setSagSnittSum([0]);
   };
-  
 
   return (
     <div className="app-container">
@@ -250,10 +285,10 @@ const App = () => {
       >
         {sidebar ? 'Lukk' : 'Åpne'}
       </button>
-      
-      <RingList openRingList={openRingList}/>
-      <RawList openRawList={openRawList}/>
-     
+
+      <RingList openRingList={openRingList} getRings={getNumbersFromList} />
+      <RawList openRawList={openRawList} getRaw={getNumbersFromRawList} />
+
       {sidebar && (
         <SideBar
           openCloseRawInputWindow={openCloseRawInputWindow}
@@ -279,15 +314,16 @@ const App = () => {
           value={rawInput}
         />
       )}
-      {openBladeThicknessChooser &&
-      <BladeThickChooser 
-        blade1={blade1}
-        blade2={blade2}
-        blade3={blade3}
-        blade4={blade4}
-        blade5={blade5}
-        blade6={blade6}
-      />}
+      {openBladeThicknessChooser && (
+        <BladeThickChooser
+          blade1={blade1}
+          blade2={blade2}
+          blade3={blade3}
+          blade4={blade4}
+          blade5={blade5}
+          blade6={blade6}
+        />
+      )}
 
       {endInputWindow && (
         <EndRingInput
