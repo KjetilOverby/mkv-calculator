@@ -5,7 +5,7 @@ import LabelComponent from './LabelComponent';
 const StartLabel = props => {
   return (
     <div>
-      <LabelComponent value={props.value} />
+      <LabelComponent css2={props.css2} value={props.value} />
     </div>
   );
 };

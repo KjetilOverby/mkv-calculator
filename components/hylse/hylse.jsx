@@ -6,7 +6,7 @@ import EndLabel from '../labels/EndLabel';
 const Hylse = (props) => {
     return (
         <div className="hylse">
-         <StartLabel value={props.startLabel}/>
+         <StartLabel css2={props.correctLabel2}value={props.startLabel}/>
          
         {/*   Axl values Labels container  */}
         <div className="hylse-light-reflection">
@@ -25,7 +25,7 @@ const Hylse = (props) => {
           <div className="gang"></div>
           <div className="gang"></div>
           <div className="gang"></div>
-          <EndLabel value={props.endLabel} />
+          <EndLabel css={props.correctLabel} value={props.endLabel} />
         </div>
         <style jsx>{`
         .hylse {

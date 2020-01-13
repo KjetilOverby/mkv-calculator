@@ -55,10 +55,10 @@ const RingList = props => {
           <li onClick={() => props.getRings(53.1)}>53.1</li>
           <li onClick={() => props.getRings(54.6)}>54.6</li>
           <li onClick={() => props.getRings(66.4)}>66.4</li>
-          <li onClick={() => props.getRings(78.3)}>78.7</li>
+          <li onClick={() => props.getRings(78.7)}>78.7</li>
         </ul>
         <h2>Skims</h2>
-        <ul>
+        <ul style={{display: 'flex'}}>
           <li onClick={() => props.getRings(0.3)}>0.3</li>
           <li onClick={() => props.getRings(0.5)}>0.5</li>
           <li onClick={() => props.getRings(1)}>1</li>

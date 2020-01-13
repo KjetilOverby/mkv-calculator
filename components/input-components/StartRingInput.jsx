@@ -12,6 +12,8 @@ const StartRingInput = (props) => {
                 value={props.value}
                 deleteAllDimensionRings={props.deleteAllStartRings}
                 background='outer-rings-background'
+                deleteGroup={props.allStartRingDelete}
+                close={props.openCloseStartInputWindow}
             />
         </div>
     )

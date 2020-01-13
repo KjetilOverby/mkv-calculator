@@ -13,6 +13,8 @@ const EndRingInput = props => {
         deleteAllDimensionRings={props.deleteAllEndRings}
         background='outer-rings-background'
         backgroundBtn='outer-btn-background'
+        deleteGroup={props.allEndRingDelete}
+        close={props.openCloseEndInputWindow}
       />
     </div>
   );
