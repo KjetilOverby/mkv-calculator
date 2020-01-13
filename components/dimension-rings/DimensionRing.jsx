@@ -31,7 +31,7 @@ const DimensionRings = (props) => {
 .blade {
     height: 25rem;
     width: .4rem;
-    background-color: var(--darker-bright);
+    background-color: yellow;
     position: relative;
     cursor: pointer;
    
@@ -42,7 +42,7 @@ const DimensionRings = (props) => {
     bottom: 25.2rem;
     left: 50%;
     transform: translateX(-50%);
-    color: var(--darker-bright);
+    color: yellow;
     
     
 
@@ -52,7 +52,7 @@ const DimensionRings = (props) => {
     top: 25.2rem;
     left: 50%;
     transform: translateX(-50%);
-    color: var(--darker-bright);
+    color: yellow;
 }
 
 

@@ -20,15 +20,15 @@ const App = () => {
   const [openRawList, setOpenRawList] = useState(
     'raw-list-container hide-raw-list'
   );
-  const [correctLabel, setCorrectLabel] = useState('')
-  const [correctLabel2, setCorrectLabel2] = useState('')
+  const [correctLabel, setCorrectLabel] = useState('');
+  const [correctLabel2, setCorrectLabel2] = useState('');
   /*********************** Blade **************************/
   const [bladeThickness, setBladeThickness] = useState(2.8);
   const [sagSnitt, setSagSnitt] = useState(4.2);
   const [sagSnittSum, setSagSnittSum] = useState([0]);
   const [sagSnittSumCalculated, setSagSnittSumCalculated] = useState([]);
   const vigg = 0.7;
-  const viggDouble = 1.4;
+  
   const [openBladeThicknessChooser, setOpenBladeThicknessChooser] = useState(
     false
   );
@@ -86,6 +86,8 @@ const App = () => {
       setRawInput('');
     }
   };
+  /************************** Lifecycle **********************/
+
   useEffect(() => {
     if (startRingInputData.length > 0) {
       setStartRingsumForLabel(
@@ -104,11 +106,7 @@ const App = () => {
           0
         )
       );
-      
-       
-      
-    } 
-    
+    }
   });
 
   useEffect(() => {
@@ -130,6 +128,7 @@ const App = () => {
       setStartLabel((200 - startRingsumForLabel - finalCalcLabel).toFixed(2));
       setEndLabel((217.2 - endRingInputForLabel - finalCalcLabel).toFixed(2));
     }
+   
     
   });
 
@@ -149,20 +148,22 @@ const App = () => {
   });
 
   useEffect(() => {
-    if(endLabel <= 1.45 && endLabel >= 1.35) {
-      setCorrectLabel('label-container-correct')
+    const endLabelCalc = Number(sagSnitt) + Number(endLabel);
+    if (endLabelCalc <= 5.65 && endLabelCalc >= 5.55) {
+      setCorrectLabel('label-container-correct');
     } else {
-      setCorrectLabel('')
+      setCorrectLabel('');
     }
-    if (startLabel <= 1.45 && startLabel >= 1.35) {
-      setCorrectLabel2('label-container-correct2')
+    const startLabelCalc = Number(sagSnitt) + Number(startLabel);
+
+    if (startLabelCalc <= 5.65 && startLabelCalc >= 5.55) {
+      setCorrectLabel2('label-container-correct2');
     } else {
-      setCorrectLabel2('')
+      setCorrectLabel2('');
     }
-    console.log(startLabel);
+    console.log('vcalc: ' + endLabelCalc);
     console.log('endLabel: ' + endLabel);
-    
-  })
+  });
 
   /*********************** EndRing input ***********************/
   const [endRingInput, setEndRingInput] = useState('');
@@ -181,7 +182,6 @@ const App = () => {
       { input: endRingInput, id: uuid() }
     ]);
     setEndRingInput('');
-    
   };
 
   /*********************** Labels ***********************/
@@ -234,7 +234,7 @@ const App = () => {
 
   const getNumbersFromRawList = digit => {
     if (rawInputData.length > 7) {
-      alert('Du kan ikke legge inn fler enn 8 plank')
+      alert('Du kan ikke legge inn fler enn 8 plank');
     } else {
       setRawInputData([...rawInputData, { input: digit, id: uuid() }]);
       setSagSnittSum([...sagSnittSum, sagSnitt]);
@@ -300,18 +300,15 @@ const App = () => {
     setSagSnittSumCalculated([0]);
     setSagSnittSum([0]);
     setEndLabel([]);
-    setEndRingInputData([])
+    setEndRingInputData([]);
     setEndRingInputForLabel([0]);
     setEndLabel(217.2);
     setStartLabel(200);
-    
-    
   };
   const allStartRingDelete = () => {
     setStartRingInputData([]);
-    setStartRingsumForLabel([0])
-    
-  }
+    setStartRingsumForLabel([0]);
+  };
   const allRawInputDelete = () => {
     setRawInputData([]);
     setRawInputDataSum([0]);
@@ -321,11 +318,11 @@ const App = () => {
     setSagSnittSum([0]);
     setEndLabel(217.2);
     setStartLabel(200);
-  }
+  };
   const allEndRingDelete = () => {
-    setEndRingInputData([])
+    setEndRingInputData([]);
     setEndRingInputForLabel([0]);
-  }
+  };
   return (
     <div className="app-container">
       <button
@@ -345,7 +342,6 @@ const App = () => {
           openCloseEndInputWindow={openCloseEndInputWindow}
           masterDelete={masterDelete}
           testPost={testPost}
-          
         />
       )}
       {startInputWindow && (
@@ -393,7 +389,7 @@ const App = () => {
       <div className="ring-component-container">
         <Hylse
           startLabel={(startLabel - bladeThickness / 2).toFixed(2)}
-          endLabel={(endLabel - 1.4).toFixed(2)}
+          endLabel={(endLabel - bladeThickness / 2).toFixed(2)}
           correctLabel={correctLabel}
           correctLabel2={correctLabel2}
         />
@@ -477,7 +473,7 @@ const App = () => {
         .blade {
           height: 25rem;
           width: 0.4rem;
-          background-color: var(--darker-bright);
+          background-color: yellow;
           position: relative;
           cursor: pointer;
         }
@@ -486,14 +482,14 @@ const App = () => {
           bottom: 25.2rem;
           left: 50%;
           transform: translateX(-50%);
-          color: var(--darker-bright);
+          color: yellow;
         }
         .blade-thickness-bottom {
           position: absolute;
           top: 25.2rem;
           left: 50%;
           transform: translateX(-50%);
-          color: var(--darker-bright);
+          color: yellow;
         }
 
         .raw-input-label {

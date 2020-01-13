@@ -3,9 +3,10 @@ import React from 'react';
 const RingList = props => {
   return (
     <div className={props.openRingList}>
-      <h1>Ring Liste</h1>
+    
       <div className="list-container">
-        <h2>små ringer</h2>
+      <h1>Ringer</h1>
+        <h2>Små ringer</h2>
         <ul className="fill">
           <li onClick={() => props.getRings(1)}>1</li>
           <li onClick={() => props.getRings(2)}>2</li>
@@ -58,7 +59,7 @@ const RingList = props => {
           <li onClick={() => props.getRings(78.7)}>78.7</li>
         </ul>
         <h2>Skims</h2>
-        <ul style={{display: 'flex'}}>
+        <ul style={{display: 'flex', justifyContent: 'center'}}>
           <li onClick={() => props.getRings(0.3)}>0.3</li>
           <li onClick={() => props.getRings(0.5)}>0.5</li>
           <li onClick={() => props.getRings(1)}>1</li>
@@ -67,10 +68,10 @@ const RingList = props => {
       <style jsx>{`
               .ring-list-container {
                   height: 100vh;
-                  width: 15vw;
+                  width: 17vw;
                   background: var(--outer-ring);
                   position: absolute;
-                  right: -15vw;
+                  right: -17vw;
                   display: flex;
                   justify-content: center;
                   align-items: center;
@@ -112,7 +113,7 @@ const RingList = props => {
                   display: block;
                   animation: showRingList .2s;
                   -webkit-animation-fill-mode: forwards, none;
-                  right: -15vw;
+                  right: -17vw;
                   display: flex;
                  align-items: center;
                        flex-direction: column;
@@ -126,10 +127,10 @@ const RingList = props => {
                   
               }
               @keyframes showRingList {
-                  100% {transform: translateX(-15vw); display: none}
+                  100% {transform: translateX(-17vw); display: none}
               }
               @keyframes hideRingList {
-                  100% {transform: translateX(15vw) }
+                  100% {transform: translateX(17vw) }
                }
                  
               }

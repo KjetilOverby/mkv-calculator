@@ -164,10 +164,10 @@ const RawList = (props) => {
                   }
                 .raw-list-container {
                     height: 100vh;
-                  width: 15vw;
+                  width: 17vw;
                   background: var(--inner-ring);
                   position: absolute;
-                  right: -15vw;
+                  right: -17vw;
                   z-index: 100
                 }
 
@@ -182,7 +182,7 @@ const RawList = (props) => {
                   animation: showRawList .2s;
                   -webkit-animation-fill-mode: forwards, none;
                   
-                  right: -15vw;
+                  right: -17vw;
 
               }
               .hide-raw-list {
@@ -193,11 +193,11 @@ const RawList = (props) => {
                   
               }
               @keyframes showRawList {
-                  100% {transform: translateX(-15vw); display: none}
+                  100% {transform: translateX(-17vw); display: none}
               }
 
               @keyframes hideRawList {
-                  100% {transform: translateX(15vw) }
+                  100% {transform: translateX(17vw) }
                }
             `} 
             </style>
