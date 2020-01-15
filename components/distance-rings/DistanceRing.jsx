@@ -2,13 +2,17 @@ import React from 'react'
 
 
 const DistanceRing = (props) => {
+  console.log(props.startRingDelete);
+  
+  
     return (
         <div>
-             <div className={props.ringStyle}>
+             <div className={`${props.ringStyle} ${props.deleteRing} ${props.startRingDelete} ${props.endRingDelete}`}>
              {props.ringValue} {props.startRingValue}
         <i onClick={props.deleteDimensionRing} className='delete-button-ring fas fa-trash-alt'></i>
         </div>
         <style jsx>{`
+
          .distance-ring {
     
     height: 9rem;
@@ -28,6 +32,29 @@ const DistanceRing = (props) => {
     box-shadow: 10px 10px 20px black;
     
 }
+
+
+@keyframes bounceOutDown {
+  20% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  40%,
+  45% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+    transform: translate3d(0, 2000px, 0);
+  }
+}
+
+
 @keyframes bounceInDown {
     from,
     60%,
@@ -227,6 +254,15 @@ const DistanceRing = (props) => {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
+}
+.ring-delete {
+  animation: bounceOutDown 1s
+}
+.start-delete {
+  animation: bounceOutDown 1s
+}
+.end-delete {
+  animation: bounceOutDown 1s
 }
         `}</style>
         </div>

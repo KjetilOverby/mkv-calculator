@@ -20,15 +20,28 @@ const App = () => {
   const [openRawList, setOpenRawList] = useState(
     'raw-list-container hide-raw-list'
   );
+
+  const [hideRawInputComponent, setHideRawInputComponent] = useState('');
+  const [hideStartInputComponent, setHideStartInputComponent] = useState('');
+
+  const [hideEndInputComponent, setHideEndInputComponent] = useState('');
+
   const [correctLabel, setCorrectLabel] = useState('');
   const [correctLabel2, setCorrectLabel2] = useState('');
+  /**** Animation ****/
+
+  const [bladeDelete, setBladeDelete] = useState('');
+  const [ringDelete, setRingDelete] = useState('');
+  const [startRingDelete, setStartRingDelete] = useState('');
+  const [endRingDelete, setEndRingDelete] = useState('');
+
   /*********************** Blade **************************/
   const [bladeThickness, setBladeThickness] = useState(2.8);
   const [sagSnitt, setSagSnitt] = useState(4.2);
   const [sagSnittSum, setSagSnittSum] = useState([0]);
   const [sagSnittSumCalculated, setSagSnittSumCalculated] = useState([]);
   const vigg = 0.7;
-  
+
   const [openBladeThicknessChooser, setOpenBladeThicknessChooser] = useState(
     false
   );
@@ -80,6 +93,8 @@ const App = () => {
     evt.preventDefault();
     if (rawInputData.length > 7) {
       alert('Antall plank er på maks 8 stk');
+    } else if(rawInput === '') {
+        alert('Du må skrive inn en verdi')
     } else {
       setRawInputData([...rawInputData, { input: rawInput, id: uuid() }]);
       setSagSnittSum([...sagSnittSum, sagSnitt]);
@@ -128,24 +143,35 @@ const App = () => {
       setStartLabel((200 - startRingsumForLabel - finalCalcLabel).toFixed(2));
       setEndLabel((217.2 - endRingInputForLabel - finalCalcLabel).toFixed(2));
     }
-   
-    
   });
 
   useEffect(() => {
-    if (startInputWindow === true || endInputWindow === true) {
+    if (startInputWindow === true) {
       setOpenRingList('ring-list-container show-ring-list');
+      setHideStartInputComponent('show-input-component');
     } else {
       setOpenRingList('ring-list-container hide-ring-list');
+      setHideStartInputComponent('hide-input-component');
     }
   });
   useEffect(() => {
     if (rawInputWindow) {
       setOpenRawList('raw-list-container show-raw-list');
+      setHideRawInputComponent('show-input-component');
     } else {
       setOpenRawList('raw-list-container hide-raw-list');
+      setHideRawInputComponent('hide-input-component');
     }
   });
+  useEffect(() => {
+    if(endInputWindow) {
+      setHideEndInputComponent('show-input-component')
+      setOpenRingList('ring-list-container show-ring-list')
+    } else {
+      setHideEndInputComponent('hide-input-component')
+      
+    }
+  })
 
   useEffect(() => {
     const endLabelCalc = Number(sagSnitt) + Number(endLabel);
@@ -161,8 +187,6 @@ const App = () => {
     } else {
       setCorrectLabel2('');
     }
-    console.log('vcalc: ' + endLabelCalc);
-    console.log('endLabel: ' + endLabel);
   });
 
   /*********************** EndRing input ***********************/
@@ -257,12 +281,13 @@ const App = () => {
     setRawInputWindow(!rawInputWindow);
     setStartInputWindow(false);
     setEndInputWindow(false);
-    setOpenRingList('ring-list-container hide-ring-list');
+    ;
   };
   const openCloseEndInputWindow = () => {
     setEndInputWindow(!endInputWindow);
     setStartInputWindow(false);
     setRawInputWindow(false);
+    
   };
   const openCloseBladeThicknessChooser = () => {
     setOpenBladeThicknessChooser(!openBladeThicknessChooser);
@@ -291,38 +316,64 @@ const App = () => {
 
   /*********************** Delete ***********************/
   const masterDelete = () => {
-    setStartRingInputData([]);
-    setEndRingInputData([]);
-    setRawInputData([]);
-    setRawInputDataSum([0]);
-    setRawInputDataSumForLabel([0]);
-    setStartRingsumForLabel([0]);
-    setSagSnittSumCalculated([0]);
-    setSagSnittSum([0]);
-    setEndLabel([]);
-    setEndRingInputData([]);
-    setEndRingInputForLabel([0]);
-    setEndLabel(217.2);
-    setStartLabel(200);
+    setBladeDelete('blade-delete');
+    setRingDelete('ring-delete');
+    setStartRingDelete('start-delete');
+    setEndRingDelete('end-delete');
+
+    setTimeout(() => {
+      setStartRingInputData([]);
+      setEndRingInputData([]);
+      setRawInputData([]);
+      setRawInputDataSum([0]);
+      setRawInputDataSumForLabel([0]);
+      setStartRingsumForLabel([0]);
+      setSagSnittSumCalculated([0]);
+      setSagSnittSum([0]);
+      setEndLabel([]);
+      setEndRingInputData([]);
+      setEndRingInputForLabel([0]);
+      setEndLabel(217.2);
+      setStartLabel(200);
+      setBladeDelete('');
+      setRingDelete('');
+      setStartRingDelete('');
+      setEndRingDelete('');
+    }, 1000);
   };
   const allStartRingDelete = () => {
-    setStartRingInputData([]);
-    setStartRingsumForLabel([0]);
+    setStartRingDelete('start-delete');
+    setTimeout(() => {
+      setStartRingInputData([]);
+      setStartRingsumForLabel([0]);
+      setStartRingDelete('');
+    }, 1000);
   };
   const allRawInputDelete = () => {
-    setRawInputData([]);
-    setRawInputDataSum([0]);
-    setRawInputDataSumForLabel([0]);
-    setStartRingsumForLabel([0]);
-    setSagSnittSumCalculated([0]);
-    setSagSnittSum([0]);
-    setEndLabel(217.2);
-    setStartLabel(200);
+    setBladeDelete('blade-delete');
+    setRingDelete('ring-delete');
+    setTimeout(() => {
+      setRawInputData([]);
+      setRawInputDataSum([0]);
+      setRawInputDataSumForLabel([0]);
+      setStartRingsumForLabel([0]);
+      setSagSnittSumCalculated([0]);
+      setSagSnittSum([0]);
+      setEndLabel(217.2);
+      setStartLabel(200);
+      setBladeDelete('');
+      setRingDelete('');
+    }, 1000);
   };
   const allEndRingDelete = () => {
-    setEndRingInputData([]);
-    setEndRingInputForLabel([0]);
+    setEndRingDelete('end-delete');
+    setTimeout(() => {
+      setEndRingInputData([]);
+      setEndRingInputForLabel([0]);
+      setEndRingDelete('');
+    }, 1000);
   };
+
   return (
     <div className="app-container">
       <button
@@ -344,26 +395,27 @@ const App = () => {
           testPost={testPost}
         />
       )}
-      {startInputWindow && (
-        <StartRingInput
-          inputData={startRingInput}
-          inputDataOnChange={getStartRingInput}
-          submit={startRingInputSubmit}
-          value={startRingInput}
-          allStartRingDelete={allStartRingDelete}
-          openCloseStartInputWindow={openCloseStartInputWindow}
-        />
-      )}
-      {rawInputWindow && (
-        <RawInput
-          rawInputWindow={rawInput}
-          getRawInput={getRawInput}
-          rawInputDataSubmit={rawInputDataSubmit}
-          value={rawInput}
-          allRawInputDelete={allRawInputDelete}
-          openCloseRawInputWindow={openCloseRawInputWindow}
-        />
-      )}
+
+      <StartRingInput
+        inputData={startRingInput}
+        inputDataOnChange={getStartRingInput}
+        submit={startRingInputSubmit}
+        value={startRingInput}
+        allStartRingDelete={allStartRingDelete}
+        openCloseStartInputWindow={openCloseStartInputWindow}
+        hideStartInputComponent={hideStartInputComponent}
+      />
+
+      <RawInput
+        rawInputWindow={rawInput}
+        getRawInput={getRawInput}
+        rawInputDataSubmit={rawInputDataSubmit}
+        value={rawInput}
+        allRawInputDelete={allRawInputDelete}
+        openCloseRawInputWindow={openCloseRawInputWindow}
+        hideRawInputComponent={hideRawInputComponent}
+      />
+
       {openBladeThicknessChooser && (
         <BladeThickChooser
           blade1={blade1}
@@ -375,16 +427,15 @@ const App = () => {
         />
       )}
 
-      {endInputWindow && (
-        <EndRingInput
-          inputData={endRingInput}
-          inputDataOnChange={getEndRingInput}
-          submit={endRingInputSubmit}
-          value={endRingInput}
-          allEndRingDelete={allEndRingDelete}
-          openCloseEndInputWindow={openCloseEndInputWindow}
-        />
-      )}
+      <EndRingInput
+        inputData={endRingInput}
+        inputDataOnChange={getEndRingInput}
+        submit={endRingInputSubmit}
+        value={endRingInput}
+        allEndRingDelete={allEndRingDelete}
+        openCloseEndInputWindow={openCloseEndInputWindow}
+        hideEndInputComponent={hideEndInputComponent}
+      />
 
       <div className="ring-component-container">
         <Hylse
@@ -399,6 +450,7 @@ const App = () => {
             key={startRing.id}
             ringStyle={outerRings}
             ringValue={startRing.input}
+            startRingDelete={startRingDelete}
           />
         ))}
 
@@ -417,6 +469,8 @@ const App = () => {
             )}
             rawValue={rawInputrings.input}
             openBladeThicknessChooser={openCloseBladeThicknessChooser}
+            bladeDeleteAnimate={bladeDelete}
+            deleteRing={ringDelete}
           />
         ))}
 
@@ -425,6 +479,7 @@ const App = () => {
             key={endRing.id}
             ringStyle={outerRingsEnd}
             ringValue={endRing.input}
+            endRingDelete={endRingDelete}
           />
         ))}
       </div>
@@ -449,11 +504,16 @@ const App = () => {
           left: 2rem;
           bottom: 4rem;
           outline: none;
-          border-radius: 10px;
+          border-radius: 5px;
           background-color: lightblue;
           font-size: 15px;
           color: rgb(42, 42, 83);
           z-index: 110;
+          border: none;
+          transition: .5s
+        }
+        .open-close-menu-btn:hover {
+          background: #00CED1
         }
         .app-container {
           height: 100vh;

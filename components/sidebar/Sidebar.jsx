@@ -7,12 +7,13 @@ const SideBar = (props) => {
         <button onClick={props.openCloseRawInputWindow} className='sidebar-buttons'>Legg til råmål</button>
         <button onClick={props.openCloseStartInputWindow} className='sidebar-buttons'>Utfylling foran</button>
         <button onClick={props.openCloseEndInputWindow} className='sidebar-buttons'>Utfylling bak</button>
+        <hr/>
         <button onClick={props.masterDelete} className='sidebar-buttons'>Slett all data</button>
         <button onClick={props.testPost} className='sidebar-buttons'>Test post</button>
         
             <style jsx>{`
              .sidebar-container {
-    width: 12vw;
+    width: 16vw;
     height: 100vh;
     background: linear-gradient(rgb(68, 83, 70), black);
     position: absolute;
@@ -27,17 +28,25 @@ const SideBar = (props) => {
 
 }
 .sidebar-buttons {
- height: 2.5rem;
- width: 10rem;
+ height: 3.5rem;
+ width: 14rem;
  margin-bottom: 1rem;
- border-radius: 10px;
+ border-radius: 5px;
  outline: none;
  background-color: var(--middle-bright);
- color: var(--inner-ring);
- font-size: 12px;
+ color: #065535;
+ font-size: 13px;
+ transition: .5s;
+ border: none
 }
 .sidebar-buttons:hover {
-    color: gray;
+    color: white;
+    background: #54976B
+}
+hr {
+    background: gray;
+    width: 80%;
+    margin: 4rem 0
 }
             `}</style>
         </div>

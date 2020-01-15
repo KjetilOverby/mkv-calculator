@@ -68,10 +68,10 @@ const RingList = props => {
       <style jsx>{`
               .ring-list-container {
                   height: 100vh;
-                  width: 17vw;
+                  width: 16vw;
                   background: var(--outer-ring);
                   position: absolute;
-                  right: -17vw;
+                  right: -16vw;
                   display: flex;
                   justify-content: center;
                   align-items: center;
@@ -113,7 +113,7 @@ const RingList = props => {
                   display: block;
                   animation: showRingList .2s;
                   -webkit-animation-fill-mode: forwards, none;
-                  right: -17vw;
+                  right: -16vw;
                   display: flex;
                  align-items: center;
                        flex-direction: column;
@@ -127,10 +127,10 @@ const RingList = props => {
                   
               }
               @keyframes showRingList {
-                  100% {transform: translateX(-17vw); display: none}
+                  100% {transform: translateX(-16vw); display: none}
               }
               @keyframes hideRingList {
-                  100% {transform: translateX(17vw) }
+                  100% {transform: translateX(16vw) }
                }
                  
               }

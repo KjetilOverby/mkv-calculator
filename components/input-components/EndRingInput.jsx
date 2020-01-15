@@ -3,10 +3,11 @@ import InputComponent from './InputComponent';
 
 
 const EndRingInput = props => {
+  const color = 'color-title-outer'
   return (
     <div>
       <InputComponent 
-        title="Ringer utfylling bak"
+        title="Utfylling bak"
         inputDataOnChange={props.inputDataOnChange}
         submit={props.submit}
         value={props.value}
@@ -15,6 +16,8 @@ const EndRingInput = props => {
         backgroundBtn='outer-btn-background'
         deleteGroup={props.allEndRingDelete}
         close={props.openCloseEndInputWindow}
+        hideInputComponent={props.hideEndInputComponent}
+        color={color}
       />
     </div>
   );

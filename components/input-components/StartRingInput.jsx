@@ -3,6 +3,7 @@ import React from 'react'
 import InputComponent from './InputComponent';
 
 const StartRingInput = (props) => {
+    const color = 'color-title-outer'
     return (
         <div>
             <InputComponent 
@@ -14,6 +15,8 @@ const StartRingInput = (props) => {
                 background='outer-rings-background'
                 deleteGroup={props.allStartRingDelete}
                 close={props.openCloseStartInputWindow}
+                hideInputComponent={props.hideStartInputComponent}
+                color={color}
             />
         </div>
     )
