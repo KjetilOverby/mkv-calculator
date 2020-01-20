@@ -11,6 +11,7 @@ const RawList = (props) => {
                   <h1 style={{textAlign: 'center'}}>Råmål</h1>
                   <div className='raw-list'>
                       <table>
+                      <tbody>
                           <tr>
                               <th>Nominemt mål</th>
                               <th>18%</th>
@@ -133,6 +134,7 @@ const RawList = (props) => {
                               <td onClick={() => props.getRaw(77.3)}>77.3</td>
                               <td onClick={() => props.getRaw(79.7)}>79.7</td>
                           </tr>
+                          </tbody>
                       </table>
                   </div>
               </div>

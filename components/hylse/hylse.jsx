@@ -1,11 +1,14 @@
 import React from 'react';
 import StartLabel from '../labels/StartLabel';
 import EndLabel from '../labels/EndLabel';
+import StartLabelStatic from '../labels/static/StartLabelStatic';
+import EndLabelStatic from '../labels/static/EndLabelStatic';
 
 
 const Hylse = (props) => {
     return (
         <div className="hylse">
+         <StartLabelStatic value={props.startLabelStatic}/>
          <StartLabel css2={props.correctLabel2}value={props.startLabel}/>
          
         {/*   Axl values Labels container  */}
@@ -25,13 +28,14 @@ const Hylse = (props) => {
           <div className="gang"></div>
           <div className="gang"></div>
           <div className="gang"></div>
+          <EndLabelStatic value={props.endLabel}/>
           <EndLabel css={props.correctLabel} value={props.endLabel} />
         </div>
         <style jsx>{`
         .hylse {
     background:linear-gradient(rgb(200, 200, 200),rgb(66, 66, 66));
     height: 7rem;
-    width: 64rem;
+    width: 65rem;
     position: absolute;
     top: 9rem;
     display: flex;

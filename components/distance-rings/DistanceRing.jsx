@@ -2,18 +2,26 @@ import React from 'react'
 
 
 const DistanceRing = (props) => {
-  console.log(props.startRingDelete);
+ 
   
   
     return (
-        <div>
-             <div className={`${props.ringStyle} ${props.deleteRing} ${props.startRingDelete} ${props.endRingDelete}`}>
-             {props.ringValue} {props.startRingValue}
+        <div className={`start-ring-container ${props.deleteTransition}`}>
+             <div className={`${props.ringStyle} ${props.deleteRing} ${props.startRingDelete} ${props.endRingDelete} ${props.startRingValue} `}>
+             {props.ringValue} 
         <i onClick={props.deleteDimensionRing} className='delete-button-ring fas fa-trash-alt'></i>
         </div>
         <style jsx>{`
 
-         .distance-ring {
+     .start-ring-container {
+       display: inline-block;
+      
+      
+       max-width: 500px;
+      transition: max-width 0.6s;
+     }
+        
+   .distance-ring {
     
     height: 9rem;
     width: 3rem;
@@ -30,6 +38,7 @@ const DistanceRing = (props) => {
     color: var(--brighter-dark);
     animation: bounceInDown 1.5s;
     box-shadow: 10px 10px 20px black;
+   
     
 }
 
@@ -264,6 +273,11 @@ const DistanceRing = (props) => {
 .end-delete {
   animation: bounceOutDown 1s
 }
+.delete-transition {
+      
+     max-width: 0px
+
+    } 
         `}</style>
         </div>
     )

@@ -14,6 +14,7 @@ import RawList from './ringList/RawList';
 
 const App = () => {
   /*********************** CSS Variables **************************/
+  const [deleteTransition, setDeleteTransition] = useState('');
   const [openRingList, setOpenRingList] = useState(
     'ring-list-container hide-ring-list'
   );
@@ -37,7 +38,12 @@ const App = () => {
 
   /*********************** Blade **************************/
   const [bladeThickness, setBladeThickness] = useState(2.8);
+  const [bladeThicknesSum, setBladeThicknesSum] = useState([bladeThickness]);
+  const [bladeThicknesSumCalculated, setBladeThicknesSumCalculated] = useState(
+    []
+  );
   const [sagSnitt, setSagSnitt] = useState(4.2);
+
   const [sagSnittSum, setSagSnittSum] = useState([0]);
   const [sagSnittSumCalculated, setSagSnittSumCalculated] = useState([]);
   const vigg = 0.7;
@@ -75,6 +81,7 @@ const App = () => {
       ...startRingInputData,
       { input: startRingInput, id: uuid() }
     ]);
+    setSagSnittSum([...sagSnittSum, sagSnitt]);
 
     setStartRingInput('');
   };
@@ -93,17 +100,20 @@ const App = () => {
     evt.preventDefault();
     if (rawInputData.length > 7) {
       alert('Antall plank er på maks 8 stk');
-    } else if(rawInput === '') {
-        alert('Du må skrive inn en verdi')
+    } else if (rawInput === '') {
+      alert('Du må skrive inn en verdi');
     } else {
       setRawInputData([...rawInputData, { input: rawInput, id: uuid() }]);
-      setSagSnittSum([...sagSnittSum, sagSnitt]);
+
       setRawInput('');
     }
   };
   /************************** Lifecycle **********************/
-
+  const [finalCalcLabel, setFinalCalcLabel] = useState('');
   useEffect(() => {
+    setStartLabelStatic(startRingsumForLabel);
+  });
+  /*   useEffect(() => {
     if (startRingInputData.length > 0) {
       setStartRingsumForLabel(
         startRingInputData.reduce(
@@ -123,11 +133,13 @@ const App = () => {
       );
     }
   });
-
+  useEffect(() => {
+    setSagSnittSum([...sagSnittSum, sagSnitt]);
+  }, [sagSnitt]);
   useEffect(() => {
     const calculations =
       Number(rawInputDataSum) + Number(sagSnittSumCalculated);
-    const finalCalcLabel = calculations / 2;
+    setFinalCalcLabel(calculations / 2)
 
     if (
       rawInputData.length > 0 ||
@@ -137,13 +149,42 @@ const App = () => {
       setRawInputDataSum(
         rawInputData.reduce((num, { input }) => Number(num) + Number(input), 0)
       );
-      setRawInputDataSumForLabel(finalCalcLabel);
-
+     
       setSagSnittSumCalculated(sagSnittSum.reduce((num1, num2) => num1 + num2));
+      //setBladeThicknesSumCalculated(bladeThicknesSum.reduce((num1, num2) => num1 + num2));
+      setStartLabelStatic(200 - startRingsumForLabel)
       setStartLabel((200 - startRingsumForLabel - finalCalcLabel).toFixed(2));
       setEndLabel((217.2 - endRingInputForLabel - finalCalcLabel).toFixed(2));
     }
+ 
+  }); */
+
+  /***************Start ring sum calculations *******************/
+  useEffect(() => {
+    if (startRingInputData.length > 0) {
+      setStartRingsumForLabel(
+        startRingInputData.reduce(
+          (num, { input }) => Number(num) + Number(input),
+          0
+        )
+      );
+    }
   });
+
+  /*******************Sagsnitt sum calculations *******************/
+  useEffect(() => {
+    setRawInputDataSum(
+      rawInputData.reduce((num, { input }) => Number(num) + Number(input), 0));
+    setSagSnittSum([...sagSnittSum, sagSnitt]);
+    setSagSnittSumCalculated(sagSnittSum.reduce((num1, num2) => num1 + num2));
+    
+  }, [rawInputData]);
+/***************** Set labels **********************/
+// TODO calculate all sawblades when sawblades changes.
+  useEffect(() => {
+    setStartLabel(200 - (sagSnittSumCalculated + rawInputDataSum) / 2 - startRingsumForLabel);
+   });
+  /*************************************************** */
 
   useEffect(() => {
     if (startInputWindow === true) {
@@ -164,17 +205,17 @@ const App = () => {
     }
   });
   useEffect(() => {
-    if(endInputWindow) {
-      setHideEndInputComponent('show-input-component')
-      setOpenRingList('ring-list-container show-ring-list')
+    if (endInputWindow) {
+      setHideEndInputComponent('show-input-component');
+      setOpenRingList('ring-list-container show-ring-list');
     } else {
-      setHideEndInputComponent('hide-input-component')
-      
+      setHideEndInputComponent('hide-input-component');
     }
-  })
+  });
 
   useEffect(() => {
     const endLabelCalc = Number(sagSnitt) + Number(endLabel);
+
     if (endLabelCalc <= 5.65 && endLabelCalc >= 5.55) {
       setCorrectLabel('label-container-correct');
     } else {
@@ -210,37 +251,44 @@ const App = () => {
 
   /*********************** Labels ***********************/
   const [startLabel, setStartLabel] = useState(200);
-  const [endLabel, setEndLabel] = useState(217.2);
+  const [endLabel, setEndLabel] = useState();
+  const [startLabelStatic, setStartLabelStatic] = useState();
 
   /*********************** SawBlade thickness ***********************/
   const blade1 = () => {
     setBladeThickness(2.2);
     setSagSnitt(3.6);
+    setSagSnittSum([0]);
     setOpenBladeThicknessChooser(false);
   };
   const blade2 = () => {
     setBladeThickness(2.4);
     setSagSnitt(3.8);
+    setSagSnittSum([0]);
     setOpenBladeThicknessChooser(false);
   };
   const blade3 = () => {
     setBladeThickness(2.6);
-    setSagSnitt(4.0);
+    setSagSnitt((4.0).toFixed(1));
+    setSagSnittSum([0]);
     setOpenBladeThicknessChooser(false);
   };
   const blade4 = () => {
     setBladeThickness(2.8);
     setSagSnitt(4.2);
+    setSagSnittSum([0]);
     setOpenBladeThicknessChooser(false);
   };
   const blade5 = () => {
-    setBladeThickness(3.0);
+    setBladeThickness((3.0).toFixed(1));
     setSagSnitt(4.4);
+    setSagSnittSum([0]);
     setOpenBladeThicknessChooser(false);
   };
   const blade6 = () => {
     setBladeThickness(3.2);
     setSagSnitt(4.6);
+    setSagSnittSum([0]);
     setOpenBladeThicknessChooser(false);
   };
   /*********************** Numbers from ring list ***********************/
@@ -261,7 +309,7 @@ const App = () => {
       alert('Du kan ikke legge inn fler enn 8 plank');
     } else {
       setRawInputData([...rawInputData, { input: digit, id: uuid() }]);
-      setSagSnittSum([...sagSnittSum, sagSnitt]);
+      
       setRawInput('');
     }
   };
@@ -281,13 +329,11 @@ const App = () => {
     setRawInputWindow(!rawInputWindow);
     setStartInputWindow(false);
     setEndInputWindow(false);
-    ;
   };
   const openCloseEndInputWindow = () => {
     setEndInputWindow(!endInputWindow);
     setStartInputWindow(false);
     setRawInputWindow(false);
-    
   };
   const openCloseBladeThicknessChooser = () => {
     setOpenBladeThicknessChooser(!openBladeThicknessChooser);
@@ -322,6 +368,10 @@ const App = () => {
     setEndRingDelete('end-delete');
 
     setTimeout(() => {
+      setDeleteTransition('delete-transition');
+    }, 400);
+
+    setTimeout(() => {
       setStartRingInputData([]);
       setEndRingInputData([]);
       setRawInputData([]);
@@ -339,6 +389,7 @@ const App = () => {
       setRingDelete('');
       setStartRingDelete('');
       setEndRingDelete('');
+      setDeleteTransition('');
     }, 1000);
   };
   const allStartRingDelete = () => {
@@ -350,6 +401,9 @@ const App = () => {
     }, 1000);
   };
   const allRawInputDelete = () => {
+    setTimeout(() => {
+      setDeleteTransition('delete-transition');
+    }, 600);
     setBladeDelete('blade-delete');
     setRingDelete('ring-delete');
     setTimeout(() => {
@@ -363,6 +417,7 @@ const App = () => {
       setStartLabel(200);
       setBladeDelete('');
       setRingDelete('');
+      setDeleteTransition('');
     }, 1000);
   };
   const allEndRingDelete = () => {
@@ -439,6 +494,7 @@ const App = () => {
 
       <div className="ring-component-container">
         <Hylse
+          startLabelStatic={200 - startLabelStatic}
           startLabel={(startLabel - bladeThickness / 2).toFixed(2)}
           endLabel={(endLabel - bladeThickness / 2).toFixed(2)}
           correctLabel={correctLabel}
@@ -451,11 +507,12 @@ const App = () => {
             ringStyle={outerRings}
             ringValue={startRing.input}
             startRingDelete={startRingDelete}
+            deleteTransition={deleteTransition}
           />
         ))}
 
-        <div onClick={openCloseBladeThicknessChooser} className="blade">
-          <div className="blade-thickness-top">{bladeThickness}</div>
+        <div onClick={openCloseBladeThicknessChooser} className={`blade`}>
+          <div className="blade-thickness-top">{sagSnitt}</div>
           <div className="blade-thickness-bottom">{bladeThickness}</div>
         </div>
 
@@ -464,6 +521,7 @@ const App = () => {
             key={rawInputrings.id}
             ringStyle={innerRing}
             bladeThickness={bladeThickness}
+            bladeThicknessTop={sagSnitt}
             ringValue={(Number(rawInputrings.input) + Number(vigg) * 2).toFixed(
               2
             )}
@@ -471,6 +529,7 @@ const App = () => {
             openBladeThicknessChooser={openCloseBladeThicknessChooser}
             bladeDeleteAnimate={bladeDelete}
             deleteRing={ringDelete}
+            deleteTransition={deleteTransition}
           />
         ))}
 
@@ -480,6 +539,7 @@ const App = () => {
             ringStyle={outerRingsEnd}
             ringValue={endRing.input}
             endRingDelete={endRingDelete}
+            deleteTransition={deleteTransition}
           />
         ))}
       </div>
@@ -510,10 +570,10 @@ const App = () => {
           color: rgb(42, 42, 83);
           z-index: 110;
           border: none;
-          transition: .5s
+          transition: 0.5s;
         }
         .open-close-menu-btn:hover {
-          background: #00CED1
+          background: #00ced1;
         }
         .app-container {
           height: 100vh;
@@ -537,6 +597,7 @@ const App = () => {
           position: relative;
           cursor: pointer;
         }
+
         .blade-thickness-top {
           position: absolute;
           bottom: 25.2rem;
