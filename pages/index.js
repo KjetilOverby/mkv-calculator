@@ -3,13 +3,15 @@ import Head from 'next/head'
 
 import App from '../components/App'
 
-const Home = () => (
+const Home = (props) => (
   <div>
     <Head>
       <title>Mkv calculator</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
+    <body>
      <App />
+     </body>
      <style global jsx>{`
         
         :root {
@@ -29,12 +31,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.4)), url('https://images.unsplash.com/photo-1532538014654-28b063b09d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80');
-  background-size: cover;
-  heigth: 100vh;
-  width: 100vw;
- overFlow: hidden;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),
+            url(' https://images.unsplash.com/photo-1560372610-931c8343bc43?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');
+          background-size: cover;
+          heigth: 100vh;
+          width: 100vw;
+          overflow: hidden;
+          box-sizing: border-box;
 }
+
+
+/* https://images.unsplash.com/photo-1579706783492-081a217cd55e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80 
+
+ https://images.unsplash.com/photo-1577255714682-69db9b067fda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80 
+
+ https://images.unsplash.com/photo-1579623430776-9ca237d80b20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80 
+
+ https://images.unsplash.com/photo-1532538014654-28b063b09d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80 
+
+ https://images.unsplash.com/photo-1483425571841-9662f86c7154?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1905&q=80
+
+ https://images.unsplash.com/photo-1560372610-931c8343bc43?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80
+
+ https://images.unsplash.com/photo-1555759446-cf7598d7c14c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80
+
+*/
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

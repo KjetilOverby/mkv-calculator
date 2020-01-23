@@ -9,7 +9,7 @@ const Hylse = (props) => {
     return (
         <div className="hylse">
          <StartLabelStatic value={props.startLabelStatic}/>
-         <StartLabel css2={props.correctLabel2}value={props.startLabel}/>
+         <StartLabel css2={props.correctLabel2}value={props.startLabel}  focus={props.redFocus} greenFocus={props.greenFocusStart}/>
          
         {/*   Axl values Labels container  */}
         <div className="hylse-light-reflection">
@@ -29,7 +29,7 @@ const Hylse = (props) => {
           <div className="gang"></div>
           <div className="gang"></div>
           <EndLabelStatic value={props.endLabel}/>
-          <EndLabel css={props.correctLabel} value={props.endLabel} />
+          <EndLabel css={props.correctLabel} value={props.endLabel} focus={props.redFocusEnd} greenFocus={props.greenFocusEnd} />
         </div>
         <style jsx>{`
         .hylse {

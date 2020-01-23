@@ -4,6 +4,7 @@ import InputComponent from './InputComponent';
 
 const StartRingInput = (props) => {
     const color = 'color-title-outer'
+    
     return (
         <div>
             <InputComponent 
@@ -17,6 +18,7 @@ const StartRingInput = (props) => {
                 close={props.openCloseStartInputWindow}
                 hideInputComponent={props.hideStartInputComponent}
                 color={color}
+              
             />
         </div>
     )

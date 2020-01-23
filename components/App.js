@@ -11,6 +11,12 @@ import StartLabel from './labels/StartLabel';
 import BladeThickChooser from './bladeThicknessCooser/BladeThickChooser';
 import RingList from './ringList/RingList';
 import RawList from './ringList/RawList';
+import Modal from './modal/Modal';
+import TooMany from './modal/TooMany';
+import WriteValue from './modal/WriteValue';
+import TooHigh from './modal/TooHigh';
+import TooLow from './modal/TooLow';
+import Settings from './settings/settings';
 
 const App = () => {
   /*********************** CSS Variables **************************/
@@ -21,6 +27,8 @@ const App = () => {
   const [openRawList, setOpenRawList] = useState(
     'raw-list-container hide-raw-list'
   );
+  const [showSettings, setShowSettings] = useState('')
+  const [hideSettings, setHideSettings] = useState('')
 
   const [hideRawInputComponent, setHideRawInputComponent] = useState('');
   const [hideStartInputComponent, setHideStartInputComponent] = useState('');
@@ -52,18 +60,6 @@ const App = () => {
     false
   );
 
-  /************************ Start Rings **********************/
-
-  const [dimensionRingAddition, setDimensionRingAddition] = useState('');
-
-  const lengthStartAxlCalc = () => {
-    setDimensionRingAddition(
-      rawInputData.reduce(
-        (prevInput, input) => Number(prevInput) + Number(input)
-      )
-    );
-  };
-
   /*********************** startRing input ***********************/
 
   const [startRingInput, setStartRingInput] = useState('');
@@ -77,13 +73,19 @@ const App = () => {
   };
   const startRingInputSubmit = e => {
     e.preventDefault();
-    setStartRingInputData([
-      ...startRingInputData,
-      { input: startRingInput, id: uuid() }
-    ]);
-    setSagSnittSum([...sagSnittSum, sagSnitt]);
+    if (startRingInput > 80) {
+      setTooHighModal(true);
+    } else if (startRingInput === '') {
+      setWriteValModal(true);
+    } else {
+      setStartRingInputData([
+        ...startRingInputData,
+        { input: startRingInput, id: uuid() }
+      ]);
+      setSagSnittSum([...sagSnittSum, sagSnitt]);
 
-    setStartRingInput('');
+      setStartRingInput('');
+    }
   };
   /*********************** Raw input ***********************/
 
@@ -99,9 +101,13 @@ const App = () => {
   const rawInputDataSubmit = evt => {
     evt.preventDefault();
     if (rawInputData.length > 7) {
-      alert('Antall plank er på maks 8 stk');
+      setModalOpen(true);
     } else if (rawInput === '') {
-      alert('Du må skrive inn en verdi');
+      setWriteValModal(true);
+    } else if (rawInput > 80) {
+      setTooHighModal(true);
+    } else if (rawInput < 20) {
+      setTooLowModal(true);
     } else {
       setRawInputData([...rawInputData, { input: rawInput, id: uuid() }]);
 
@@ -109,6 +115,32 @@ const App = () => {
     }
   };
   /************************** Lifecycle **********************/
+   
+  useEffect(() => {
+    setStartRingInputData([]);
+    setEndRingInputData([]);
+    setRawInputData([]);
+    setRawInputDataSum([0]);
+    setRawInputDataSumForLabel([0]);
+    setStartRingsumForLabel([0]);
+    setSagSnittSumCalculated([0]);
+    setSagSnittSum([0]);
+    setEndLabel([]);
+    setEndRingInputData([]);
+    setEndRingInputForLabel([0]);
+    setEndLabel(217.2);
+    setStartLabel(200);
+    setBladeDelete('');
+    setRingDelete('');
+    setStartRingDelete('');
+    setEndRingDelete('');
+    setDeleteTransition('');
+    setSagSnittSum([sagSnitt]);
+    setHideSettings('hide-settings')
+  }, [])
+
+
+
   const [finalCalcLabel, setFinalCalcLabel] = useState('');
   useEffect(() => {
     setStartLabelStatic(startRingsumForLabel);
@@ -136,28 +168,8 @@ const App = () => {
   useEffect(() => {
     setSagSnittSum([...sagSnittSum, sagSnitt]);
   }, [sagSnitt]);
-  useEffect(() => {
-    const calculations =
-      Number(rawInputDataSum) + Number(sagSnittSumCalculated);
-    setFinalCalcLabel(calculations / 2)
+  
 
-    if (
-      rawInputData.length > 0 ||
-      startRingInputData.length > 0 ||
-      endRingInput.length > 0
-    ) {
-      setRawInputDataSum(
-        rawInputData.reduce((num, { input }) => Number(num) + Number(input), 0)
-      );
-     
-      setSagSnittSumCalculated(sagSnittSum.reduce((num1, num2) => num1 + num2));
-      //setBladeThicknesSumCalculated(bladeThicknesSum.reduce((num1, num2) => num1 + num2));
-      setStartLabelStatic(200 - startRingsumForLabel)
-      setStartLabel((200 - startRingsumForLabel - finalCalcLabel).toFixed(2));
-      setEndLabel((217.2 - endRingInputForLabel - finalCalcLabel).toFixed(2));
-    }
- 
-  }); */
 
   /***************Start ring sum calculations *******************/
   useEffect(() => {
@@ -170,20 +182,55 @@ const App = () => {
       );
     }
   });
+  useEffect(() => {
+    if (endRingInputData.length > 0) {
+      setEndRingInputForLabel(
+        endRingInputData.reduce(
+          (num, { input }) => Number(num) + Number(input),
+          0
+        )
+      );
+    }
+  });
 
   /*******************Sagsnitt sum calculations *******************/
   useEffect(() => {
     setRawInputDataSum(
-      rawInputData.reduce((num, { input }) => Number(num) + Number(input), 0));
+      rawInputData.reduce((num, { input }) => Number(num) + Number(input), 0)
+    );
     setSagSnittSum([...sagSnittSum, sagSnitt]);
+
     setSagSnittSumCalculated(sagSnittSum.reduce((num1, num2) => num1 + num2));
-    
   }, [rawInputData]);
-/***************** Set labels **********************/
-// TODO calculate all sawblades when sawblades changes.
+  /***************** Set labels **********************/
+
   useEffect(() => {
-    setStartLabel(200 - (sagSnittSumCalculated + rawInputDataSum) / 2 - startRingsumForLabel);
-   });
+    setStartLabel(
+      200 - (sagSnittSumCalculated + rawInputDataSum) / 2 - startRingsumForLabel
+    );
+    setEndLabel(
+      217.2 -
+        (sagSnittSumCalculated + rawInputDataSum) / 2 -
+        endRingInputForLabel
+    );
+  });
+ 
+
+  useEffect(() => {
+    console.log('SagSnittSum: ' + sagSnittSum);
+    console.log('sagSnitt: ' + sagSnitt);
+
+    if (sagSnittSum.length > 0) {
+      setSagSnittSumCalculated(sagSnittSum.reduce((num1, num2) => num1 + num2));
+    }
+    setSagSnittSum([0]);
+  }, [sagSnitt]);
+
+  useEffect(() => {
+    console.log('LastSumCalc: ' + sagSnittSumCalculated);
+    console.log('LastSum: ' + sagSnittSum);
+  });
+
   /*************************************************** */
 
   useEffect(() => {
@@ -217,6 +264,7 @@ const App = () => {
     const endLabelCalc = Number(sagSnitt) + Number(endLabel);
 
     if (endLabelCalc <= 5.65 && endLabelCalc >= 5.55) {
+     
       setCorrectLabel('label-container-correct');
     } else {
       setCorrectLabel('');
@@ -224,7 +272,10 @@ const App = () => {
     const startLabelCalc = Number(sagSnitt) + Number(startLabel);
 
     if (startLabelCalc <= 5.65 && startLabelCalc >= 5.55) {
-      setCorrectLabel2('label-container-correct2');
+      setRedFocus('');
+      setRedFocusEnd('');
+      setCorrectLabel2('label-container-correct2')
+     
     } else {
       setCorrectLabel2('');
     }
@@ -242,11 +293,17 @@ const App = () => {
   };
   const endRingInputSubmit = e => {
     e.preventDefault();
-    setEndRingInputData([
-      ...endRingInputData,
-      { input: endRingInput, id: uuid() }
-    ]);
-    setEndRingInput('');
+    if (endRingInput > 80) {
+      setTooHighModal(true);
+    } else if (endRingInput === '') {
+      setWriteValModal(true);
+    } else {
+      setEndRingInputData([
+        ...endRingInputData,
+        { input: endRingInput, id: uuid() }
+      ]);
+      setEndRingInput('');
+    }
   };
 
   /*********************** Labels ***********************/
@@ -254,41 +311,64 @@ const App = () => {
   const [endLabel, setEndLabel] = useState();
   const [startLabelStatic, setStartLabelStatic] = useState();
 
+  const [redFocus, setRedFocus] = useState('');
+  const [redFocusEnd, setRedFocusEnd] = useState('');
+  const [greenFocusStart, setGreenFocusStart] = useState('');
+  const [greenFocusEnd, setGreenFocusEnd] = useState('');
+
   /*********************** SawBlade thickness ***********************/
   const blade1 = () => {
     setBladeThickness(2.2);
     setSagSnitt(3.6);
-    setSagSnittSum([0]);
+    if (rawInputData) {
+      let blade1 = new Array(rawInputData.length).fill(3.6);
+      setSagSnittSum(blade1);
+    }
     setOpenBladeThicknessChooser(false);
   };
   const blade2 = () => {
     setBladeThickness(2.4);
     setSagSnitt(3.8);
-    setSagSnittSum([0]);
+    if (rawInputData) {
+      let blade2 = new Array(rawInputData.length).fill(3.8);
+      setSagSnittSum(blade2);
+    }
     setOpenBladeThicknessChooser(false);
   };
   const blade3 = () => {
     setBladeThickness(2.6);
     setSagSnitt((4.0).toFixed(1));
-    setSagSnittSum([0]);
+    if (rawInputData) {
+      let blade3 = new Array(rawInputData.length).fill(4.0);
+      setSagSnittSum(blade3);
+    }
     setOpenBladeThicknessChooser(false);
   };
   const blade4 = () => {
     setBladeThickness(2.8);
     setSagSnitt(4.2);
-    setSagSnittSum([0]);
+    if (rawInputData) {
+      let blade4 = new Array(rawInputData.length).fill(4.2);
+      setSagSnittSum(blade4);
+    }
     setOpenBladeThicknessChooser(false);
   };
   const blade5 = () => {
     setBladeThickness((3.0).toFixed(1));
     setSagSnitt(4.4);
-    setSagSnittSum([0]);
+    if (rawInputData) {
+      let blade5 = new Array(rawInputData.length).fill(4.4);
+      setSagSnittSum(blade5);
+    }
     setOpenBladeThicknessChooser(false);
   };
   const blade6 = () => {
     setBladeThickness(3.2);
     setSagSnitt(4.6);
-    setSagSnittSum([0]);
+    if (rawInputData) {
+      let blade6 = new Array(rawInputData.length).fill(4.6);
+      setSagSnittSum(blade6);
+    }
     setOpenBladeThicknessChooser(false);
   };
   /*********************** Numbers from ring list ***********************/
@@ -306,15 +386,52 @@ const App = () => {
 
   const getNumbersFromRawList = digit => {
     if (rawInputData.length > 7) {
-      alert('Du kan ikke legge inn fler enn 8 plank');
+      setModalOpen(true);
     } else {
       setRawInputData([...rawInputData, { input: digit, id: uuid() }]);
-      
+
       setRawInput('');
     }
   };
 
   /*********************** Open and Close ***********************/
+
+  const [settingsOpen, setSettingsOpen] = useState(false)
+
+  const closeSettings = () => {
+    
+    setHideSettings('hide-settings')
+  }
+  const openSettings = () => {
+    setHideSettings('show-settings')
+  }
+
+
+  useEffect(() => {
+    document.addEventListener('keydown', openCloseWriteValueModal);
+  }, []);
+  /*********************** Modals ***********************/
+  const [modalOpen, setModalOpen] = useState(false);
+  const [writeValModal, setWriteValModal] = useState(false);
+  const [tooHighModal, setTooHighModal] = useState(false);
+  const [tooLowModal, setTooLowModal] = useState(false);
+
+  const openCloseModal = e => {
+    setModalOpen(false);
+  };
+  const openCloseWriteValueModal = e => {
+    setWriteValModal(false);
+    if (e.keyCode === 13) {
+      setWriteValModal(false);
+    }
+  };
+  const openCloseTooHigh = () => {
+    setTooHighModal(false);
+  };
+  const openCloseTooLow = () => {
+    setTooLowModal(false);
+  };
+
   const [sidebar, setSidebar] = useState(false);
   const [rawInputWindow, setRawInputWindow] = useState(false);
   const [startInputWindow, setStartInputWindow] = useState(false);
@@ -324,16 +441,23 @@ const App = () => {
     setStartInputWindow(!startInputWindow);
     setRawInputWindow(false);
     setEndInputWindow(false);
+    setRedFocus('red-focus');
+    setRedFocusEnd('');
   };
   const openCloseRawInputWindow = () => {
     setRawInputWindow(!rawInputWindow);
     setStartInputWindow(false);
     setEndInputWindow(false);
+    setRedFocus('');
+    setRedFocusEnd('');
   };
   const openCloseEndInputWindow = () => {
     setEndInputWindow(!endInputWindow);
     setStartInputWindow(false);
     setRawInputWindow(false);
+    setRedFocusEnd('red-focus');
+    setRedFocus('');
+    setGreenFocusStart('')
   };
   const openCloseBladeThicknessChooser = () => {
     setOpenBladeThicknessChooser(!openBladeThicknessChooser);
@@ -390,11 +514,15 @@ const App = () => {
       setStartRingDelete('');
       setEndRingDelete('');
       setDeleteTransition('');
+      setSagSnittSum([sagSnitt]);
     }, 1000);
   };
+
   const allStartRingDelete = () => {
+   
     setStartRingDelete('start-delete');
     setTimeout(() => {
+     
       setStartRingInputData([]);
       setStartRingsumForLabel([0]);
       setStartRingDelete('');
@@ -418,9 +546,11 @@ const App = () => {
       setBladeDelete('');
       setRingDelete('');
       setDeleteTransition('');
+      
     }, 1000);
   };
   const allEndRingDelete = () => {
+    
     setEndRingDelete('end-delete');
     setTimeout(() => {
       setEndRingInputData([]);
@@ -431,6 +561,13 @@ const App = () => {
 
   return (
     <div className="app-container">
+      {modalOpen && <TooMany openCloseModal={openCloseModal} />}
+      {writeValModal && (
+        <WriteValue openCloseWriteValueModal={openCloseWriteValueModal} />
+      )}
+      {tooHighModal && <TooHigh openCloseTooHigh={openCloseTooHigh} />}
+      {tooLowModal && <TooLow openCloseTooLow={openCloseTooLow} />}
+
       <button
         onClick={() => setSidebar(!sidebar)}
         className="open-close-menu-btn"
@@ -441,6 +578,7 @@ const App = () => {
       <RingList openRingList={openRingList} getRings={getNumbersFromList} />
       <RawList openRawList={openRawList} getRaw={getNumbersFromRawList} />
 
+        <Settings settingsOpen={setSettingsOpen} closeSettings={closeSettings} class={hideSettings} />
       {sidebar && (
         <SideBar
           openCloseRawInputWindow={openCloseRawInputWindow}
@@ -448,6 +586,9 @@ const App = () => {
           openCloseEndInputWindow={openCloseEndInputWindow}
           masterDelete={masterDelete}
           testPost={testPost}
+          openSettings={openSettings}
+
+          
         />
       )}
 
@@ -499,6 +640,10 @@ const App = () => {
           endLabel={(endLabel - bladeThickness / 2).toFixed(2)}
           correctLabel={correctLabel}
           correctLabel2={correctLabel2}
+          redFocus={redFocus}
+          redFocusEnd={redFocusEnd}
+          greenFocusEnd={greenFocusEnd}
+          greenFocusStart={greenFocusStart}
         />
 
         {startRingInputData.map(startRing => (

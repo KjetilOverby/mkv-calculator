@@ -14,6 +14,7 @@ const RawInput = (props) => {
              close={props.openCloseRawInputWindow}
              hideInputComponent={props.hideRawInputComponent}
              color={color}
+            
              />
         </div>
     )

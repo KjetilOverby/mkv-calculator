@@ -9,7 +9,7 @@ const InputComponent = (props) => {
         <h3 className={`title ${props.color}`}>{props.title}</h3>
         </div>
         <form onSubmit={props.submit} className='common-input-form'>
-          <input className='input-fields' type="text" value={props.value} onChange={props.inputDataOnChange}/>
+          <input autoFocus className='input-fields' type="text" value={props.value} onChange={props.inputDataOnChange}/>
           <button className={`btn-common-input ${props.backgroundBtn}`} >Legg til</button>
           
         </form>
@@ -97,7 +97,7 @@ const InputComponent = (props) => {
      outline: none;
      border: none;
      font-weigth: 100;
-     z-imdex: 100;
+     z-index: 100;
      transition: .5s
     } 
     .btn-common-input:hover {
