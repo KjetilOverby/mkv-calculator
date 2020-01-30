@@ -4,13 +4,13 @@ const Settings = props => {
   return (
     <div className={`settings-container  ${props.class} `}>
       <ul>
-        <li>Bakgrunn 1</li>
-        <li>Bakgrunn 2</li>
-        <li>Bakgrunn 3</li>
-        <li>Bakgrunn 4</li>
-        <li>Bakgrunn 5</li>
-        <li>Bakgrunn 6</li>
-        <li>Bakgrunn 7</li>
+        <li onClick={() => props.wallpaperValue(0)}>Bakgrunn 1</li>
+        <li onClick={() => props.wallpaperValue(1)}>Bakgrunn 2</li>
+        <li onClick={() => props.wallpaperValue(2)}>Bakgrunn 3</li>
+        <li onClick={() => props.wallpaperValue(3)}>Bakgrunn 4</li>
+        <li onClick={() => props.wallpaperValue(4)}>Bakgrunn 5</li>
+        <li onClick={() => props.wallpaperValue(5)}>Bakgrunn 6</li>
+        <li onClick={() => props.wallpaperValue(6)}>Bakgrunn 7</li>
       </ul>
       <button onClick={props.closeSettings}>Lukk</button>
 
@@ -28,10 +28,18 @@ const Settings = props => {
           display: flex;
           align-items: center;
           flex-direction: column;
+          
+         
+         
         }
-
+        .settings-container ul li {
+          list-style: none;
+          transition: .5s;
+          font-size: 2rem;
+        }
         .settings-container ul li:hover {
           cursor: pointer;
+          color: darkgrey;
         }
 
         .show-settings {

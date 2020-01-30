@@ -18,7 +18,7 @@ import TooHigh from './modal/TooHigh';
 import TooLow from './modal/TooLow';
 import Settings from './settings/settings';
 
-const App = () => {
+const App = (props) => {
   /*********************** CSS Variables **************************/
   const [deleteTransition, setDeleteTransition] = useState('');
   const [openRingList, setOpenRingList] = useState(
@@ -578,7 +578,7 @@ const App = () => {
       <RingList openRingList={openRingList} getRings={getNumbersFromList} />
       <RawList openRawList={openRawList} getRaw={getNumbersFromRawList} />
 
-        <Settings settingsOpen={setSettingsOpen} closeSettings={closeSettings} class={hideSettings} />
+        <Settings settingsOpen={setSettingsOpen} closeSettings={closeSettings} class={hideSettings} wallpaperValue={props.wallpaperValue} />
       {sidebar && (
         <SideBar
           openCloseRawInputWindow={openCloseRawInputWindow}

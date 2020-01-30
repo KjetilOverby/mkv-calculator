@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 import StartLabelStaticComponent from './StartLabelStaticComponent'
 
 const EndLabelStatic = (props) => {
@@ -10,3 +10,6 @@ const EndLabelStatic = (props) => {
 }
 
 export default EndLabelStatic
+ */
+
+ 

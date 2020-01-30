@@ -2,7 +2,7 @@ import React from 'react';
 import StartLabel from '../labels/StartLabel';
 import EndLabel from '../labels/EndLabel';
 import StartLabelStatic from '../labels/static/StartLabelStatic';
-import EndLabelStatic from '../labels/static/EndLabelStatic';
+/* import EndLabelStatic from '../labels/static/EndLabelStatic'; */
 
 
 const Hylse = (props) => {
@@ -28,7 +28,7 @@ const Hylse = (props) => {
           <div className="gang"></div>
           <div className="gang"></div>
           <div className="gang"></div>
-          <EndLabelStatic value={props.endLabel}/>
+         {/*  <EndLabelStatic value={props.endLabel}/> */}
           <EndLabel css={props.correctLabel} value={props.endLabel} focus={props.redFocusEnd} greenFocus={props.greenFocusEnd} />
         </div>
         <style jsx>{`
