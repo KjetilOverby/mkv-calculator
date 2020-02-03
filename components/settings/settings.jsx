@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Settings = props => {
+  
   return (
     <div className={`settings-container  ${props.class} `}>
       <ul>
@@ -13,18 +14,18 @@ const Settings = props => {
         <li onClick={() => props.wallpaperValue(6)}>Bakgrunn 7</li>
       </ul>
       <button onClick={props.closeSettings}>Lukk</button>
-
+     
       <style global jsx>{`
         
         .settings-container {
           width: 16vw;
           height: 100vh;
-          background: url('https://images.unsplash.com/photo-1555128810-2dac95b4d1f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
+          background:linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('https://images.unsplash.com/photo-1555128810-2dac95b4d1f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
           background-size: cover;
           position: absolute;
           left: 0;
           top: 0;
-          z-index: 1000;
+          z-index: 500;
           display: flex;
           align-items: center;
           flex-direction: column;
@@ -32,6 +33,7 @@ const Settings = props => {
          
          
         }
+        
         .settings-container ul li {
           list-style: none;
           transition: .5s;

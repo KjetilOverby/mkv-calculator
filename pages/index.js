@@ -6,6 +6,8 @@ import App from '../components/App'
 
 
 const Home = (props) => {
+
+  
   const wallpaper = [
     'https://images.unsplash.com/photo-1579706783492-081a217cd55e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
     'https://images.unsplash.com/photo-1577255714682-69db9b067fda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
@@ -26,6 +28,7 @@ return (
   <div>
     <Head>
       <title>Mkv calculator</title>
+      <script src="https://kit.fontawesome.com/f889c3af6d.js"></script>
       <link rel="icon" href="/favicon.ico" />
     </Head>
    

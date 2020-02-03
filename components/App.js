@@ -540,7 +540,7 @@ const App = (props) => {
       setRawInputDataSumForLabel([0]);
       setStartRingsumForLabel([0]);
       setSagSnittSumCalculated([0]);
-      setSagSnittSum([0]);
+      setSagSnittSum([sagSnitt]);
       setEndLabel(217.2);
       setStartLabel(200);
       setBladeDelete('');
@@ -640,10 +640,9 @@ const App = (props) => {
           endLabel={(endLabel - bladeThickness / 2).toFixed(2)}
           correctLabel={correctLabel}
           correctLabel2={correctLabel2}
-          redFocus={redFocus}
-          redFocusEnd={redFocusEnd}
-          greenFocusEnd={greenFocusEnd}
-          greenFocusStart={greenFocusStart}
+          
+        
+         
         />
 
         {startRingInputData.map(startRing => (

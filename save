@@ -1,0 +1,5 @@
+  <i
+        style={{ fontSize: '3rem', color: 'gray', position: 'absolute', top: '55.9rem', left: '13rem' }}
+        onClick={props.openSettings}
+        className="fas fa-cog icon"
+      ></i>

@@ -11,7 +11,7 @@ const SideBar = (props) => {
         <button onClick={props.masterDelete} className='sidebar-buttons'>Slett all data</button>
         <button onClick={props.testPost} className='sidebar-buttons'>Test post</button>
 
-        <img onClick={props.openSettings} src="http://iconbug.com/data/33/512/4c59d624cf8e837b4b2119776c01718d.png" alt=""/>
+        <img onClick={props.openSettings} src="https://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/512/settings-icon.png" alt=""/>
         
             <style jsx>{`
              .sidebar-container {
@@ -30,10 +30,10 @@ const SideBar = (props) => {
 
 }
 .sidebar-container img {
-    height: 6vh;
+    height: 5vh;
     position: absolute;
-    bottom: 8.5rem;
-    left: 10vw
+    bottom: 9rem;
+    left: 11vw
 }
 .sidebar-buttons {
  height: 3.5rem;
