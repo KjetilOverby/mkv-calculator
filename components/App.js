@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Hylse from './hylse/hylse';
 import SideBar from './sidebar/Sidebar';
 import RawInput from './input-components/RawInput';
@@ -17,6 +17,10 @@ import WriteValue from './modal/WriteValue';
 import TooHigh from './modal/TooHigh';
 import TooLow from './modal/TooLow';
 import Settings from './settings/settings';
+import SearchPostInput from './input-components/SearchPostInput';
+import SearchList from './ringList/SearchList';
+import DataPost from '../PostArkiv';
+
 
 const App = (props) => {
   /*********************** CSS Variables **************************/
@@ -27,9 +31,11 @@ const App = (props) => {
   const [openRawList, setOpenRawList] = useState(
     'raw-list-container hide-raw-list'
   );
+  const [openSearchList, setOpenSearchList] = useState('search-post-container hide-search-list')
   const [showSettings, setShowSettings] = useState('')
   const [hideSettings, setHideSettings] = useState('')
 
+  const [hideSearchPostInput, setHideSearchPostInput] = useState('')
   const [hideRawInputComponent, setHideRawInputComponent] = useState('');
   const [hideStartInputComponent, setHideStartInputComponent] = useState('');
 
@@ -232,6 +238,15 @@ const App = (props) => {
   });
 
   /*************************************************** */
+  useEffect(() => {
+    if (searchPostWindow === true) {
+      setHideSearchPostInput('show-input-component')
+      setOpenSearchList('search-post-container show-search-list')
+    } else {
+      setHideSearchPostInput('hide-input-component')
+      setOpenSearchList('search-post-container hide-search-list')
+    }
+  })
 
   useEffect(() => {
     if (startInputWindow === true) {
@@ -436,11 +451,20 @@ const App = (props) => {
   const [rawInputWindow, setRawInputWindow] = useState(false);
   const [startInputWindow, setStartInputWindow] = useState(false);
   const [endInputWindow, setEndInputWindow] = useState(false);
+  const [searchPostWindow, setSearchPostWindow] = useState(false)
 
+  const openCloseSearchPostInput = () => {
+    setSearchPostWindow(!searchPostWindow);
+    setRawInputWindow(false);
+    setEndInputWindow(false);
+    setStartInputWindow(false)
+    
+  }
   const openCloseStartInputWindow = () => {
     setStartInputWindow(!startInputWindow);
     setRawInputWindow(false);
     setEndInputWindow(false);
+    setSearchPostWindow(false);
     setRedFocus('red-focus');
     setRedFocusEnd('');
   };
@@ -448,6 +472,7 @@ const App = (props) => {
     setRawInputWindow(!rawInputWindow);
     setStartInputWindow(false);
     setEndInputWindow(false);
+    setSearchPostWindow(false);
     setRedFocus('');
     setRedFocusEnd('');
   };
@@ -455,6 +480,7 @@ const App = (props) => {
     setEndInputWindow(!endInputWindow);
     setStartInputWindow(false);
     setRawInputWindow(false);
+    setSearchPostWindow(false);
     setRedFocusEnd('red-focus');
     setRedFocus('');
     setGreenFocusStart('')
@@ -462,6 +488,13 @@ const App = (props) => {
   const openCloseBladeThicknessChooser = () => {
     setOpenBladeThicknessChooser(!openBladeThicknessChooser);
   };
+
+ 
+ 
+  
+  
+/* 
+
   const testPost = () => {
     setStartRingInputData([
       { input: 1, id: uuid() },
@@ -482,7 +515,7 @@ const App = (props) => {
       { input: 51.7, id: uuid() }
     ]);
     setSagSnittSum([4.2, 4.2, 4.2, 4.2]);
-  };
+  }; */
 
   /*********************** Delete ***********************/
   const masterDelete = () => {
@@ -559,8 +592,32 @@ const App = (props) => {
     }, 1000);
   };
 
+const [testingContext, setTestingContext] = useState(false)
+const changePost = () => {
+  setTestingContext(!testingContext)
+  
+}
+
+  const poster = useContext(DataPost)
+
   return (
     <div className="app-container">
+
+    {poster.map(post => {
+
+       useEffect(() => {
+         if(testingContext === true) {
+        setEndRingInputData([...post.endRings])
+        setStartRingInputData([...post.startRings])
+        setRawInputData([...post.rawInput])
+        setSagSnittSum([...post.sagsnitt])
+      
+       }
+       }, [testingContext])
+     
+     
+     })}
+
       {modalOpen && <TooMany openCloseModal={openCloseModal} />}
       {writeValModal && (
         <WriteValue openCloseWriteValueModal={openCloseWriteValueModal} />
@@ -577,6 +634,7 @@ const App = (props) => {
 
       <RingList openRingList={openRingList} getRings={getNumbersFromList} />
       <RawList openRawList={openRawList} getRaw={getNumbersFromRawList} />
+      <SearchList openSearchList={openSearchList} testingContext={changePost}/>
 
         <Settings settingsOpen={setSettingsOpen} closeSettings={closeSettings} class={hideSettings} wallpaperValue={props.wallpaperValue} />
       {sidebar && (
@@ -584,13 +642,20 @@ const App = (props) => {
           openCloseRawInputWindow={openCloseRawInputWindow}
           openCloseStartInputWindow={openCloseStartInputWindow}
           openCloseEndInputWindow={openCloseEndInputWindow}
+          openCloseSearchPostInput={openCloseSearchPostInput}
           masterDelete={masterDelete}
-          testPost={testPost}
+         
           openSettings={openSettings}
 
           
         />
       )}
+      <SearchPostInput
+         OpenCloseSearchPostInput={openCloseSearchPostInput}
+         hideSearchPostInput={hideSearchPostInput}
+         openSearchList={openSearchList}
+       />
+      
 
       <StartRingInput
         inputData={startRingInput}
@@ -632,7 +697,7 @@ const App = (props) => {
         openCloseEndInputWindow={openCloseEndInputWindow}
         hideEndInputComponent={hideEndInputComponent}
       />
-
+      
       <div className="ring-component-container">
         <Hylse
           startLabelStatic={200 - startLabelStatic}

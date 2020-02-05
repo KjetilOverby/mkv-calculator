@@ -4,12 +4,14 @@ import React from 'react';
 const SideBar = (props) => {
     return (
         <div className='sidebar-container'>
-        <button onClick={props.openCloseRawInputWindow} className='sidebar-buttons'>Legg til råmål</button>
-        <button onClick={props.openCloseStartInputWindow} className='sidebar-buttons'>Utfylling foran</button>
-        <button onClick={props.openCloseEndInputWindow} className='sidebar-buttons'>Utfylling bak</button>
-        <hr/>
+        <button style={{backgroundColor: 'var(--middle-bright)'}} onClick={props.openCloseRawInputWindow} className='sidebar-buttons'>Legg til råmål</button>
+        <button style={{backgroundColor: 'var(--blue)'}} onClick={props.openCloseStartInputWindow} className='sidebar-buttons'>Utfylling foran</button>
+        <button style={{backgroundColor: 'var(--blue)'}} onClick={props.openCloseEndInputWindow} className='sidebar-buttons'>Utfylling bak</button>
         <button onClick={props.masterDelete} className='sidebar-buttons'>Slett all data</button>
-        <button onClick={props.testPost} className='sidebar-buttons'>Test post</button>
+        <hr/>
+        <button onClick={props.openCloseSearchPostInput} style={{backgroundColor: 'var(--searchPostBtn)', color: 'white'}} className='sidebar-buttons'>Post arkiv</button>
+        
+        
 
         <img onClick={props.openSettings} src="https://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/512/settings-icon.png" alt=""/>
         
@@ -41,7 +43,7 @@ const SideBar = (props) => {
  margin-bottom: 1rem;
  border-radius: 5px;
  outline: none;
- background-color: var(--middle-bright);
+ 
  color: #065535;
  font-size: 13px;
  transition: .5s;
@@ -49,7 +51,7 @@ const SideBar = (props) => {
 }
 .sidebar-buttons:hover {
     color: white;
-    background: #54976B
+    background: #54976B;
 }
 hr {
     background: gray;

@@ -43,6 +43,12 @@ return (
   --middle-bright: #15db95;
   --darker-bright: #d14c4c;
   --bright: #e4c580;
+  
+  --searchPost: linear-gradient(rgba(23,20,20,1) , rgba(247,110,0,1));
+  --searchPostBtn: rgba(247,118,0,1);
+
+  --blue: rgb(128, 180, 204);
+  --rustyRed: #984B43;
   --inner-ring: linear-gradient(rgb(112, 200, 153),rgb(31, 58, 47));
   --outer-ring: linear-gradient(rgb(128, 180, 204),rgb(28, 28, 82));
   --labels: linear-gradient(gray, gray)

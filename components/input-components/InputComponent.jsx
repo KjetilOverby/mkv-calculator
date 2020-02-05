@@ -29,6 +29,9 @@ const InputComponent = (props) => {
               font-size: 4.3rem;
              
           }
+          .color-title-arkiv {
+              color: #7A2801;
+          }
           .color-title-raw {
             color: #065535;
           }
@@ -54,6 +57,9 @@ const InputComponent = (props) => {
  }
  .outer-rings-background {
     background: var(--outer-ring)
+ }
+ .search-post-background {
+     background: var(--searchPost)
  }
 .raw-input-container {
     position: absolute;
