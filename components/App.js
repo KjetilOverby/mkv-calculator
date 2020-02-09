@@ -93,6 +93,7 @@ const App = props => {
       setSagSnittSum([...sagSnittSum, sagSnitt]);
 
       setStartRingInput('');
+      setPostIndex()
     }
   };
   /*********************** Raw input ***********************/
@@ -120,6 +121,7 @@ const App = props => {
       setRawInputData([...rawInputData, { input: rawInput, id: uuid() }]);
 
       setRawInput('');
+      setPostIndex()
     }
   };
   /************************** Lifecycle **********************/
@@ -389,9 +391,12 @@ const App = props => {
       setStartRingInputData([
         ...startRingInputData,
         { input: digits, id: uuid() }
+        
       ]);
+      setPostIndex()
     } else if (endInputWindow) {
       setEndRingInputData([...endRingInputData, { input: digits, id: uuid() }]);
+      setPostIndex()
     }
   };
   /*********************** Numbers from raw list ***********************/
@@ -403,6 +408,7 @@ const App = props => {
       setRawInputData([...rawInputData, { input: digit, id: uuid() }]);
 
       setRawInput('');
+      setPostIndex()
     }
   };
 
@@ -513,6 +519,7 @@ const App = props => {
     setRingDelete('ring-delete');
     setStartRingDelete('start-delete');
     setEndRingDelete('end-delete');
+    setPostIndex()
 
     setTimeout(() => {
       setDeleteTransition('delete-transition');
@@ -547,6 +554,7 @@ const App = props => {
       setStartRingInputData([]);
       setStartRingsumForLabel([0]);
       setStartRingDelete('');
+      setPostIndex()
     }, 1000);
   };
   const allRawInputDelete = () => {
@@ -555,6 +563,7 @@ const App = props => {
     }, 600);
     setBladeDelete('blade-delete');
     setRingDelete('ring-delete');
+    setPostIndex()
     setTimeout(() => {
       setRawInputData([]);
       setRawInputDataSum([0]);
@@ -575,6 +584,7 @@ const App = props => {
       setEndRingInputData([]);
       setEndRingInputForLabel([0]);
       setEndRingDelete('');
+      setPostIndex()
     }, 1000);
   };
 
@@ -583,15 +593,18 @@ const App = props => {
       item => item.id !== id
     );
     setStartRingInputData(updateStartRingList);
+    setPostIndex()
   };
   const rawSingleRingDelete = id => {
     const updateRawRingList = rawInputData.filter(item => item.id !== id);
     setRawInputData(updateRawRingList);
+    setPostIndex()
   };
 
   const endSingleDeleteRing = id => {
     const updateEndRingList = endRingInputData.filter(item => item.id !== id);
     setEndRingInputData(updateEndRingList);
+    setPostIndex()
     
   };
 
@@ -607,6 +620,9 @@ const App = props => {
 
   return (
     <div className="app-container">
+
+     <TypeDisplay postIndex={postIndex}/>
+
       {poster.map(function(post, index) {
         useEffect(
           () => {

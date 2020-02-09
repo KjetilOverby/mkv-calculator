@@ -3,7 +3,8 @@ import uuid from 'uuid/v4';
 
 const DataPost = createContext([
   {
-    type: { name: '4x38/50 18%', id: uuid() },
+    type: { name: '4x38/50 - 18%', id: uuid() },
+    bladType: "2.8 - 4.2",
     startRings: [
       { input: 53.1, id: uuid() },
       { input: 40, id: uuid() },
@@ -23,7 +24,8 @@ const DataPost = createContext([
     sagsnitt: [4.2, 4.2, 4.2, 4.2]
   },
   {
-    type: { name: '4x38 18%', id: uuid() },
+    type: { name: '4x38 - 18%', id: uuid() },
+    bladType: "2.8 - 4.2",
     startRings: [
       { input: 21.4, id: uuid() },
       { input: 80, id: uuid() },
@@ -43,7 +45,8 @@ const DataPost = createContext([
     sagsnitt: [4.2, 4.2, 4.2, 4.2]
   },
   {
-    type: { name: '4x25/38 18%', id: uuid() },
+    type: { name: '4x25/38 - 18%', id: uuid() },
+    bladType: "2.8 - 4.2",
     startRings: [
       { input: 7, id: uuid() },
       { input: 10, id: uuid() },
@@ -64,7 +67,8 @@ const DataPost = createContext([
     sagsnitt: [4.2, 4.2, 4.2, 4.2]
   },
   {
-    type: { name: '4x50 18%', id: uuid() },
+    type: { name: '4x50 - 18%', id: uuid() },
+    bladType: "2.8 - 4.2",
     startRings: [
       { input: 6, id: uuid() },
       { input: 40, id: uuid() },
