@@ -14,6 +14,7 @@ const DimensionRings = props => {
           ringValue={props.ringValue}
           deleteDimensionRing={props.deleteDimensionRing}
           deleteRing={props.deleteRing}
+          singleRingDelete={props.singleRingDelete}
         />
 
         <div

@@ -20,9 +20,9 @@ import Settings from './settings/settings';
 import SearchPostInput from './input-components/SearchPostInput';
 import SearchList from './ringList/SearchList';
 import DataPost from '../PostArkiv';
+import TypeDisplay from './TypeDisplay/TypeDisplay';
 
-
-const App = (props) => {
+const App = props => {
   /*********************** CSS Variables **************************/
   const [deleteTransition, setDeleteTransition] = useState('');
   const [openRingList, setOpenRingList] = useState(
@@ -31,11 +31,13 @@ const App = (props) => {
   const [openRawList, setOpenRawList] = useState(
     'raw-list-container hide-raw-list'
   );
-  const [openSearchList, setOpenSearchList] = useState('search-post-container hide-search-list')
-  const [showSettings, setShowSettings] = useState('')
-  const [hideSettings, setHideSettings] = useState('')
+  const [openSearchList, setOpenSearchList] = useState(
+    'search-post-container hide-search-list'
+  );
+  const [showSettings, setShowSettings] = useState('');
+  const [hideSettings, setHideSettings] = useState('');
 
-  const [hideSearchPostInput, setHideSearchPostInput] = useState('')
+  const [hideSearchPostInput, setHideSearchPostInput] = useState('');
   const [hideRawInputComponent, setHideRawInputComponent] = useState('');
   const [hideStartInputComponent, setHideStartInputComponent] = useState('');
 
@@ -121,7 +123,7 @@ const App = (props) => {
     }
   };
   /************************** Lifecycle **********************/
-   
+
   useEffect(() => {
     setStartRingInputData([]);
     setEndRingInputData([]);
@@ -142,10 +144,8 @@ const App = (props) => {
     setEndRingDelete('');
     setDeleteTransition('');
     setSagSnittSum([sagSnitt]);
-    setHideSettings('hide-settings')
-  }, [])
-
-
+    setHideSettings('hide-settings');
+  }, []);
 
   const [finalCalcLabel, setFinalCalcLabel] = useState('');
   useEffect(() => {
@@ -220,7 +220,6 @@ const App = (props) => {
         endRingInputForLabel
     );
   });
- 
 
   useEffect(() => {
     console.log('SagSnittSum: ' + sagSnittSum);
@@ -240,13 +239,13 @@ const App = (props) => {
   /*************************************************** */
   useEffect(() => {
     if (searchPostWindow === true) {
-      setHideSearchPostInput('show-input-component')
-      setOpenSearchList('search-post-container show-search-list')
+      setHideSearchPostInput('show-input-component');
+      setOpenSearchList('search-post-container show-search-list');
     } else {
-      setHideSearchPostInput('hide-input-component')
-      setOpenSearchList('search-post-container hide-search-list')
+      setHideSearchPostInput('hide-input-component');
+      setOpenSearchList('search-post-container hide-search-list');
     }
-  })
+  });
 
   useEffect(() => {
     if (startInputWindow === true) {
@@ -279,7 +278,6 @@ const App = (props) => {
     const endLabelCalc = Number(sagSnitt) + Number(endLabel);
 
     if (endLabelCalc <= 5.65 && endLabelCalc >= 5.55) {
-     
       setCorrectLabel('label-container-correct');
     } else {
       setCorrectLabel('');
@@ -289,8 +287,7 @@ const App = (props) => {
     if (startLabelCalc <= 5.65 && startLabelCalc >= 5.55) {
       setRedFocus('');
       setRedFocusEnd('');
-      setCorrectLabel2('label-container-correct2')
-     
+      setCorrectLabel2('label-container-correct2');
     } else {
       setCorrectLabel2('');
     }
@@ -411,16 +408,14 @@ const App = (props) => {
 
   /*********************** Open and Close ***********************/
 
-  const [settingsOpen, setSettingsOpen] = useState(false)
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const closeSettings = () => {
-    
-    setHideSettings('hide-settings')
-  }
+    setHideSettings('hide-settings');
+  };
   const openSettings = () => {
-    setHideSettings('show-settings')
-  }
-
+    setHideSettings('show-settings');
+  };
 
   useEffect(() => {
     document.addEventListener('keydown', openCloseWriteValueModal);
@@ -451,15 +446,14 @@ const App = (props) => {
   const [rawInputWindow, setRawInputWindow] = useState(false);
   const [startInputWindow, setStartInputWindow] = useState(false);
   const [endInputWindow, setEndInputWindow] = useState(false);
-  const [searchPostWindow, setSearchPostWindow] = useState(false)
+  const [searchPostWindow, setSearchPostWindow] = useState(false);
 
   const openCloseSearchPostInput = () => {
     setSearchPostWindow(!searchPostWindow);
     setRawInputWindow(false);
     setEndInputWindow(false);
-    setStartInputWindow(false)
-    
-  }
+    setStartInputWindow(false);
+  };
   const openCloseStartInputWindow = () => {
     setStartInputWindow(!startInputWindow);
     setRawInputWindow(false);
@@ -483,17 +477,13 @@ const App = (props) => {
     setSearchPostWindow(false);
     setRedFocusEnd('red-focus');
     setRedFocus('');
-    setGreenFocusStart('')
+    setGreenFocusStart('');
   };
   const openCloseBladeThicknessChooser = () => {
     setOpenBladeThicknessChooser(!openBladeThicknessChooser);
   };
 
- 
- 
-  
-  
-/* 
+  /* 
 
   const testPost = () => {
     setStartRingInputData([
@@ -552,10 +542,8 @@ const App = (props) => {
   };
 
   const allStartRingDelete = () => {
-   
     setStartRingDelete('start-delete');
     setTimeout(() => {
-     
       setStartRingInputData([]);
       setStartRingsumForLabel([0]);
       setStartRingDelete('');
@@ -579,11 +567,9 @@ const App = (props) => {
       setBladeDelete('');
       setRingDelete('');
       setDeleteTransition('');
-      
     }, 1000);
   };
   const allEndRingDelete = () => {
-    
     setEndRingDelete('end-delete');
     setTimeout(() => {
       setEndRingInputData([]);
@@ -592,31 +578,55 @@ const App = (props) => {
     }, 1000);
   };
 
-const [testingContext, setTestingContext] = useState(false)
-const changePost = () => {
-  setTestingContext(!testingContext)
-  
-}
+  const startRingSingleDelete = id => {
+    const updateStartRingList = startRingInputData.filter(
+      item => item.id !== id
+    );
+    setStartRingInputData(updateStartRingList);
+  };
+  const rawSingleRingDelete = id => {
+    const updateRawRingList = rawInputData.filter(item => item.id !== id);
+    setRawInputData(updateRawRingList);
+  };
 
-  const poster = useContext(DataPost)
+  const endSingleDeleteRing = id => {
+    const updateEndRingList = endRingInputData.filter(item => item.id !== id);
+    setEndRingInputData(updateEndRingList);
+    
+  };
+
+  const [testingContext, setTestingContext] = useState(false);
+  const [postIndex, setPostIndex] = useState()
+
+  const poster = useContext(DataPost);
+
+  const pickFromList = () => {
+    console.log('Pick from list');
+  
+  }
 
   return (
     <div className="app-container">
-
-    {poster.map(post => {
-
-       useEffect(() => {
-         if(testingContext === true) {
-        setEndRingInputData([...post.endRings])
-        setStartRingInputData([...post.startRings])
-        setRawInputData([...post.rawInput])
-        setSagSnittSum([...post.sagsnitt])
+      {poster.map(function(post, index) {
+        useEffect(
+          () => {
+          
+       
+            if (testingContext === true && index === postIndex) {
       
-       }
-       }, [testingContext])
-     
-     
-     })}
+              setEndRingInputData([...post.endRings]);
+              setStartRingInputData([...post.startRings]);
+              setRawInputData([...post.rawInput]);
+              setSagSnittSum([...post.sagsnitt]);
+              setTestingContext(false)
+            }
+          },
+          [testingContext]
+        
+        );
+      })}
+
+      
 
       {modalOpen && <TooMany openCloseModal={openCloseModal} />}
       {writeValModal && (
@@ -634,9 +644,20 @@ const changePost = () => {
 
       <RingList openRingList={openRingList} getRings={getNumbersFromList} />
       <RawList openRawList={openRawList} getRaw={getNumbersFromRawList} />
-      <SearchList openSearchList={openSearchList} testingContext={changePost}/>
+      <SearchList
+        openSearchList={openSearchList}
+        testingContext={setTestingContext}
+        testingContextVal={testingContext}
+        postIndex={setPostIndex}
+       
+      />
 
-        <Settings settingsOpen={setSettingsOpen} closeSettings={closeSettings} class={hideSettings} wallpaperValue={props.wallpaperValue} />
+      <Settings
+        settingsOpen={setSettingsOpen}
+        closeSettings={closeSettings}
+        class={hideSettings}
+        wallpaperValue={props.wallpaperValue}
+      />
       {sidebar && (
         <SideBar
           openCloseRawInputWindow={openCloseRawInputWindow}
@@ -644,18 +665,14 @@ const changePost = () => {
           openCloseEndInputWindow={openCloseEndInputWindow}
           openCloseSearchPostInput={openCloseSearchPostInput}
           masterDelete={masterDelete}
-         
           openSettings={openSettings}
-
-          
         />
       )}
       <SearchPostInput
-         OpenCloseSearchPostInput={openCloseSearchPostInput}
-         hideSearchPostInput={hideSearchPostInput}
-         openSearchList={openSearchList}
-       />
-      
+        OpenCloseSearchPostInput={openCloseSearchPostInput}
+        hideSearchPostInput={hideSearchPostInput}
+        openSearchList={openSearchList}
+      />
 
       <StartRingInput
         inputData={startRingInput}
@@ -697,7 +714,7 @@ const changePost = () => {
         openCloseEndInputWindow={openCloseEndInputWindow}
         hideEndInputComponent={hideEndInputComponent}
       />
-      
+
       <div className="ring-component-container">
         <Hylse
           startLabelStatic={200 - startLabelStatic}
@@ -705,9 +722,6 @@ const changePost = () => {
           endLabel={(endLabel - bladeThickness / 2).toFixed(2)}
           correctLabel={correctLabel}
           correctLabel2={correctLabel2}
-          
-        
-         
         />
 
         {startRingInputData.map(startRing => (
@@ -717,6 +731,7 @@ const changePost = () => {
             ringValue={startRing.input}
             startRingDelete={startRingDelete}
             deleteTransition={deleteTransition}
+            singleRingDelete={() => startRingSingleDelete(startRing.id)}
           />
         ))}
 
@@ -739,6 +754,7 @@ const changePost = () => {
             bladeDeleteAnimate={bladeDelete}
             deleteRing={ringDelete}
             deleteTransition={deleteTransition}
+            singleRingDelete={() => rawSingleRingDelete(rawInputrings.id)}
           />
         ))}
 
@@ -749,6 +765,7 @@ const changePost = () => {
             ringValue={endRing.input}
             endRingDelete={endRingDelete}
             deleteTransition={deleteTransition}
+            singleRingDelete={() => endSingleDeleteRing(endRing.id)}
           />
         ))}
       </div>

@@ -18,6 +18,7 @@ const StartRingInput = (props) => {
                 close={props.openCloseStartInputWindow}
                 hideInputComponent={props.hideStartInputComponent}
                 color={color}
+                
               
             />
         </div>

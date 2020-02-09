@@ -13,7 +13,7 @@ const RawList = (props) => {
                       <table>
                       <tbody>
                           <tr>
-                              <th>Nominemt mål</th>
+                              <th>Nominelt mål</th>
                               <th>18%</th>
                               <th>12%</th>
                           </tr>

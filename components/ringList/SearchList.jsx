@@ -3,12 +3,19 @@ import DataPost from '../../PostArkiv'
 
 const SearchList = props => {
   const poster = useContext(DataPost)
+
+  const getPost = (page, index) => {
+   
+    props.testingContext(!props.testingContextVal)
+    props.postIndex(index)
+    
+  }
   return (
     <div className={props.openSearchList}>
       <div search-post-container>
-       
       
-      {poster.map((post) =>  <h3 onClick={props.testingContext}>{[...post.type]}</h3>)}
+      
+      {poster.map((post, index) =>  <h3 key={post.type.id} onClick={(e) => getPost(e, index)}>{post.type.name}</h3>)}
 
       </div>
       <style jsx>{`
