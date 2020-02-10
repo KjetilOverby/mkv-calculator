@@ -21,6 +21,7 @@ import SearchPostInput from './input-components/SearchPostInput';
 import SearchList from './ringList/SearchList';
 import DataPost from '../PostArkiv';
 import TypeDisplay from './TypeDisplay/TypeDisplay';
+import postArkiv40 from '../poster/postArkiv4.0';
 
 const App = props => {
   /*********************** CSS Variables **************************/
@@ -34,7 +35,7 @@ const App = props => {
   const [openSearchList, setOpenSearchList] = useState(
     'search-post-container hide-search-list'
   );
-  const [showSettings, setShowSettings] = useState('');
+ 
   const [hideSettings, setHideSettings] = useState('');
 
   const [hideSearchPostInput, setHideSearchPostInput] = useState('');
@@ -55,9 +56,7 @@ const App = props => {
   /*********************** Blade **************************/
   const [bladeThickness, setBladeThickness] = useState(2.8);
   const [bladeThicknesSum, setBladeThicknesSum] = useState([bladeThickness]);
-  const [bladeThicknesSumCalculated, setBladeThicknesSumCalculated] = useState(
-    []
-  );
+ 
   const [sagSnitt, setSagSnitt] = useState(4.2);
 
   const [sagSnittSum, setSagSnittSum] = useState([0]);
@@ -278,17 +277,17 @@ const App = props => {
 
   useEffect(() => {
     const endLabelCalc = Number(sagSnitt) + Number(endLabel);
-
-    if (endLabelCalc <= 5.65 && endLabelCalc >= 5.55) {
+  console.log('endlabelcalcknow: ' + endLabelCalc);
+  
+    if (endLabelCalc <= 6 && endLabelCalc >= 5) {
       setCorrectLabel('label-container-correct');
     } else {
       setCorrectLabel('');
     }
     const startLabelCalc = Number(sagSnitt) + Number(startLabel);
 
-    if (startLabelCalc <= 5.65 && startLabelCalc >= 5.55) {
-      setRedFocus('');
-      setRedFocusEnd('');
+    if (startLabelCalc <= 6 && startLabelCalc >= 5) {
+      
       setCorrectLabel2('label-container-correct2');
     } else {
       setCorrectLabel2('');
@@ -328,7 +327,7 @@ const App = props => {
   const [redFocus, setRedFocus] = useState('');
   const [redFocusEnd, setRedFocusEnd] = useState('');
   const [greenFocusStart, setGreenFocusStart] = useState('');
-  const [greenFocusEnd, setGreenFocusEnd] = useState('');
+  
 
   /*********************** SawBlade thickness ***********************/
   const blade1 = () => {
@@ -337,6 +336,7 @@ const App = props => {
     if (rawInputData) {
       let blade1 = new Array(rawInputData.length).fill(3.6);
       setSagSnittSum(blade1);
+      setPostIndex()
     }
     setOpenBladeThicknessChooser(false);
   };
@@ -346,6 +346,7 @@ const App = props => {
     if (rawInputData) {
       let blade2 = new Array(rawInputData.length).fill(3.8);
       setSagSnittSum(blade2);
+      setPostIndex()
     }
     setOpenBladeThicknessChooser(false);
   };
@@ -355,6 +356,7 @@ const App = props => {
     if (rawInputData) {
       let blade3 = new Array(rawInputData.length).fill(4.0);
       setSagSnittSum(blade3);
+      setPostIndex()
     }
     setOpenBladeThicknessChooser(false);
   };
@@ -373,6 +375,7 @@ const App = props => {
     if (rawInputData) {
       let blade5 = new Array(rawInputData.length).fill(4.4);
       setSagSnittSum(blade5);
+      setPostIndex()
     }
     setOpenBladeThicknessChooser(false);
   };
@@ -382,6 +385,7 @@ const App = props => {
     if (rawInputData) {
       let blade6 = new Array(rawInputData.length).fill(4.6);
       setSagSnittSum(blade6);
+      setPostIndex()
     }
     setOpenBladeThicknessChooser(false);
   };
@@ -607,15 +611,34 @@ const App = props => {
     setPostIndex()
     
   };
-
+/*********************** SearchList ***********************/
   const [testingContext, setTestingContext] = useState(false);
+
   const [postIndex, setPostIndex] = useState()
-
+  const [openClosePostArkiv42, setOpenClosePostArkiv42] = useState(true)
+ 
   const poster = useContext(DataPost);
+ 
 
-  const pickFromList = () => {
-    console.log('Pick from list');
+  const [sortPost, setSortPost] = useState(poster.sort((a, b) => a.type.name > b.type.name))
   
+  const openClosePostArkiv42handler = () => {
+    setOpenClosePostArkiv42(true)
+  }
+  
+  
+
+  
+  const smallestFirst = () => {
+    setSortPost(poster.sort((a, b) => a.type.name > b.type.name))
+  }
+  const largestFirst = () => {
+  
+      setSortPost(poster.sort((a, b) => a.type.name < b.type.name))
+   
+    console.log('largest click');
+    
+    
   }
 
   return (
@@ -626,21 +649,22 @@ const App = props => {
       {poster.map(function(post, index) {
         useEffect(
           () => {
-          
-       
             if (testingContext === true && index === postIndex) {
-      
+              setSagSnitt(post.sagSnitt);
+              setBladeThickness(post.bladeThickness);
               setEndRingInputData([...post.endRings]);
               setStartRingInputData([...post.startRings]);
               setRawInputData([...post.rawInput]);
               setSagSnittSum([...post.sagsnitt]);
-              setTestingContext(false)
+              
+              setTestingContext(false);
             }
           },
           [testingContext]
         
         );
       })}
+      
 
       
 
@@ -664,7 +688,13 @@ const App = props => {
         openSearchList={openSearchList}
         testingContext={setTestingContext}
         testingContextVal={testingContext}
+        
         postIndex={setPostIndex}
+        sortPost={sortPost}
+       
+        smallestFirst={smallestFirst}
+        largestFirst={largestFirst}
+        openClosePostArkiv42={openClosePostArkiv42}
        
       />
 
@@ -688,6 +718,7 @@ const App = props => {
         OpenCloseSearchPostInput={openCloseSearchPostInput}
         hideSearchPostInput={hideSearchPostInput}
         openSearchList={openSearchList}
+        openClosePostArkiv42handler={openClosePostArkiv42handler}
       />
 
       <StartRingInput

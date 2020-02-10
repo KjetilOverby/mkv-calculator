@@ -1,31 +1,45 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import DataPost from '../../PostArkiv'
 
 const SearchList = props => {
-  const poster = useContext(DataPost)
+  
 
+  
+ 
   const getPost = (page, index) => {
    
     props.testingContext(!props.testingContextVal)
     props.postIndex(index)
     
   }
+  
   return (
     <div className={props.openSearchList}>
       <div search-post-container>
+     {/*  <button onClick={props.smallestFirst}>Minste først</button>
+      <button onClick={props.largestFirst}>Største først</button>
+      <button onClick={show2X}>2X</button> */}
       
+      { props.openClosePostArkiv42 && props.sortPost.map((post, index) =>  <h3 key={post.type.id} onClick={(e) => getPost(e, index)}>{post.type.name}</h3>)}
       
-      {poster.map((post, index) =>  <h3 key={post.type.id} onClick={(e) => getPost(e, index)}>{post.type.name}</h3>)}
+     
+    
 
       </div>
       <style jsx>{`
          h3 {
+          
            cursor: pointer;
            transition: .5s;
           
          }
          h3:hover {
-             color: gray;
+             color: seagreen;
+             text-shadow: 8px 8px 4px rgba(0,0,0,.8);
+             transform: scale(1.2);
+              
+             
+             border-radius: 5px;
            }
               .search-post-container {
                   height: 100vh;

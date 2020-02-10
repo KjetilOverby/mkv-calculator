@@ -10,7 +10,7 @@ const TypeDisplay = (props) => {
         width: 50rem;
         display: flex;
         justify-content: center;
-        color: white;
+        color: orange;
         border-radius: 10px;
         top: 80vh;
         left: 50%;
@@ -29,7 +29,7 @@ const TypeDisplay = (props) => {
            {props.postIndex && 
            <Container>
            <H1>{poster[props.postIndex].type.name} </H1>
-           <H1>{poster[props.postIndex].bladType}</H1>
+        
            </Container>
            
            }

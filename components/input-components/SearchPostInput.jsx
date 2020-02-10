@@ -12,7 +12,7 @@ function SearchPostInput(props) {
             background={'search-post-background'}
             close={props.openCloseSearchPostInput}
             hideInputComponent={props.hideSearchPostInput}
-             
+            postList42={props.openClosePostArkiv42handler}
          
             />
         </div>

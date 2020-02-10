@@ -15,7 +15,7 @@ const InputComponent = (props) => {
         </form>
         <div className={`common-input-form-btn`}>
         <button onClick={props.deleteGroup} className={`btn-common-input ${props.backgroundBtn}`} >Slett alle</button>
-        <button className={`btn-common-input ${props.backgroundBtn}`} >Angre</button>
+        <button onClick={props.postList42} className={`btn-common-input ${props.backgroundBtn}`} >Angre</button>
           <button onClick={props.close} className={`btn-common-input ${props.backgroundBtn}`} >Lukk</button>
           </div>
           <style jsx>{`

@@ -8,7 +8,7 @@ import StartLabelStatic from '../labels/static/StartLabelStatic';
 const Hylse = (props) => {
     return (
         <div className="hylse">
-         <StartLabelStatic value={props.startLabelStatic}/>
+         {/* <StartLabelStatic value={props.startLabelStatic}/> */}
          <StartLabel css2={props.correctLabel2}value={props.startLabel}  />
          
         {/*   Axl values Labels container  */}
