@@ -22,6 +22,7 @@ import SearchList from './ringList/SearchList';
 import DataPost from '../PostArkiv';
 import TypeDisplay from './TypeDisplay/TypeDisplay';
 import postArkiv40 from '../poster/postArkiv4.0';
+import SearchFilterPostInput from './input-components/SearchFilterPostInput';
 
 const App = props => {
   /*********************** CSS Variables **************************/
@@ -457,65 +458,75 @@ const App = props => {
   const [startInputWindow, setStartInputWindow] = useState(false);
   const [endInputWindow, setEndInputWindow] = useState(false);
   const [searchPostWindow, setSearchPostWindow] = useState(false);
+  const [typeDisplayMove, setTypeDisplayMove] = useState('')
+
+  const openCloseSidebar = () => {
+    setSidebar(!sidebar);
+   
+  }
 
   const openCloseSearchPostInput = () => {
     setSearchPostWindow(!searchPostWindow);
     setRawInputWindow(false);
     setEndInputWindow(false);
     setStartInputWindow(false);
+    if(searchPostWindow) {
+      
+        setTypeDisplayMove('movingTypeDisplayUp')
+      
+    } else {
+      if(searchPostWindow === false) {
+      setTypeDisplayMove('movingTypeDisplayDown')
+    }
+    }
+ 
   };
   const openCloseStartInputWindow = () => {
     setStartInputWindow(!startInputWindow);
     setRawInputWindow(false);
     setEndInputWindow(false);
     setSearchPostWindow(false);
-    setRedFocus('red-focus');
-    setRedFocusEnd('');
+    if(startInputWindow) {
+      
+      setTypeDisplayMove('movingTypeDisplayUp')
+    
+  } else {
+    setTypeDisplayMove('movingTypeDisplayDown')
+  }
+   
   };
   const openCloseRawInputWindow = () => {
     setRawInputWindow(!rawInputWindow);
     setStartInputWindow(false);
     setEndInputWindow(false);
     setSearchPostWindow(false);
-    setRedFocus('');
-    setRedFocusEnd('');
+    if(rawInputWindow) {
+      
+      setTypeDisplayMove('movingTypeDisplayUp')
+    
+  } else {
+    setTypeDisplayMove('movingTypeDisplayDown')
+  }
   };
   const openCloseEndInputWindow = () => {
     setEndInputWindow(!endInputWindow);
     setStartInputWindow(false);
     setRawInputWindow(false);
     setSearchPostWindow(false);
-    setRedFocusEnd('red-focus');
-    setRedFocus('');
-    setGreenFocusStart('');
+    if(endInputWindow) {
+      
+      setTypeDisplayMove('movingTypeDisplayUp')
+    
+  } else {
+    setTypeDisplayMove('movingTypeDisplayDown')
+  }
+   
   };
   const openCloseBladeThicknessChooser = () => {
     setOpenBladeThicknessChooser(!openBladeThicknessChooser);
   };
 
-  /* 
-
-  const testPost = () => {
-    setStartRingInputData([
-      { input: 1, id: uuid() },
-      { input: 5, id: uuid() },
-      { input: 40, id: uuid() },
-      { input: 53.1, id: uuid() }
-    ]);
-    setEndRingInputData([
-      { input: 40.8, id: uuid() },
-      { input: 46.9, id: uuid() },
-      { input: 1, id: uuid() },
-      { input: 27.6, id: uuid() }
-    ]);
-    setRawInputData([
-      { input: 51.7, id: uuid() },
-      { input: 39.4, id: uuid() },
-      { input: 39.4, id: uuid() },
-      { input: 51.7, id: uuid() }
-    ]);
-    setSagSnittSum([4.2, 4.2, 4.2, 4.2]);
-  }; */
+ 
 
   /*********************** Delete ***********************/
   const masterDelete = () => {
@@ -615,36 +626,60 @@ const App = props => {
   const [testingContext, setTestingContext] = useState(false);
 
   const [postIndex, setPostIndex] = useState()
-  const [openClosePostArkiv42, setOpenClosePostArkiv42] = useState(true)
+  
  
   const poster = useContext(DataPost);
  
 
   const [sortPost, setSortPost] = useState(poster.sort((a, b) => a.type.name > b.type.name))
-  
-  const openClosePostArkiv42handler = () => {
-    setOpenClosePostArkiv42(true)
-  }
+ 
   
   
+  /********************** FILTRERING OG SØK ****************/
+  const [sortOut40, setSortOut40] = useState(false);
+  const [sortOut42, setSortOut42] = useState(false);
+  const [x2, setX2] = useState(false)
 
-  
-  const smallestFirst = () => {
-    setSortPost(poster.sort((a, b) => a.type.name > b.type.name))
-  }
-  const largestFirst = () => {
-  
-      setSortPost(poster.sort((a, b) => a.type.name < b.type.name))
-   
-    console.log('largest click');
+
     
     
+  
+  
+  const allhandler = () => {
+   setSortPost(poster.filter(post => post.type.name.length > 0))
+  }
+  const sortOut40handler = () => {
+    setSortPost(poster.filter(post => post.bladType == '2.6 - 4.0'))
+  }
+  const sortOut42handler = () => {
+    setSortPost(poster.filter(postr => postr.bladType == '2.8 - 4.2'))
+  }
+  const x2Handler = () => {
+    setSortPost(poster.filter(post => post.type.name[0] == 2))
   }
 
+  const [getSearchPostArkivInput, setgetSearchPostArkivInput] = useState()
+
+  const searchPostArkivInputFunc = (e) => {
+    setgetSearchPostArkivInput(e.target.value);
+    //setSortPost(poster.filter(postr => postr.type.name == '2x50 - 18% - 4.0'))
+      const include = poster.map((post) => post.type.name.includes(2))
+      console.log('include: ' + include);
+     const includeVal = setgetSearchPostArkivInput(include)
+     
+     
+      
+  }
+  useEffect(() => {
+    console.log('Datapost: ' + poster.map((post) => post.type.name));
+    const testing = poster.map((post) => post.type.name)
+  
+  })
+ 
   return (
     <div className="app-container">
 
-     <TypeDisplay postIndex={postIndex}/>
+     <TypeDisplay typeDisplayMove={typeDisplayMove} postIndex={postIndex}/>
 
       {poster.map(function(post, index) {
         useEffect(
@@ -666,7 +701,19 @@ const App = props => {
       })}
       
 
-      
+      <SearchFilterPostInput 
+        OpenCloseSearchPostInput={openCloseSearchPostInput}
+        hideSearchPostInput={hideSearchPostInput}
+        openSearchList={openSearchList}
+        sortOut42handler={sortOut42handler}
+        sortOut40handler={sortOut40handler}
+        allhandler={allhandler}
+        x2Handler={x2Handler}
+        getSearchPostArkivInput={getSearchPostArkivInput}
+        searchPostArkivInputFunc={searchPostArkivInputFunc}
+
+
+      />
 
       {modalOpen && <TooMany openCloseModal={openCloseModal} />}
       {writeValModal && (
@@ -676,25 +723,27 @@ const App = props => {
       {tooLowModal && <TooLow openCloseTooLow={openCloseTooLow} />}
 
       <button
-        onClick={() => setSidebar(!sidebar)}
+        onClick={openCloseSidebar}
         className="open-close-menu-btn"
       >
         {sidebar ? 'Lukk' : 'Åpne'}
       </button>
-
+        
+        
+         
       <RingList openRingList={openRingList} getRings={getNumbersFromList} />
       <RawList openRawList={openRawList} getRaw={getNumbersFromRawList} />
       <SearchList
         openSearchList={openSearchList}
         testingContext={setTestingContext}
         testingContextVal={testingContext}
+        OpenCloseSearchPostInput={openCloseSearchPostInput}
         
         postIndex={setPostIndex}
         sortPost={sortPost}
        
-        smallestFirst={smallestFirst}
-        largestFirst={largestFirst}
-        openClosePostArkiv42={openClosePostArkiv42}
+        
+       
        
       />
 
@@ -714,12 +763,7 @@ const App = props => {
           openSettings={openSettings}
         />
       )}
-      <SearchPostInput
-        OpenCloseSearchPostInput={openCloseSearchPostInput}
-        hideSearchPostInput={hideSearchPostInput}
-        openSearchList={openSearchList}
-        openClosePostArkiv42handler={openClosePostArkiv42handler}
-      />
+      
 
       <StartRingInput
         inputData={startRingInput}

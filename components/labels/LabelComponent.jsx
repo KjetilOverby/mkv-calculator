@@ -19,6 +19,7 @@ const LabelComponent = props => {
           font-weight: bold;
           background: indianred;
           
+          
 
         
         }

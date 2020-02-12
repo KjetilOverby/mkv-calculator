@@ -30,6 +30,7 @@ return (
       <title>Mkv calculator</title>
       <script src="https://kit.fontawesome.com/f889c3af6d.js"></script>
       <link rel="icon" href="/favicon.ico" />
+      
     </Head>
    
      <App wallpaperValue={setWallpaperValue} />

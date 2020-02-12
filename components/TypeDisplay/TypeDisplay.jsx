@@ -14,25 +14,52 @@ const TypeDisplay = (props) => {
         border-radius: 10px;
         top: 80vh;
         left: 50%;
-        transform: translateX(-50%);
+        margin-left: -25rem;
         flex-direction: row;
         align-items: center;
-        height: 5rem
+        height: 5rem;
+        transition: .5s;
     `
     const H1 = styled.h1`
         display:inline-block;
-        margin: 0 4rem
+        margin: 0 4rem;
+        font-size: 2.5rem;
+        font-weight:400;
     `
     const poster = useContext(DataPost)
     return (
         <div>
            {props.postIndex && 
-           <Container>
+           <Container className={`${props.typeDisplayMove}`}>
            <H1>{poster[props.postIndex].type.name} </H1>
         
            </Container>
            
            }
+          
+           <style jsx>{`
+
+           .stayUp {
+               transform: translateY(-70vh)
+           }
+           .stayDown {
+               transform: translateY(0vh)
+           }
+           .movingTypeDisplayUp {
+              animation: moveUp .5s forwards, none;
+           }
+           .movingTypeDisplayDown {
+               animation: moveDown .5s forwards, none
+           }
+           @keyframes moveUp {
+            0% {transform: translateY(0vh)}
+            100% {transform: translateY(-70vh)}
+           }
+           @keyframes moveDown {
+            0% {transform: translateY(-70vh)}
+            100% {transform: translateY(0vh)}
+           }
+           `}</style>
         </div>
     )
 }
