@@ -1,18 +1,43 @@
 import React, { useState, useContext, useEffect } from 'react';
 import DataPost from '../../PostArkiv';
+import styled from 'styled-components';
+
+
 
 const SearchList = props => {
+
+  const poster = useContext(DataPost)
+
   const getPost = (page, index) => {
     props.testingContext(!props.testingContextVal);
     props.postIndex(index);
+       
+    const loop = poster.map((post) => post.type.id)
+    console.log('ID: ' + loop );
+    console.log('loop clicked');
+    
+   
   };
+
+
+
+  
+ /*  const getPost = (key) => {
+   
+   const keys = poster.filter(item => item.key === key)
+   props.testingContext(!props.testingContextVal);
+    
+  } */
+
+
+  const PostList = styled.div`
+      overflow: scroll;
+  `
 
   return (
     <div className={props.openSearchList}>
-      <div search-post-container>
-        {/*  <button onClick={props.smallestFirst}>Minste først</button>
-      <button onClick={props.largestFirst}>Største først</button>
-      <button onClick={show2X}>2X</button> */}
+      <PostList>
+        
 
         {
           props.sortPost.map((post, index) => (
@@ -20,8 +45,15 @@ const SearchList = props => {
               {post.type.name}
             </h3>
           ))}
-      </div>
+        {/* {
+          props.sortPost.map((post) => (
+            <h3 key={post.type.id} onClick={getPost}>
+              {post.type.name}
+            </h3>
+          ))} */}
+      </PostList>
       <style jsx>{`
+         
          h3 {
           
            cursor: pointer;
@@ -30,12 +62,9 @@ const SearchList = props => {
           
          }
          h3:hover {
-             color: blue;
+             color: dodgerblue;
              text-shadow: 8px 8px 4px rgba(0,0,0,.8);
-             transform: scale(1.1);
-             
-              
-             
+            
              border-radius: 5px;
            }
               .search-post-container {

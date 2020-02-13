@@ -48,7 +48,7 @@ const SearchFilterPostInput = props => {
           .input-component {
             font-size: 2rem;
             padding: 1rem;
-            margin-top: 3rem;
+            margin-top: 1rem;
             border-radius: 5px;
             outline: none;
             border: none;

@@ -36,7 +36,7 @@ const App = props => {
   const [openSearchList, setOpenSearchList] = useState(
     'search-post-container hide-search-list'
   );
- 
+
   const [hideSettings, setHideSettings] = useState('');
 
   const [hideSearchPostInput, setHideSearchPostInput] = useState('');
@@ -57,7 +57,7 @@ const App = props => {
   /*********************** Blade **************************/
   const [bladeThickness, setBladeThickness] = useState(2.8);
   const [bladeThicknesSum, setBladeThicknesSum] = useState([bladeThickness]);
- 
+
   const [sagSnitt, setSagSnitt] = useState(4.2);
 
   const [sagSnittSum, setSagSnittSum] = useState([0]);
@@ -93,7 +93,7 @@ const App = props => {
       setSagSnittSum([...sagSnittSum, sagSnitt]);
 
       setStartRingInput('');
-      setPostIndex()
+      setPostIndex();
     }
   };
   /*********************** Raw input ***********************/
@@ -121,7 +121,7 @@ const App = props => {
       setRawInputData([...rawInputData, { input: rawInput, id: uuid() }]);
 
       setRawInput('');
-      setPostIndex()
+      setPostIndex();
     }
   };
   /************************** Lifecycle **********************/
@@ -278,17 +278,16 @@ const App = props => {
 
   useEffect(() => {
     const endLabelCalc = Number(sagSnitt) + Number(endLabel);
-  console.log('endlabelcalcknow: ' + endLabelCalc);
-  
-    if (endLabelCalc <= 6 && endLabelCalc >= 5) {
+    console.log('endlabelcalcknow: ' + endLabelCalc);
+
+    if (endLabelCalc <= 7 && endLabelCalc >= 4) {
       setCorrectLabel('label-container-correct');
     } else {
       setCorrectLabel('');
     }
     const startLabelCalc = Number(sagSnitt) + Number(startLabel);
 
-    if (startLabelCalc <= 6 && startLabelCalc >= 5) {
-      
+    if (startLabelCalc <= 7 && startLabelCalc >= 4) {
       setCorrectLabel2('label-container-correct2');
     } else {
       setCorrectLabel2('');
@@ -325,11 +324,6 @@ const App = props => {
   const [endLabel, setEndLabel] = useState();
   const [startLabelStatic, setStartLabelStatic] = useState();
 
-  const [redFocus, setRedFocus] = useState('');
-  const [redFocusEnd, setRedFocusEnd] = useState('');
-  const [greenFocusStart, setGreenFocusStart] = useState('');
-  
-
   /*********************** SawBlade thickness ***********************/
   const blade1 = () => {
     setBladeThickness(2.2);
@@ -337,7 +331,7 @@ const App = props => {
     if (rawInputData) {
       let blade1 = new Array(rawInputData.length).fill(3.6);
       setSagSnittSum(blade1);
-      setPostIndex()
+      setPostIndex();
     }
     setOpenBladeThicknessChooser(false);
   };
@@ -347,7 +341,7 @@ const App = props => {
     if (rawInputData) {
       let blade2 = new Array(rawInputData.length).fill(3.8);
       setSagSnittSum(blade2);
-      setPostIndex()
+      setPostIndex();
     }
     setOpenBladeThicknessChooser(false);
   };
@@ -357,7 +351,7 @@ const App = props => {
     if (rawInputData) {
       let blade3 = new Array(rawInputData.length).fill(4.0);
       setSagSnittSum(blade3);
-      setPostIndex()
+      setPostIndex();
     }
     setOpenBladeThicknessChooser(false);
   };
@@ -376,7 +370,7 @@ const App = props => {
     if (rawInputData) {
       let blade5 = new Array(rawInputData.length).fill(4.4);
       setSagSnittSum(blade5);
-      setPostIndex()
+      setPostIndex();
     }
     setOpenBladeThicknessChooser(false);
   };
@@ -386,7 +380,7 @@ const App = props => {
     if (rawInputData) {
       let blade6 = new Array(rawInputData.length).fill(4.6);
       setSagSnittSum(blade6);
-      setPostIndex()
+      setPostIndex();
     }
     setOpenBladeThicknessChooser(false);
   };
@@ -396,12 +390,11 @@ const App = props => {
       setStartRingInputData([
         ...startRingInputData,
         { input: digits, id: uuid() }
-        
       ]);
-      setPostIndex()
+      setPostIndex();
     } else if (endInputWindow) {
       setEndRingInputData([...endRingInputData, { input: digits, id: uuid() }]);
-      setPostIndex()
+      setPostIndex();
     }
   };
   /*********************** Numbers from raw list ***********************/
@@ -413,7 +406,7 @@ const App = props => {
       setRawInputData([...rawInputData, { input: digit, id: uuid() }]);
 
       setRawInput('');
-      setPostIndex()
+      setPostIndex();
     }
   };
 
@@ -458,75 +451,61 @@ const App = props => {
   const [startInputWindow, setStartInputWindow] = useState(false);
   const [endInputWindow, setEndInputWindow] = useState(false);
   const [searchPostWindow, setSearchPostWindow] = useState(false);
-  const [typeDisplayMove, setTypeDisplayMove] = useState('')
+  const [typeDisplayMove, setTypeDisplayMove] = useState('');
 
   const openCloseSidebar = () => {
     setSidebar(!sidebar);
-   
-  }
+  };
 
   const openCloseSearchPostInput = () => {
     setSearchPostWindow(!searchPostWindow);
     setRawInputWindow(false);
     setEndInputWindow(false);
     setStartInputWindow(false);
-    if(searchPostWindow) {
-      
-        setTypeDisplayMove('movingTypeDisplayUp')
-      
+    if (searchPostWindow) {
+      setTypeDisplayMove('movingTypeDisplayUp');
     } else {
-      if(searchPostWindow === false) {
-      setTypeDisplayMove('movingTypeDisplayDown')
+      if (searchPostWindow === false) {
+        setTypeDisplayMove('movingTypeDisplayDown');
+      }
     }
-    }
- 
   };
   const openCloseStartInputWindow = () => {
     setStartInputWindow(!startInputWindow);
     setRawInputWindow(false);
     setEndInputWindow(false);
     setSearchPostWindow(false);
-    if(startInputWindow) {
-      
-      setTypeDisplayMove('movingTypeDisplayUp')
-    
-  } else {
-    setTypeDisplayMove('movingTypeDisplayDown')
-  }
-   
+    if (startInputWindow) {
+      setTypeDisplayMove('movingTypeDisplayUp');
+    } else {
+      setTypeDisplayMove('movingTypeDisplayDown');
+    }
   };
   const openCloseRawInputWindow = () => {
     setRawInputWindow(!rawInputWindow);
     setStartInputWindow(false);
     setEndInputWindow(false);
     setSearchPostWindow(false);
-    if(rawInputWindow) {
-      
-      setTypeDisplayMove('movingTypeDisplayUp')
-    
-  } else {
-    setTypeDisplayMove('movingTypeDisplayDown')
-  }
+    if (rawInputWindow) {
+      setTypeDisplayMove('movingTypeDisplayUp');
+    } else {
+      setTypeDisplayMove('movingTypeDisplayDown');
+    }
   };
   const openCloseEndInputWindow = () => {
     setEndInputWindow(!endInputWindow);
     setStartInputWindow(false);
     setRawInputWindow(false);
     setSearchPostWindow(false);
-    if(endInputWindow) {
-      
-      setTypeDisplayMove('movingTypeDisplayUp')
-    
-  } else {
-    setTypeDisplayMove('movingTypeDisplayDown')
-  }
-   
+    if (endInputWindow) {
+      setTypeDisplayMove('movingTypeDisplayUp');
+    } else {
+      setTypeDisplayMove('movingTypeDisplayDown');
+    }
   };
   const openCloseBladeThicknessChooser = () => {
     setOpenBladeThicknessChooser(!openBladeThicknessChooser);
   };
-
- 
 
   /*********************** Delete ***********************/
   const masterDelete = () => {
@@ -534,7 +513,7 @@ const App = props => {
     setRingDelete('ring-delete');
     setStartRingDelete('start-delete');
     setEndRingDelete('end-delete');
-    setPostIndex()
+    setPostIndex();
 
     setTimeout(() => {
       setDeleteTransition('delete-transition');
@@ -569,7 +548,7 @@ const App = props => {
       setStartRingInputData([]);
       setStartRingsumForLabel([0]);
       setStartRingDelete('');
-      setPostIndex()
+      setPostIndex();
     }, 1000);
   };
   const allRawInputDelete = () => {
@@ -578,7 +557,7 @@ const App = props => {
     }, 600);
     setBladeDelete('blade-delete');
     setRingDelete('ring-delete');
-    setPostIndex()
+    setPostIndex();
     setTimeout(() => {
       setRawInputData([]);
       setRawInputDataSum([0]);
@@ -599,7 +578,7 @@ const App = props => {
       setEndRingInputData([]);
       setEndRingInputForLabel([0]);
       setEndRingDelete('');
-      setPostIndex()
+      setPostIndex();
     }, 1000);
   };
 
@@ -608,100 +587,79 @@ const App = props => {
       item => item.id !== id
     );
     setStartRingInputData(updateStartRingList);
-    setPostIndex()
+    setPostIndex();
   };
   const rawSingleRingDelete = id => {
     const updateRawRingList = rawInputData.filter(item => item.id !== id);
     setRawInputData(updateRawRingList);
-    setPostIndex()
+    setPostIndex();
   };
 
   const endSingleDeleteRing = id => {
     const updateEndRingList = endRingInputData.filter(item => item.id !== id);
     setEndRingInputData(updateEndRingList);
-    setPostIndex()
-    
+    setPostIndex();
   };
-/*********************** SearchList ***********************/
+  /*********************** SearchList ***********************/
   const [testingContext, setTestingContext] = useState(false);
 
-  const [postIndex, setPostIndex] = useState()
-  
- 
-  const poster = useContext(DataPost);
- 
+  const [postIndex, setPostIndex] = useState();
 
-  const [sortPost, setSortPost] = useState(poster.sort((a, b) => a.type.name > b.type.name))
- 
-  
-  
+  const poster = useContext(DataPost);
+
+  const [sortPost, setSortPost] = useState(
+    poster.sort((a, b) => a.type.name > b.type.name)
+  );
+
   /********************** FILTRERING OG SØK ****************/
   const [sortOut40, setSortOut40] = useState(false);
   const [sortOut42, setSortOut42] = useState(false);
-  const [x2, setX2] = useState(false)
+  const [x2, setX2] = useState(false);
 
-
-    
-    
-  
-  
   const allhandler = () => {
-   setSortPost(poster.filter(post => post.type.name.length > 0))
-  }
+    setSortPost(poster.filter(post => post.type.name.length > 0));
+  };
   const sortOut40handler = () => {
-    setSortPost(poster.filter(post => post.bladType == '2.6 - 4.0'))
-  }
+    setSortPost(poster.filter(post => post.bladType == '2.6 - 4.0'));
+  };
   const sortOut42handler = () => {
-    setSortPost(poster.filter(postr => postr.bladType == '2.8 - 4.2'))
-  }
+    setSortPost(poster.filter(postr => postr.bladType == '2.8 - 4.2'));
+  };
   const x2Handler = () => {
-    setSortPost(poster.filter(post => post.type.name[0] == 2))
-  }
+    setSortPost(poster.filter(post => post.type.name[0] == 2));
+  };
 
-  const [getSearchPostArkivInput, setgetSearchPostArkivInput] = useState()
+  const [getSearchPostArkivInput, setgetSearchPostArkivInput] = useState('');
 
-  const searchPostArkivInputFunc = (e) => {
+  const searchPostArkivInputFunc = e => {
     setgetSearchPostArkivInput(e.target.value);
-    //setSortPost(poster.filter(postr => postr.type.name == '2x50 - 18% - 4.0'))
-      const include = poster.map((post) => post.type.name.includes(2))
-      console.log('include: ' + include);
-     const includeVal = setgetSearchPostArkivInput(include)
-     
-     
-      
-  }
+   };
   useEffect(() => {
-    console.log('Datapost: ' + poster.map((post) => post.type.name));
-    const testing = poster.map((post) => post.type.name)
-  
-  })
- 
+    setSortPost(
+      poster.filter(post => post.type.name.includes(getSearchPostArkivInput))
+    );
+  }, [getSearchPostArkivInput]);
+
   return (
     <div className="app-container">
-
-     <TypeDisplay typeDisplayMove={typeDisplayMove} postIndex={postIndex}/>
+      <TypeDisplay typeDisplayMove={typeDisplayMove} postIndex={postIndex} />
 
       {poster.map(function(post, index) {
-        useEffect(
-          () => {
-            if (testingContext === true && index === postIndex) {
-              setSagSnitt(post.sagSnitt);
-              setBladeThickness(post.bladeThickness);
-              setEndRingInputData([...post.endRings]);
-              setStartRingInputData([...post.startRings]);
-              setRawInputData([...post.rawInput]);
-              setSagSnittSum([...post.sagsnitt]);
-              
-              setTestingContext(false);
-            }
-          },
-          [testingContext]
-        
-        );
-      })}
-      
+        useEffect(() => {
+          if (testingContext === true && index === postIndex) {
+            setSagSnitt(post.sagSnitt);
+            setBladeThickness(post.bladeThickness);
+            setEndRingInputData([...post.endRings]);
+            setStartRingInputData([...post.startRings]);
+            setRawInputData([...post.rawInput]);
+            setSagSnittSum([...post.sagsnitt]);
 
-      <SearchFilterPostInput 
+            setTestingContext(false);
+          }
+        }, [testingContext]);
+      })}
+
+      <SearchFilterPostInput
         OpenCloseSearchPostInput={openCloseSearchPostInput}
         hideSearchPostInput={hideSearchPostInput}
         openSearchList={openSearchList}
@@ -711,8 +669,6 @@ const App = props => {
         x2Handler={x2Handler}
         getSearchPostArkivInput={getSearchPostArkivInput}
         searchPostArkivInputFunc={searchPostArkivInputFunc}
-
-
       />
 
       {modalOpen && <TooMany openCloseModal={openCloseModal} />}
@@ -722,15 +678,10 @@ const App = props => {
       {tooHighModal && <TooHigh openCloseTooHigh={openCloseTooHigh} />}
       {tooLowModal && <TooLow openCloseTooLow={openCloseTooLow} />}
 
-      <button
-        onClick={openCloseSidebar}
-        className="open-close-menu-btn"
-      >
+      <button onClick={openCloseSidebar} className="open-close-menu-btn">
         {sidebar ? 'Lukk' : 'Åpne'}
       </button>
-        
-        
-         
+
       <RingList openRingList={openRingList} getRings={getNumbersFromList} />
       <RawList openRawList={openRawList} getRaw={getNumbersFromRawList} />
       <SearchList
@@ -738,13 +689,8 @@ const App = props => {
         testingContext={setTestingContext}
         testingContextVal={testingContext}
         OpenCloseSearchPostInput={openCloseSearchPostInput}
-        
         postIndex={setPostIndex}
         sortPost={sortPost}
-       
-        
-       
-       
       />
 
       <Settings
@@ -763,7 +709,6 @@ const App = props => {
           openSettings={openSettings}
         />
       )}
-      
 
       <StartRingInput
         inputData={startRingInput}
