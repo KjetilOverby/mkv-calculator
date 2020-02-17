@@ -6,32 +6,31 @@ import styled from 'styled-components';
 
 const SearchList = props => {
 
-  const poster = useContext(DataPost)
+  
 
   const getPost = (page, index) => {
+
     props.testingContext(!props.testingContextVal);
     props.postIndex(index);
-       
-    const loop = poster.map((post) => post.type.id)
-    console.log('ID: ' + loop );
-    console.log('loop clicked');
     
-   
-  };
+
+   };
 
 
 
   
- /*  const getPost = (key) => {
+ /*  const getPost = (id) => {
    
-   const keys = poster.filter(item => item.key === key)
-   props.testingContext(!props.testingContextVal);
+  const filteredItem = poster.filter(item => item.id !== id)
+   if(filteredItem) {
     
+   }
+ 
   } */
 
 
   const PostList = styled.div`
-      overflow: scroll;
+      overflow: auto;
   `
 
   return (
@@ -45,6 +44,8 @@ const SearchList = props => {
               {post.type.name}
             </h3>
           ))}
+
+
         {/* {
           props.sortPost.map((post) => (
             <h3 key={post.type.id} onClick={getPost}>

@@ -455,6 +455,8 @@ const App = props => {
 
   const openCloseSidebar = () => {
     setSidebar(!sidebar);
+   
+    
   };
 
   const openCloseSearchPostInput = () => {
@@ -599,6 +601,8 @@ const App = props => {
     const updateEndRingList = endRingInputData.filter(item => item.id !== id);
     setEndRingInputData(updateEndRingList);
     setPostIndex();
+   
+    
   };
   /*********************** SearchList ***********************/
   const [testingContext, setTestingContext] = useState(false);
@@ -638,8 +642,13 @@ const App = props => {
     setSortPost(
       poster.filter(post => post.type.name.includes(getSearchPostArkivInput))
     );
-  }, [getSearchPostArkivInput]);
 
+   
+    console.log(poster.filter(post => post.type.name.includes(getSearchPostArkivInput)));
+    
+  }, [getSearchPostArkivInput]);
+   
+  
   return (
     <div className="app-container">
       <TypeDisplay typeDisplayMove={typeDisplayMove} postIndex={postIndex} />
@@ -691,6 +700,7 @@ const App = props => {
         OpenCloseSearchPostInput={openCloseSearchPostInput}
         postIndex={setPostIndex}
         sortPost={sortPost}
+        
       />
 
       <Settings
@@ -832,10 +842,13 @@ const App = props => {
           color: rgb(42, 42, 83);
           z-index: 110;
           border: none;
-          transition: 0.5s;
+          transition: background 0.5s, color 0.5s;
+          background: linear-gradient(120deg, cadetblue 50%, darkslategray 50%);
+          background-size: 220%;
         }
         .open-close-menu-btn:hover {
-          background: #00ced1;
+          color: white;
+          background-position: 100%;
         }
         .app-container {
           height: 100vh;

@@ -40,7 +40,7 @@ const SearchFilterPostInput = props => {
               onChange={props.searchPostArkivInputFunc}
             />
           </form>
-          <Button onClick={props.OpenCloseSearchPostInput}>Lukk</Button>
+          <Button className='close-btn' onClick={props.OpenCloseSearchPostInput}>Lukk</Button>
         </div>
       </div>
 
@@ -54,7 +54,17 @@ const SearchFilterPostInput = props => {
             border: none;
             background: tan;
           }
+  
 
+          .close-btn {
+            background: linear-gradient(120deg, moccasin 50%, peru 50%);
+          background-size: 220%;
+          transition: background 0.5s, color 0.5s;
+          }
+          .close-btn:hover {
+            background-position: 100%;
+          color: white; 
+          }
           .title-container {
             position: absolute;
             left: 2rem;
