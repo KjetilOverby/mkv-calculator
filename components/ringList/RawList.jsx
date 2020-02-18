@@ -122,7 +122,7 @@ const RawList = (props) => {
                           <tr className='even'>
                               <td>63</td>
                               <td onClick={() => props.getRaw(65)}>65</td>
-                              <td onClick={() => props.getRaw(66)}>66</td>
+                              <td onClick={() => props.getRaw(67)}>67</td>
                           </tr>
                           <tr>
                               <td>66</td>

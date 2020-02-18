@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, createContext } from 'react';
 import Hylse from './hylse/hylse';
 import SideBar from './sidebar/Sidebar';
 import RawInput from './input-components/RawInput';
@@ -455,7 +455,18 @@ const App = props => {
 
   const openCloseSidebar = () => {
     setSidebar(!sidebar);
-   
+    if(!sidebar && searchPostWindow) {
+      setTypeDisplayMove('stay-down')
+     
+      
+    } else if(!sidebar && !searchPostWindow) {
+      setTypeDisplayMove('stay-up')
+    } else if(sidebar && !searchPostWindow) {
+      setTypeDisplayMove('stay-up') 
+    } else if(sidebar && searchPostWindow) {
+      setTypeDisplayMove('stay-down')
+    }
+    
     
   };
 
@@ -470,7 +481,10 @@ const App = props => {
       if (searchPostWindow === false) {
         setTypeDisplayMove('movingTypeDisplayDown');
       }
-    }
+    } 
+
+   
+
   };
   const openCloseStartInputWindow = () => {
     setStartInputWindow(!startInputWindow);
@@ -479,9 +493,13 @@ const App = props => {
     setSearchPostWindow(false);
     if (startInputWindow) {
       setTypeDisplayMove('movingTypeDisplayUp');
-    } else {
+    } else if(!startInputWindow){
       setTypeDisplayMove('movingTypeDisplayDown');
     }
+
+    
+console.log('start: ' + startInputWindow);
+
   };
   const openCloseRawInputWindow = () => {
     setRawInputWindow(!rawInputWindow);
@@ -493,6 +511,7 @@ const App = props => {
     } else {
       setTypeDisplayMove('movingTypeDisplayDown');
     }
+    
   };
   const openCloseEndInputWindow = () => {
     setEndInputWindow(!endInputWindow);
@@ -504,6 +523,7 @@ const App = props => {
     } else {
       setTypeDisplayMove('movingTypeDisplayDown');
     }
+   
   };
   const openCloseBladeThicknessChooser = () => {
     setOpenBladeThicknessChooser(!openBladeThicknessChooser);
@@ -642,16 +662,24 @@ const App = props => {
     setSortPost(
       poster.filter(post => post.type.name.includes(getSearchPostArkivInput))
     );
-
-   
-    console.log(poster.filter(post => post.type.name.includes(getSearchPostArkivInput)));
     
   }, [getSearchPostArkivInput]);
    
+  useEffect(() => {
+    if(postIndex === undefined) {
+      props.faneTitle('Mkv calculator')
+     
+    } else if (postIndex) {
+    props.faneTitle(poster[postIndex].type.name)
+   }
+     
+   })
   
+   
   return (
     <div className="app-container">
-      <TypeDisplay typeDisplayMove={typeDisplayMove} postIndex={postIndex} />
+  
+      <TypeDisplay typeDisplayMove={typeDisplayMove} postIndex={postIndex}/>
 
       {poster.map(function(post, index) {
         useEffect(() => {
@@ -662,7 +690,7 @@ const App = props => {
             setStartRingInputData([...post.startRings]);
             setRawInputData([...post.rawInput]);
             setSagSnittSum([...post.sagsnitt]);
-
+            
             setTestingContext(false);
           }
         }, [testingContext]);

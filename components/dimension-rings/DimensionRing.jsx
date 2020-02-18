@@ -110,6 +110,7 @@ const DimensionRings = props => {
           left: 50%;
           transform: translateX(-50%);
           color: yellow;
+         
         }
         .blade-thickness-bottom {
           position: absolute;
@@ -117,18 +118,22 @@ const DimensionRings = props => {
           left: 50%;
           transform: translateX(-50%);
           color: yellow;
+         
         }
 
         .raw-input-label {
           position: absolute;
           left: 50%;
           transform: translateX(-50%);
-          top: 0rem;
-          border: 1px solid white;
-          padding: 0.2rem;
+          top: 2.8rem;
+          border: 1px solid transparent;
+          padding: 0.3rem;
           border-radius: 5px;
           color: white;
           z-index: 10;
+          font-size: 1.3rem;
+          color: indianred;
+          font-style: italic;
         }
 
         .delete-transition {

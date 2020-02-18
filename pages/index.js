@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Head from 'next/head'
 
 import App from '../components/App'
@@ -28,20 +28,23 @@ const Home = (props) => {
   
 
   const [wallpaperValue, setWallpaperValue] = useState(0)
+  const [faneTitle, setFaneTitle] = useState('')
+ 
+ 
 
-
-
-
+  
 return (
   <div>
     <Head>
-      <title>Mkv calculator</title>
+      
       <script src="https://kit.fontawesome.com/f889c3af6d.js"></script>
       <link rel="icon" href="/favicon.ico" />
+      <title>{faneTitle}</title>
+     
       
     </Head>
    
-     <App wallpaperValue={setWallpaperValue} />
+     <App wallpaperValue={setWallpaperValue} faneTitle={setFaneTitle}/>
    
     
      <style global jsx>{`

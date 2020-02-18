@@ -217,19 +217,20 @@ const DataPost = createContext([
     sagSnitt: ['4.0'],
     percent: '12',
     startRings: [
-      { input: 10, id: uuid() },
+      { input: 2, id: uuid() },
+      { input: 7, id: uuid() },
       { input: 40, id: uuid() },
       { input: 78.7, id: uuid() }
     ],
     rawInput: [
       
-      { input: 66, id: uuid() },
-      { input: 66, id: uuid() }
+      { input: 67, id: uuid() },
+      { input: 67, id: uuid() }
     ],
     endRings: [
       { input: 34.6, id: uuid() },
       { input: 27.6, id: uuid() },
-      { input: 5, id: uuid() },
+      { input: 4, id: uuid() },
       { input: 78.7, id: uuid() },
      
     ],
@@ -264,7 +265,7 @@ const DataPost = createContext([
       /**************** 2.8 - 4.2 12-18% ******************/
 
       {
-        type: { name: '4x43/22 - 18-12% - 4.2', id: uuid() },
+        type: { name: '4x43/22 - 18/12% - 4.2', id: uuid() },
         bladType: "2.8 - 4.2",
         bladeThickness: ['2.8'],
         sagSnitt: ['4.2'],
@@ -289,7 +290,7 @@ const DataPost = createContext([
         sagsnitt: [4.2, 4.2, 4.2, 4.2]
       },
       {
-        type: { name: '4x43/44 - 18-12% - 4.2', id: uuid() },
+        type: { name: '4x43/44 - 18/12% - 4.2', id: uuid() },
         bladType: "2.8 - 4.2",
         bladeThickness: ['2.8'],
         sagSnitt: ['4.2'],

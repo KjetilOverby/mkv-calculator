@@ -23,8 +23,9 @@ const TypeDisplay = (props) => {
     const H1 = styled.h1`
         display:inline-block;
         margin: 0 4rem;
-        font-size: 2.5rem;
+        font-size: 3.4rem;
         font-weight:400;
+       
     `
     const poster = useContext(DataPost)
     return (
@@ -39,10 +40,10 @@ const TypeDisplay = (props) => {
           
            <style jsx>{`
 
-           .stayUp {
+           .stay-up {
                transform: translateY(-70vh)
            }
-           .stayDown {
+           .stay-down {
                transform: translateY(0vh)
            }
            .movingTypeDisplayUp {
