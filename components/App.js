@@ -657,6 +657,7 @@ console.log('start: ' + startInputWindow);
 
   const searchPostArkivInputFunc = e => {
     setgetSearchPostArkivInput(e.target.value);
+    setTypeDisplayMove('stay-down')
    };
   useEffect(() => {
     setSortPost(
@@ -675,7 +676,11 @@ console.log('start: ' + startInputWindow);
      
    })
   
+    
+
    
+
+
   return (
     <div className="app-container">
   
@@ -728,6 +733,9 @@ console.log('start: ' + startInputWindow);
         OpenCloseSearchPostInput={openCloseSearchPostInput}
         postIndex={setPostIndex}
         sortPost={sortPost}
+        display={setTypeDisplayMove}
+        
+       
         
       />
 

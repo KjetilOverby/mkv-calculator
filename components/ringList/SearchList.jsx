@@ -2,56 +2,47 @@ import React, { useState, useContext, useEffect } from 'react';
 import DataPost from '../../PostArkiv';
 import styled from 'styled-components';
 
-
-
 const SearchList = props => {
-
-  
-
-  const getPost = (page, index) => {
+  /*  const getPost = (page, index) => {
 
     props.testingContext(!props.testingContextVal);
     props.postIndex(index);
     
 
-   };
+   }; */
 
+  const poster = useContext(DataPost);
 
+  const getPost = e => {
+    const getIndex = poster.findIndex(post => {
+      return e.target.id === post.type.id;
+    });
 
-  
- /*  const getPost = (id) => {
-   
-  const filteredItem = poster.filter(item => item.id !== id)
-   if(filteredItem) {
-    
-   }
- 
-  } */
+    props.testingContext(!props.testingContextVal);
+    props.postIndex(getIndex);
+    props.display('stay-down')
 
+  };
 
   const PostList = styled.div`
-      overflow: auto;
-  `
+    overflow: auto;
+  `;
 
   return (
     <div className={props.openSearchList}>
       <PostList>
-        
-
-        {
+        {/* {
           props.sortPost.map((post, index) => (
             <h3 key={post.type.id} onClick={e => getPost(e, index)}>
               {post.type.name}
             </h3>
-          ))}
-
-
-        {/* {
-          props.sortPost.map((post) => (
-            <h3 key={post.type.id} onClick={getPost}>
-              {post.type.name}
-            </h3>
           ))} */}
+
+        {props.sortPost.map((post, index) => (
+          <h3 id={post.type.id} key={post.type.id} onClick={getPost}>
+            {post.type.name}
+          </h3>
+        ))}
       </PostList>
       <style jsx>{`
          
@@ -60,13 +51,21 @@ const SearchList = props => {
            cursor: pointer;
            transition: .2s;
            font-size: 1.1rem;
+           border: 1px solid khaki;
+           color: khaki;
+           text-align: center;
+           border-radius: 5px;
+           padding: .5rem .5rem;
+           transition: .5s;
+         
           
          }
          h3:hover {
-             color: dodgerblue;
-             text-shadow: 8px 8px 4px rgba(0,0,0,.8);
-            
-             border-radius: 5px;
+             color: navy;
+             box-shadow: 10px 20px 20px rgba(0,0,0,.8);
+             background: dodgerblue;
+             
+           
            }
               .search-post-container {
                   height: 100vh;

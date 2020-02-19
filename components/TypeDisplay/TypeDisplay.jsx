@@ -23,7 +23,7 @@ const TypeDisplay = (props) => {
     const H1 = styled.h1`
         display:inline-block;
         margin: 0 4rem;
-        font-size: 3.4rem;
+        font-size: 3.1rem;
         font-weight:400;
        
     `
