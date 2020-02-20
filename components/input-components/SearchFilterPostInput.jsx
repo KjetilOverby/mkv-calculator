@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import DataPost from '../../PostArkiv';
 
 const SearchFilterPostInput = props => {
   const Button = styled.button`
@@ -15,6 +16,15 @@ const SearchFilterPostInput = props => {
     transition: 0.5s;
     border: none;
   `;
+
+  const H3 = styled.h3`
+    
+    padding: 3rem;
+    color: orange;
+  
+  `
+
+  const poster = useContext(DataPost)
   return (
     <div
       className={`raw-input-container search-post-background ${props.hideSearchPostInput} `}
@@ -38,10 +48,12 @@ const SearchFilterPostInput = props => {
               className="input-component"
               placeholder="Søk i postarkivet"
               onChange={props.searchPostArkivInputFunc}
+              value={props.searchInput}
             />
           </form>
           <Button className='close-btn' onClick={props.OpenCloseSearchPostInput}>Lukk</Button>
         </div>
+        <H3>Antall poster: {poster.length}</H3>
       </div>
 
       <style jsx>{`

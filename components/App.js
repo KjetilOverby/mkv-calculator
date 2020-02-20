@@ -475,6 +475,7 @@ const App = props => {
     setRawInputWindow(false);
     setEndInputWindow(false);
     setStartInputWindow(false);
+    setgetSearchPostArkivInput('')
     if (searchPostWindow) {
       setTypeDisplayMove('movingTypeDisplayUp');
     } else {
@@ -676,10 +677,11 @@ console.log('start: ' + startInputWindow);
      
    })
   
+   const [clickIndexPost, setClickIndexPost] = useState()
     
-
+    const [shims, setShims] = useState([])
    
-
+   
 
   return (
     <div className="app-container">
@@ -695,6 +697,7 @@ console.log('start: ' + startInputWindow);
             setStartRingInputData([...post.startRings]);
             setRawInputData([...post.rawInput]);
             setSagSnittSum([...post.sagsnitt]);
+          
             
             setTestingContext(false);
           }
@@ -711,6 +714,7 @@ console.log('start: ' + startInputWindow);
         x2Handler={x2Handler}
         getSearchPostArkivInput={getSearchPostArkivInput}
         searchPostArkivInputFunc={searchPostArkivInputFunc}
+        searchInput={getSearchPostArkivInput}
       />
 
       {modalOpen && <TooMany openCloseModal={openCloseModal} />}
@@ -734,7 +738,7 @@ console.log('start: ' + startInputWindow);
         postIndex={setPostIndex}
         sortPost={sortPost}
         display={setTypeDisplayMove}
-        
+        clickIndexPost={setClickIndexPost}
        
         
       />
@@ -837,6 +841,8 @@ console.log('start: ' + startInputWindow);
             deleteRing={ringDelete}
             deleteTransition={deleteTransition}
             singleRingDelete={() => rawSingleRingDelete(rawInputrings.id)}
+            clickIndexPost={clickIndexPost}
+            shims={shims}
           />
         ))}
 

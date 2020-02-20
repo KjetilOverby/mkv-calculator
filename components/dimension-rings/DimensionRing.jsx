@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import DistanceRing from '../distance-rings/DistanceRing';
+import styled from 'styled-components';
+import DataPost from '../../PostArkiv';
 
 const DimensionRings = props => {
+  const ShimsCalcContainer = styled.div`
+  
+    position: absolute;
+    color: indianred;
+    top: 17rem;
+    width: 2.2rem;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-left: .5rem;
+    font-style: italic;
+    font-size: 1rem;
+  `;
+
+  const poster = useContext(DataPost)
+
+  
+
+  
+
   return (
     <div className={`blade-supercontainer ${props.deleteTransition}`}>
       <div className={`blade-container`}>
-      {props.deleteTransition === '' ? <p className="raw-input-label">{props.rawValue}</p> : null}
-        
+        {props.deleteTransition === '' ? (
+          <p className="raw-input-label">{props.rawValue}</p>
+        ) : null}
+
         <DistanceRing
           deleteTransition={props.deleteTransition}
           ringStyle={props.ringStyle}
@@ -25,6 +48,18 @@ const DimensionRings = props => {
           <div className="blade-thickness-bottom">{props.bladeThickness}</div>
         </div>
       </div>
+
+      
+     <ShimsCalcContainer>
+       <p>{poster[props.clickIndexPost].rawInput[0].ring }</p>
+     
+     
+     </ShimsCalcContainer>
+
+  
+      
+      
+
       <style jsx>{`
         .blade-supercontainer {
           display: inline-block;
@@ -36,7 +71,6 @@ const DimensionRings = props => {
           display: flex;
           align-items: center;
           color: var(--darker-bright);
-          
         }
         .blade {
           height: 25rem;
@@ -110,7 +144,6 @@ const DimensionRings = props => {
           left: 50%;
           transform: translateX(-50%);
           color: yellow;
-         
         }
         .blade-thickness-bottom {
           position: absolute;
@@ -118,7 +151,6 @@ const DimensionRings = props => {
           left: 50%;
           transform: translateX(-50%);
           color: yellow;
-         
         }
 
         .raw-input-label {
@@ -138,7 +170,6 @@ const DimensionRings = props => {
 
         .delete-transition {
           max-width: 0px;
-          
         }
       `}</style>
     </div>

@@ -17,7 +17,7 @@ const SearchList = props => {
     const getIndex = poster.findIndex(post => {
       return e.target.id === post.type.id;
     });
-
+    props.clickIndexPost(getIndex)
     props.testingContext(!props.testingContextVal);
     props.postIndex(getIndex);
     props.display('stay-down')
