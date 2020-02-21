@@ -3,41 +3,27 @@ import DataPost from '../../PostArkiv';
 import styled from 'styled-components';
 
 const SearchList = props => {
-  /*  const getPost = (page, index) => {
-
-    props.testingContext(!props.testingContextVal);
-    props.postIndex(index);
-    
-
-   }; */
-
   const poster = useContext(DataPost);
 
   const getPost = e => {
     const getIndex = poster.findIndex(post => {
       return e.target.id === post.type.id;
     });
-    props.clickIndexPost(getIndex)
+    props.clickIndexPost(getIndex);
     props.testingContext(!props.testingContextVal);
     props.postIndex(getIndex);
-    props.display('stay-down')
-
+    props.display('stay-down');
   };
 
   const PostList = styled.div`
     overflow: auto;
+
+    width: 100%;
   `;
 
   return (
     <div className={props.openSearchList}>
       <PostList>
-        {/* {
-          props.sortPost.map((post, index) => (
-            <h3 key={post.type.id} onClick={e => getPost(e, index)}>
-              {post.type.name}
-            </h3>
-          ))} */}
-
         {props.sortPost.map((post, index) => (
           <h3 id={post.type.id} key={post.type.id} onClick={getPost}>
             {post.type.name}
@@ -47,23 +33,29 @@ const SearchList = props => {
       <style jsx>{`
          
          h3 {
-          
+           
+          width: 70%;
            cursor: pointer;
            transition: .2s;
-           font-size: 1.1rem;
+           font-size: 1rem;
            border: 1px solid khaki;
            color: khaki;
            text-align: center;
            border-radius: 5px;
            padding: .5rem .5rem;
-           transition: .5s;
+           margin-left:1rem;
+           transition: background 0.3s, color 0.3s;
+          background: linear-gradient(120deg, transparent 50%, khaki 50%);
+          background-size: 220%;
          
           
          }
          h3:hover {
-             color: navy;
-             box-shadow: 10px 20px 20px rgba(0,0,0,.8);
-             background: dodgerblue;
+            
+             box-shadow: 5px 5px 10px rgba(0,0,0,.8);
+          
+             background-position: 100%;
+             color: indianred;
              
            
            }
@@ -77,7 +69,8 @@ const SearchList = props => {
                   justify-content: center;
                   align-items: center;
                   color: white;
-                  z-index: 100
+                  z-index: 100;
+                 
                    }
                    .list-container {
                        display: flex;

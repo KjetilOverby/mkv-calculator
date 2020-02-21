@@ -537,7 +537,7 @@ console.log('start: ' + startInputWindow);
     setStartRingDelete('start-delete');
     setEndRingDelete('end-delete');
     setPostIndex();
-
+    
     setTimeout(() => {
       setDeleteTransition('delete-transition');
     }, 400);
@@ -679,7 +679,7 @@ console.log('start: ' + startInputWindow);
   
    const [clickIndexPost, setClickIndexPost] = useState()
     
-    const [shims, setShims] = useState([])
+    
    
    
 
@@ -842,7 +842,8 @@ console.log('start: ' + startInputWindow);
             deleteTransition={deleteTransition}
             singleRingDelete={() => rawSingleRingDelete(rawInputrings.id)}
             clickIndexPost={clickIndexPost}
-            shims={shims}
+            rawShims={rawInputrings.shims}
+            ringShims={rawInputrings.ring}
           />
         ))}
 

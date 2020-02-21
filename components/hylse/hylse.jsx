@@ -47,7 +47,7 @@ const Hylse = props => {
         }
         .hylse-light-reflection {
           height: 1rem;
-          width: 64rem;
+          width: 65rem;
           background: linear-gradient(
             rgba(0, 0, 0, 0.205),
             rgba(46, 42, 42, 0.102)

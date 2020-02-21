@@ -19,9 +19,24 @@ const SearchFilterPostInput = props => {
 
   const H3 = styled.h3`
     
-    padding: 3rem;
-    color: orange;
+   
+    margin-left: 30rem;
+    color: khaki;
+   
+    font-weight: 100;
+    float: right;
   
+  `
+  const H3container = styled.div`
+     
+     position: absolute;
+     left: 56vw;
+     margin-top: 2rem;
+  `
+  const ButtonContainer = styled.div`
+      position: absolute;
+      left: 55vw;
+      top: 8.5vh;
   `
 
   const poster = useContext(DataPost)
@@ -34,48 +49,67 @@ const SearchFilterPostInput = props => {
       </div>
 
       <div className="button-container">
-        {/*  <button onClick={props.allhandler}>Alle</button>
-         <button onClick={props.x2Handler}>X2</button>
-         <button>X3</button>
-         <button>X4</button>
-         <button onClick={props.sortOut42handler}>4.2</button>
-         <button onClick={props.sortOut40handler}>4.0</button> */}
+       
 
         <div>
           <form className="form-container">
             <input
               type="text"
               className="input-component"
-              placeholder="Søk i postarkivet"
+              placeholder='Søk i postarkiv'
               onChange={props.searchPostArkivInputFunc}
               value={props.searchInput}
+              autoComplete="off"
+             
+
             />
+          
           </form>
-          <Button className='close-btn' onClick={props.OpenCloseSearchPostInput}>Lukk</Button>
+
+
+
+         <ButtonContainer>
+         <Button className='close-btn' onClick={props.OpenCloseSearchPostInput}>Lukk</Button>
+         </ButtonContainer>
         </div>
+        
+        <H3container>
         <H3>Antall poster: {poster.length}</H3>
+        </H3container>
       </div>
 
       <style jsx>{`
+       
+
+
+
           .input-component {
             font-size: 2rem;
-            padding: 1rem;
-            margin-top: 1rem;
-            border-radius: 5px;
+            padding: .6rem;
+            margin-top: 4vh;
+            color: khaki;
             outline: none;
             border: none;
-            background: tan;
+            background: transparent;
+            border-bottom: 1px solid khaki;
+            font-weight: 100;
+           
+           
+
           }
   
 
           .close-btn {
-            background: linear-gradient(120deg, moccasin 50%, peru 50%);
+            background: linear-gradient(120deg, transparent 50%, khaki 50%);
           background-size: 220%;
           transition: background 0.5s, color 0.5s;
+          color: khaki;
+          border: 1px solid khaki;
+          
           }
           .close-btn:hover {
             background-position: 100%;
-          color: white; 
+          color: gray;
           }
           .title-container {
             position: absolute;

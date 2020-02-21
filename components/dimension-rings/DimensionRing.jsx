@@ -38,6 +38,7 @@ const DimensionRings = props => {
           deleteDimensionRing={props.deleteDimensionRing}
           deleteRing={props.deleteRing}
           singleRingDelete={props.singleRingDelete}
+         
         />
 
         <div
@@ -47,14 +48,16 @@ const DimensionRings = props => {
           <div className="blade-thickness-top">{props.bladeThicknessTop}</div>
           <div className="blade-thickness-bottom">{props.bladeThickness}</div>
         </div>
+        <ShimsCalcContainer>
+       <p>{props.ringShims}</p>
+     <p>{props.rawShims}</p>
+     
+     </ShimsCalcContainer>
+
       </div>
 
       
-     <ShimsCalcContainer>
-       <p>{poster[props.clickIndexPost].rawInput[0].ring }</p>
-     
-     
-     </ShimsCalcContainer>
+    
 
   
       
