@@ -51,6 +51,7 @@ const DimensionRings = props => {
         <ShimsCalcContainer>
        <p>{props.ringShims}</p>
      <p>{props.rawShims}</p>
+     <p>{props.rawShims2}</p>
      
      </ShimsCalcContainer>
 

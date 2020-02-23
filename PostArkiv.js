@@ -212,10 +212,10 @@ const DataPost = createContext([
     ],
     rawInput: [
       
-      { input: 32.2, id: uuid() },
-      { input: 35.4, id: uuid() },
-      { input: 35.4, id: uuid() },
-      { input: 32.2, id: uuid() },
+      { input: 32.2, ring: 30.4, shims: 3.2, id: uuid() },
+      { input: 35.4, ring: 30.4, shims: 3.2, shims2: 3.2, id: uuid() },
+      { input: 35.4, ring: 30.4, shims: 3.2, shims2: 3.2, id: uuid() },
+      { input: 32.2, ring: 30.4, shims: 3.2, id: uuid() },
     ],
     endRings: [
       { input: 54.6, id: uuid() },
@@ -938,8 +938,8 @@ const DataPost = createContext([
     rawInput: [
       
       { input: 51.7, id: uuid() },
-      { input: 41.6, id: uuid() },
-      { input: 41.6, id: uuid() },
+      { input: 41.6, ring: 40.8, shims: 2.2, id: uuid() },
+      { input: 41.6, ring: 40.8, shims: 2.2, id: uuid() },
       { input: 51.7, id: uuid() }
     ],
     endRings: [

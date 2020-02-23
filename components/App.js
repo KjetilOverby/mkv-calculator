@@ -224,8 +224,7 @@ const App = props => {
   });
 
   useEffect(() => {
-    console.log('SagSnittSum: ' + sagSnittSum);
-    console.log('sagSnitt: ' + sagSnitt);
+   
 
     if (sagSnittSum.length > 0) {
       setSagSnittSumCalculated(sagSnittSum.reduce((num1, num2) => num1 + num2));
@@ -233,10 +232,7 @@ const App = props => {
     setSagSnittSum([0]);
   }, [sagSnitt]);
 
-  useEffect(() => {
-    console.log('LastSumCalc: ' + sagSnittSumCalculated);
-    console.log('LastSum: ' + sagSnittSum);
-  });
+
 
   /*************************************************** */
   useEffect(() => {
@@ -278,7 +274,7 @@ const App = props => {
 
   useEffect(() => {
     const endLabelCalc = Number(sagSnitt) + Number(endLabel);
-    console.log('endlabelcalcknow: ' + endLabelCalc);
+   
 
     if (endLabelCalc <= 7 && endLabelCalc >= 4) {
       setCorrectLabel('label-container-correct');
@@ -499,7 +495,7 @@ const App = props => {
     }
 
     
-console.log('start: ' + startInputWindow);
+
 
   };
   const openCloseRawInputWindow = () => {
@@ -844,6 +840,7 @@ console.log('start: ' + startInputWindow);
             clickIndexPost={clickIndexPost}
             rawShims={rawInputrings.shims}
             ringShims={rawInputrings.ring}
+            rawShims2={rawInputrings.shims2}
           />
         ))}
 
