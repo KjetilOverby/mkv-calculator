@@ -357,6 +357,7 @@ const App = props => {
     if (rawInputData) {
       let blade4 = new Array(rawInputData.length).fill(4.2);
       setSagSnittSum(blade4);
+      setPostIndex();
     }
     setOpenBladeThicknessChooser(false);
   };
@@ -546,7 +547,11 @@ const App = props => {
       setRawInputDataSumForLabel([0]);
       setStartRingsumForLabel([0]);
       setSagSnittSumCalculated([0]);
-      setSagSnittSum([0]);
+
+      setRawInput('')
+      setStartRingInput('')
+      setEndRingInput('')
+
       setEndLabel([]);
       setEndRingInputData([]);
       setEndRingInputForLabel([0]);
@@ -558,6 +563,7 @@ const App = props => {
       setEndRingDelete('');
       setDeleteTransition('');
       setSagSnittSum([sagSnitt]);
+      setBladeThickness(bladeThickness)
     }, 1000);
   };
 

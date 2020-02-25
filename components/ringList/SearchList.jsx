@@ -34,7 +34,7 @@ const SearchList = props => {
          
          h3 {
            
-          width: 70%;
+          width: 80%;
            cursor: pointer;
            transition: .2s;
            font-size: 1rem;

@@ -16,6 +16,12 @@ const DimensionRings = props => {
     margin-left: .5rem;
     font-style: italic;
     font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+    
   `;
 
   const poster = useContext(DataPost)
@@ -49,8 +55,8 @@ const DimensionRings = props => {
           <div className="blade-thickness-bottom">{props.bladeThickness}</div>
         </div>
         <ShimsCalcContainer>
-       <p>{props.ringShims}</p>
-     <p>{props.rawShims}</p>
+       <p style={{marginBottom: '-.5rem'}}>{props.ringShims}</p>
+     <p style={{marginBottom: '-.5rem'}}>{props.rawShims}</p>
      <p>{props.rawShims2}</p>
      
      </ShimsCalcContainer>
