@@ -453,18 +453,12 @@ const App = props => {
 
   const openCloseSidebar = () => {
     setSidebar(!sidebar);
-    if(!sidebar && searchPostWindow) {
-      setTypeDisplayMove('stay-down')
-     
-      
-    } else if(!sidebar && !searchPostWindow) {
-      setTypeDisplayMove('stay-up')
-    } else if(sidebar && !searchPostWindow) {
-      setTypeDisplayMove('stay-up') 
-    } else if(sidebar && searchPostWindow) {
-      setTypeDisplayMove('stay-down')
-    }
-    
+
+     if(rawInputWindow || startInputWindow || endInputWindow || searchPostWindow) {
+       setTypeDisplayMove('stay-down')
+     } else {
+       setTypeDisplayMove('stay-up')
+     }
     
   };
 
