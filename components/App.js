@@ -388,10 +388,11 @@ const App = props => {
         ...startRingInputData,
         { input: digits, id: uuid() }
       ]);
-      setPostIndex();
+      setTypeDisplayMove('stay-down')
+     
     } else if (endInputWindow) {
       setEndRingInputData([...endRingInputData, { input: digits, id: uuid() }]);
-      setPostIndex();
+      setTypeDisplayMove('stay-down')
     }
   };
   /*********************** Numbers from raw list ***********************/
@@ -473,7 +474,13 @@ const App = props => {
     setEndInputWindow(false);
     setStartInputWindow(false);
     setgetSearchPostArkivInput('')
-    if (searchPostWindow) {
+    if (rawInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (endInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (startInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (searchPostWindow) {
       setTypeDisplayMove('movingTypeDisplayUp');
     } else {
       if (searchPostWindow === false) {
@@ -485,15 +492,22 @@ const App = props => {
 
   };
   const openCloseStartInputWindow = () => {
+    
     setStartInputWindow(!startInputWindow);
     setRawInputWindow(false);
     setEndInputWindow(false);
     setSearchPostWindow(false);
-    if (startInputWindow) {
+    if (rawInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (endInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (searchPostWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (startInputWindow){
       setTypeDisplayMove('movingTypeDisplayUp');
     } else if(!startInputWindow){
       setTypeDisplayMove('movingTypeDisplayDown');
-    }
+    } 
 
     
 
@@ -504,7 +518,14 @@ const App = props => {
     setStartInputWindow(false);
     setEndInputWindow(false);
     setSearchPostWindow(false);
-    if (rawInputWindow) {
+
+    if (startInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (endInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (searchPostWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (rawInputWindow) {
       setTypeDisplayMove('movingTypeDisplayUp');
     } else {
       setTypeDisplayMove('movingTypeDisplayDown');
@@ -516,7 +537,13 @@ const App = props => {
     setStartInputWindow(false);
     setRawInputWindow(false);
     setSearchPostWindow(false);
-    if (endInputWindow) {
+    if (rawInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (startInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (searchPostWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (endInputWindow) {
       setTypeDisplayMove('movingTypeDisplayUp');
     } else {
       setTypeDisplayMove('movingTypeDisplayDown');
@@ -569,11 +596,12 @@ const App = props => {
 
   const allStartRingDelete = () => {
     setStartRingDelete('start-delete');
+    setTypeDisplayMove('stay-down')
     setTimeout(() => {
       setStartRingInputData([]);
       setStartRingsumForLabel([0]);
       setStartRingDelete('');
-      setPostIndex();
+     
     }, 1000);
   };
   const allRawInputDelete = () => {
@@ -599,11 +627,12 @@ const App = props => {
   };
   const allEndRingDelete = () => {
     setEndRingDelete('end-delete');
+    setTypeDisplayMove('stay-down')
+
     setTimeout(() => {
       setEndRingInputData([]);
       setEndRingInputForLabel([0]);
       setEndRingDelete('');
-      setPostIndex();
     }, 1000);
   };
 
@@ -612,7 +641,7 @@ const App = props => {
       item => item.id !== id
     );
     setStartRingInputData(updateStartRingList);
-    setPostIndex();
+   
   };
   const rawSingleRingDelete = id => {
     const updateRawRingList = rawInputData.filter(item => item.id !== id);
@@ -623,7 +652,7 @@ const App = props => {
   const endSingleDeleteRing = id => {
     const updateEndRingList = endRingInputData.filter(item => item.id !== id);
     setEndRingInputData(updateEndRingList);
-    setPostIndex();
+   
    
     
   };
