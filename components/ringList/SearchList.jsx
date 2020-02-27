@@ -37,7 +37,7 @@ const SearchList = props => {
           width: 80%;
            cursor: pointer;
            transition: .2s;
-           font-size: 1rem;
+           font-size: 1.2rem;
            border: 1px solid khaki;
            color: khaki;
            text-align: center;
