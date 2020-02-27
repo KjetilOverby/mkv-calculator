@@ -707,7 +707,6 @@ const App = props => {
     
    
    
-
   return (
     <div className="app-container">
   
@@ -843,6 +842,7 @@ const App = props => {
             startRingDelete={startRingDelete}
             deleteTransition={deleteTransition}
             singleRingDelete={() => startRingSingleDelete(startRing.id)}
+            startInputWindow={startInputWindow}
           />
         ))}
 
@@ -860,6 +860,7 @@ const App = props => {
             ringValue={(Number(rawInputrings.input) + Number(vigg) * 2).toFixed(
               2
             )}
+            rawInputWindow={rawInputWindow}
             rawValue={rawInputrings.input}
             openBladeThicknessChooser={openCloseBladeThicknessChooser}
             bladeDeleteAnimate={bladeDelete}
@@ -870,6 +871,7 @@ const App = props => {
             rawShims={rawInputrings.shims}
             ringShims={rawInputrings.ring}
             rawShims2={rawInputrings.shims2}
+            rawShims3={rawInputrings.shims3}
           />
         ))}
 
@@ -881,6 +883,7 @@ const App = props => {
             endRingDelete={endRingDelete}
             deleteTransition={deleteTransition}
             singleRingDelete={() => endSingleDeleteRing(endRing.id)}
+            endInputWindow={endInputWindow}
           />
         ))}
       </div>

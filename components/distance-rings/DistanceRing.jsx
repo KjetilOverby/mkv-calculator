@@ -9,7 +9,15 @@ const DistanceRing = (props) => {
         <div className={`start-ring-container ${props.deleteTransition}`}>
              <div className={`${props.ringStyle} ${props.deleteRing} ${props.startRingDelete} ${props.endRingDelete} ${props.startRingValue} `}>
              {props.ringValue} 
-        <i onClick={props.singleRingDelete} className='delete-button-ring fas fa-trash-alt'></i>
+
+       {props.startInputWindow && <i onClick={props.singleRingDelete} className='delete-button-ring fas fa-trash-alt'></i>}
+
+
+      {/*  {props.rawInputWindow && <i onClick={props.singleRingDelete} className='delete-button-ring fas fa-trash-alt'></i>} */}
+
+      {props.endInputWindow && <i onClick={props.singleRingDelete} className='delete-button-ring fas fa-trash-alt'></i>}
+
+
         </div>
         <style jsx>{`
 

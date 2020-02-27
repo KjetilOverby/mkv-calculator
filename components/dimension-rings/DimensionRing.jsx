@@ -27,7 +27,7 @@ const DimensionRings = props => {
   const poster = useContext(DataPost)
 
   
-
+  
   
 
   return (
@@ -44,6 +44,7 @@ const DimensionRings = props => {
           deleteDimensionRing={props.deleteDimensionRing}
           deleteRing={props.deleteRing}
           singleRingDelete={props.singleRingDelete}
+          rawInputWindow={props.rawInputWindow}
          
         />
 
@@ -57,7 +58,8 @@ const DimensionRings = props => {
         <ShimsCalcContainer>
        <p style={{marginBottom: '-.5rem'}}>{props.ringShims}</p>
      <p style={{marginBottom: '-.5rem'}}>{props.rawShims}</p>
-     <p>{props.rawShims2}</p>
+     <p style={{marginBottom: '-.5rem'}}>{props.rawShims2}</p>
+     <p>{props.rawShims3}</p>
      
      </ShimsCalcContainer>
 
