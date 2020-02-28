@@ -133,8 +133,8 @@ const InputComponent = props => {
             margin: 0.4rem 0;
           }
           .btn-common-input {
-            height: 3vh;
-            width: 10rem;
+            height: 5vh;
+            width: 12rem;
             margin: 0.2rem 0.5rem;
 
             outline: none;
