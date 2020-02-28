@@ -69,7 +69,7 @@ const SideBar = props => {
           
           outline: none;
 
-          color: #065535;
+          color: var(--input-outer-rings);
           font-size: 13px;
          
           border: none;
@@ -96,7 +96,7 @@ const SideBar = props => {
         }
 
         .delete-all {
-            background: linear-gradient(120deg, var(--darker-bright) 50%, maroon 50%);
+            background: linear-gradient(120deg, var(--deleteBtn) 50%, var(--deleteBtnHover) 50%);
           background-size: 220%;
         }
         .post-arkiv {

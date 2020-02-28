@@ -26,7 +26,7 @@ const Home = props => {
   
   /***************  colors ******************/
 
-  const [innerRing, setInnerRing] = useState('linear-gradient(rgb(112, 200, 153),rgb(31, 58, 47))');
+  const [innerRing, setInnerRing] = useState('linear-gradient(#6FB98F, #004445)');
   const [outerRings, setOuterRings] = useState('linear-gradient(rgb(128, 180, 204), rgb(28, 28, 82))');
 
   // same color bright - dark
@@ -40,10 +40,13 @@ const Home = props => {
    const [searchBg, setSearchBg] = useState('#004445')
    const [searchPostBtn, setSearchPostBtn] = useState('#6FB98F')
    const [searchPostBtnHover, setSearchPostBtnHover] = useState('#004445')
+   const [postListHover, setPostListHover] = useState('#004445')
 
    // Sidebar
 
    const [sidebarBg, setSidebarBg] = useState('#021C1E')
+   const [deleteBtn, setDeleteBtn] = useState('#D75B66')
+   const [deleteBtnHover, setDeleteBtnHover] = useState('#D24136')
   return (
     <div>
       <Head>
@@ -67,6 +70,9 @@ const Home = props => {
       searchPostBtn={setSearchPostBtn}
       searchPostBtnHover={setSearchPostBtnHover}
       sidebarBg={setSidebarBg}
+      deleteBtn={setDeleteBtn}
+      deleteBtnHover={setDeleteBtnHover}
+      postListHover={setPostListHover}
       />
       
 
@@ -83,8 +89,13 @@ const Home = props => {
             --searchPost: ${searchBg};
             --searchPostBtn: ${searchPostBtn};
             --searchPostBtnHover: ${searchPostBtnHover};
+            --post-list-hover: ${postListHover};
             
             --sidebarBg: ${sidebarBg};
+            --deleteBtn: ${deleteBtn};
+            --deleteBtnHover: ${deleteBtnHover};
+
+
             --main-dark: #080f5b;
             --brighter-dark: #d4dfdd;
             --middle-bright: #15db95;

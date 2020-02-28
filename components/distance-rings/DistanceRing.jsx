@@ -39,11 +39,11 @@ const DistanceRing = (props) => {
     padding: .5rem .7rem;
     font-size: 1.3rem;
     font-weight: bold;
-    border: 1px solid var(--bright);
+    border: 1px solid white;
     border-radius: 5px;
     position: relative;
     align-items: center;
-    color: var(--brighter-dark);
+    color: white;
     animation: bounceInDown 1.5s;
     box-shadow: 10px 10px 20px black;
    

@@ -756,6 +756,9 @@ const App = props => {
         searchPostBtn={props.searchPostBtn}
         searchPostBtnHover={props.searchPostBtnHover}
         sidebarBg={props.sidebarBg}
+        postListHover={props.postListHover}
+        deleteBtn={props.deleteBtn}
+        deleteBtnHover={props.deleteBtnHover}
       />
       {sidebar && (
         <SideBar

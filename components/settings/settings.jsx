@@ -4,20 +4,153 @@ import React from 'react';
 
 const Settings = props => {
 
+ const defaultColor = () => {
+  props.inputOuterRings('#004445')
+  props.titleInnerRings('#004445')
+
+  props.titleOuterRings('#6FB98F')
+  props.inputInnerRings('#6FB98F')
+
+  props.searchBg('#004445')
+  
+
+  props.searchPostBtn('#6FB98F')
+  props.searchPostBtnHover('#004445')
+
+  props.sidebarBg('#021C1E')
+
+  props.deleteBtn('#D75B66')
+  props.deleteBtnHover('#D24136')
+ }
+
   const changeColor = () => {
-    props.inputOuterRings('#8D230F')
-    props.titleInnerRings('#8D230F')
 
-    props.titleOuterRings('#C99E10')
-    props.inputInnerRings('#C99E10')
+  /*   props.innerRing('linear-gradient(#8D230F,#C99E10')
+    props.outerRings('linear-gradient(blue, black)') */
 
-    props.searchBg('#1E434C')
-    props.searchPostBtnHover('#C99E10')
+    props.inputOuterRings('#132226')
+    props.titleInnerRings('#132226')
 
-    props.searchPostBtn('#Ba5536')
+    props.titleOuterRings('#BE9063')
+    props.inputInnerRings('#BE9063')
+
+    props.searchBg('#132226')
     
 
-    props.sidebarBg('693D3D')
+    props.searchPostBtn('#BE9063')
+    props.searchPostBtnHover('#132226')
+
+    props.sidebarBg('#040C0E')
+
+
+    props.deleteBtn('#525B56')
+    props.deleteBtnHover('#A4978E')
+
+}
+  const changeColor2 = () => {
+
+
+
+    props.inputOuterRings('#720017')
+    props.titleInnerRings('#720017')
+
+    props.titleOuterRings('#D8D583')
+    props.inputInnerRings('#D8D583')
+
+    props.searchBg('#720017')
+    
+
+    props.searchPostBtn('#D8D583')
+    props.searchPostBtnHover('#720017')
+
+    props.sidebarBg('#270101')
+
+    props.deleteBtn('#D9AC2A')
+    props.deleteBtnHover('#763F02')
+}
+  const changeColor3 = () => {
+
+
+
+    props.inputOuterRings('#8D2F23')
+    props.titleInnerRings('#8D2F23')
+
+    props.titleOuterRings('#212027')
+    props.inputInnerRings('#212027')
+
+    props.searchBg('#8D2F23')
+    
+
+    props.searchPostBtn('#212027')
+    props.searchPostBtnHover('#F22F08')
+
+    props.sidebarBg('#594346')
+
+    props.deleteBtn('#f22f08')
+    props.deleteBtnHover('#212027')
+}
+  const changeColor4 = () => {
+
+
+
+    props.inputOuterRings('#8A5D59')
+    props.titleInnerRings('#8A5D59')
+
+    props.titleOuterRings('#F4F2B1')
+    props.inputInnerRings('#F4F2B1')
+
+    props.searchBg('#8A5D59')
+    
+
+    props.searchPostBtn('#F4F2B1')
+    props.searchPostBtnHover('#8A5D59')
+
+    props.sidebarBg('#415939')
+
+    props.deleteBtn('#D75404')
+    props.deleteBtnHover('#F08B33')
+}
+  const changeColor5 = () => {
+
+
+
+    props.inputOuterRings('#07000E')
+    props.titleInnerRings('#07000E')
+
+    props.titleOuterRings('#F08b33')
+    props.inputInnerRings('#F08b33')
+
+    props.searchBg('#07000E')
+    
+
+    props.searchPostBtn('#F08b33')
+    props.searchPostBtnHover('#07000E')
+
+    props.sidebarBg('#8A2C02')
+
+    props.deleteBtn('#D75404')
+    props.deleteBtnHover('#EECC8D')
+}
+  const changeColor6 = () => {
+
+
+
+    props.inputOuterRings('#23345C')
+    props.titleInnerRings('#23345C')
+
+    props.titleOuterRings('#Bd8A44')
+    props.inputInnerRings('#Bd8A44')
+
+    props.searchBg('#23345C')
+    
+
+    props.searchPostBtn('#Bd8A44')
+    props.searchPostBtnHover('#23345C')
+
+    props.sidebarBg('#582A20')
+
+    props.deleteBtn('#F1BA48')
+    props.deleteBtnHover('#BD8A44')
 }
 
   return (
@@ -46,7 +179,13 @@ const Settings = props => {
 
  <div>
       <ul>
-        <li onClick={changeColor}>Change Color</li>
+        <li onClick={defaultColor}>Default</li>
+        <li onClick={changeColor}>Color Theme</li>
+        <li onClick={changeColor2}>Color Theme 2</li>
+        <li onClick={changeColor3}>Color Theme 3</li>
+        <li onClick={changeColor4}>Color Theme 4</li>
+        <li onClick={changeColor5}>Color Theme 5</li>
+        <li onClick={changeColor6}>Color Theme 6</li>
       </ul>
  </div>
 
