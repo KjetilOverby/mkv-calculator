@@ -224,15 +224,11 @@ const App = props => {
   });
 
   useEffect(() => {
-   
-
     if (sagSnittSum.length > 0) {
       setSagSnittSumCalculated(sagSnittSum.reduce((num1, num2) => num1 + num2));
     }
     setSagSnittSum([0]);
   }, [sagSnitt]);
-
-
 
   /*************************************************** */
   useEffect(() => {
@@ -274,7 +270,6 @@ const App = props => {
 
   useEffect(() => {
     const endLabelCalc = Number(sagSnitt) + Number(endLabel);
-   
 
     if (endLabelCalc <= 7 && endLabelCalc >= 4) {
       setCorrectLabel('label-container-correct');
@@ -388,11 +383,10 @@ const App = props => {
         ...startRingInputData,
         { input: digits, id: uuid() }
       ]);
-      setTypeDisplayMove('stay-down')
-     
+      setTypeDisplayMove('stay-down');
     } else if (endInputWindow) {
       setEndRingInputData([...endRingInputData, { input: digits, id: uuid() }]);
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     }
   };
   /*********************** Numbers from raw list ***********************/
@@ -454,12 +448,16 @@ const App = props => {
   const openCloseSidebar = () => {
     setSidebar(!sidebar);
 
-     if(rawInputWindow || startInputWindow || endInputWindow || searchPostWindow) {
-       setTypeDisplayMove('stay-down')
-     } else {
-       setTypeDisplayMove('stay-up')
-     }
-    
+    if (
+      rawInputWindow ||
+      startInputWindow ||
+      endInputWindow ||
+      searchPostWindow
+    ) {
+      setTypeDisplayMove('stay-down');
+    } else {
+      setTypeDisplayMove('stay-up');
+    }
   };
 
   const openCloseSearchPostInput = () => {
@@ -467,45 +465,37 @@ const App = props => {
     setRawInputWindow(false);
     setEndInputWindow(false);
     setStartInputWindow(false);
-    setgetSearchPostArkivInput('')
+    setgetSearchPostArkivInput('');
     if (rawInputWindow) {
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     } else if (endInputWindow) {
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     } else if (startInputWindow) {
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     } else if (searchPostWindow) {
       setTypeDisplayMove('movingTypeDisplayUp');
     } else {
       if (searchPostWindow === false) {
         setTypeDisplayMove('movingTypeDisplayDown');
       }
-    } 
-
-   
-
+    }
   };
   const openCloseStartInputWindow = () => {
-    
     setStartInputWindow(!startInputWindow);
     setRawInputWindow(false);
     setEndInputWindow(false);
     setSearchPostWindow(false);
     if (rawInputWindow) {
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     } else if (endInputWindow) {
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     } else if (searchPostWindow) {
-      setTypeDisplayMove('stay-down')
-    } else if (startInputWindow){
+      setTypeDisplayMove('stay-down');
+    } else if (startInputWindow) {
       setTypeDisplayMove('movingTypeDisplayUp');
-    } else if(!startInputWindow){
+    } else if (!startInputWindow) {
       setTypeDisplayMove('movingTypeDisplayDown');
-    } 
-
-    
-
-
+    }
   };
   const openCloseRawInputWindow = () => {
     setRawInputWindow(!rawInputWindow);
@@ -514,17 +504,16 @@ const App = props => {
     setSearchPostWindow(false);
 
     if (startInputWindow) {
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     } else if (endInputWindow) {
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     } else if (searchPostWindow) {
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     } else if (rawInputWindow) {
       setTypeDisplayMove('movingTypeDisplayUp');
     } else {
       setTypeDisplayMove('movingTypeDisplayDown');
     }
-    
   };
   const openCloseEndInputWindow = () => {
     setEndInputWindow(!endInputWindow);
@@ -532,17 +521,16 @@ const App = props => {
     setRawInputWindow(false);
     setSearchPostWindow(false);
     if (rawInputWindow) {
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     } else if (startInputWindow) {
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     } else if (searchPostWindow) {
-      setTypeDisplayMove('stay-down')
+      setTypeDisplayMove('stay-down');
     } else if (endInputWindow) {
       setTypeDisplayMove('movingTypeDisplayUp');
     } else {
       setTypeDisplayMove('movingTypeDisplayDown');
     }
-   
   };
   const openCloseBladeThicknessChooser = () => {
     setOpenBladeThicknessChooser(!openBladeThicknessChooser);
@@ -555,7 +543,7 @@ const App = props => {
     setStartRingDelete('start-delete');
     setEndRingDelete('end-delete');
     setPostIndex();
-    
+
     setTimeout(() => {
       setDeleteTransition('delete-transition');
     }, 400);
@@ -569,9 +557,9 @@ const App = props => {
       setStartRingsumForLabel([0]);
       setSagSnittSumCalculated([0]);
 
-      setRawInput('')
-      setStartRingInput('')
-      setEndRingInput('')
+      setRawInput('');
+      setStartRingInput('');
+      setEndRingInput('');
 
       setEndLabel([]);
       setEndRingInputData([]);
@@ -584,18 +572,17 @@ const App = props => {
       setEndRingDelete('');
       setDeleteTransition('');
       setSagSnittSum([sagSnitt]);
-      setBladeThickness(bladeThickness)
+      setBladeThickness(bladeThickness);
     }, 1000);
   };
 
   const allStartRingDelete = () => {
     setStartRingDelete('start-delete');
-    setTypeDisplayMove('stay-down')
+    setTypeDisplayMove('stay-down');
     setTimeout(() => {
       setStartRingInputData([]);
       setStartRingsumForLabel([0]);
       setStartRingDelete('');
-     
     }, 1000);
   };
   const allRawInputDelete = () => {
@@ -621,7 +608,7 @@ const App = props => {
   };
   const allEndRingDelete = () => {
     setEndRingDelete('end-delete');
-    setTypeDisplayMove('stay-down')
+    setTypeDisplayMove('stay-down');
 
     setTimeout(() => {
       setEndRingInputData([]);
@@ -635,7 +622,6 @@ const App = props => {
       item => item.id !== id
     );
     setStartRingInputData(updateStartRingList);
-   
   };
   const rawSingleRingDelete = id => {
     const updateRawRingList = rawInputData.filter(item => item.id !== id);
@@ -646,9 +632,6 @@ const App = props => {
   const endSingleDeleteRing = id => {
     const updateEndRingList = endRingInputData.filter(item => item.id !== id);
     setEndRingInputData(updateEndRingList);
-   
-   
-    
   };
   /*********************** SearchList ***********************/
   const [testingContext, setTestingContext] = useState(false);
@@ -683,34 +666,27 @@ const App = props => {
 
   const searchPostArkivInputFunc = e => {
     setgetSearchPostArkivInput(e.target.value);
-    setTypeDisplayMove('stay-down')
-   };
+    setTypeDisplayMove('stay-down');
+  };
   useEffect(() => {
     setSortPost(
       poster.filter(post => post.type.name.includes(getSearchPostArkivInput))
     );
-    
   }, [getSearchPostArkivInput]);
-   
+
   useEffect(() => {
-    if(postIndex === undefined) {
-      props.faneTitle('Mkv calculator')
-     
+    if (postIndex === undefined) {
+      props.faneTitle('Mkv calculator');
     } else if (postIndex) {
-    props.faneTitle(poster[postIndex].type.name)
-   }
-     
-   })
-  
-   const [clickIndexPost, setClickIndexPost] = useState()
-    
-    
-   
-   
+      props.faneTitle(poster[postIndex].type.name);
+    }
+  });
+
+  const [clickIndexPost, setClickIndexPost] = useState();
+
   return (
     <div className="app-container">
-  
-      <TypeDisplay typeDisplayMove={typeDisplayMove} postIndex={postIndex}/>
+      <TypeDisplay typeDisplayMove={typeDisplayMove} postIndex={postIndex} />
 
       {poster.map(function(post, index) {
         useEffect(() => {
@@ -721,8 +697,7 @@ const App = props => {
             setStartRingInputData([...post.startRings]);
             setRawInputData([...post.rawInput]);
             setSagSnittSum([...post.sagsnitt]);
-          
-            
+
             setTestingContext(false);
           }
         }, [testingContext]);
@@ -763,8 +738,6 @@ const App = props => {
         sortPost={sortPost}
         display={setTypeDisplayMove}
         clickIndexPost={setClickIndexPost}
-       
-        
       />
 
       <Settings
@@ -772,6 +745,17 @@ const App = props => {
         closeSettings={closeSettings}
         class={hideSettings}
         wallpaperValue={props.wallpaperValue}
+        innerRing={props.innerRing}
+        outerRings={props.outerRings}
+
+        inputOuterRings={props.inputOuterRings}
+        titleInnerRings={props.titleInnerRings}
+        titleOuterRings={props.titleOuterRings}
+        inputInnerRings={props.inputInnerRings}
+        searchBg={props.searchBg}
+        searchPostBtn={props.searchPostBtn}
+        searchPostBtnHover={props.searchPostBtnHover}
+        sidebarBg={props.sidebarBg}
       />
       {sidebar && (
         <SideBar
@@ -908,7 +892,7 @@ const App = props => {
           left: 2rem;
           bottom: 4rem;
           outline: none;
-         
+
           background-color: lightblue;
           font-size: 15px;
           color: rgb(42, 42, 83);

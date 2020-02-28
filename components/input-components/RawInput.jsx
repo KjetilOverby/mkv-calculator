@@ -12,6 +12,8 @@ const RawInput = (props) => {
              submit={props.rawInputDataSubmit} value={props.value} 
              background='raw-input-background' 
              backgroundBtn='raw-btn-background'
+             inputColorInner= 'input-color-inner'
+             inputBorderColor='input-border-color-inner'
              deleteGroup={props.allRawInputDelete}
              close={props.openCloseRawInputWindow}
              hideInputComponent={props.hideRawInputComponent}

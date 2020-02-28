@@ -38,14 +38,14 @@ const SearchList = props => {
            cursor: pointer;
            transition: .2s;
            font-size: 1.2rem;
-           border: 1px solid khaki;
-           color: khaki;
+           border: 1px solid var(--input-inner-rings);
+           color: var(--input-inner-rings);
            text-align: center;
            border-radius: 5px;
            padding: .5rem .5rem;
            margin-left:1rem;
            transition: background 0.3s, color 0.3s;
-          background: linear-gradient(120deg, transparent 50%, khaki 50%);
+          background: linear-gradient(120deg, transparent 50%, var(--input-inner-rings) 50%);
           background-size: 220%;
          
           
@@ -55,7 +55,7 @@ const SearchList = props => {
              box-shadow: 5px 5px 10px rgba(0,0,0,.8);
           
              background-position: 100%;
-             color: indianred;
+             color: var(--input-outer-rings);
              
            
            }
@@ -103,7 +103,7 @@ const SearchList = props => {
                   right: -16vw;
                   display: flex;
                  align-items: center;
-                       flex-direction: column;
+                  flex-direction: column;
                        
 
               }

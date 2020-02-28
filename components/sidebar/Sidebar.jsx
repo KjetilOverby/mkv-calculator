@@ -46,7 +46,7 @@ const SideBar = props => {
         .sidebar-container {
           width: 16vw;
           height: 100vh;
-          background: linear-gradient(#538874, #1e3b36);
+          background: var(--sidebarBg);
           position: absolute;
           left: 0;
           top: 0;
@@ -100,7 +100,7 @@ const SideBar = props => {
           background-size: 220%;
         }
         .post-arkiv {
-            background: linear-gradient(120deg, var(--searchPostBtn) 50%, sandybrown 50%);
+            background: linear-gradient(120deg, var(--searchPostBtn) 50%, var(--searchPostBtnHover) 50%);
           background-size: 220%;
         }
 

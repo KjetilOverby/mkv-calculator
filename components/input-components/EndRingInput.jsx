@@ -6,6 +6,7 @@ const EndRingInput = props => {
   const color = 'color-title-outer'
   const inputColor = 'input-color-green'
   const placeholder = 'Ringer bak'
+ 
   return (
     <div>
       <InputComponent 
@@ -16,6 +17,8 @@ const EndRingInput = props => {
         deleteAllDimensionRings={props.deleteAllEndRings}
         background='outer-rings-background'
         backgroundBtn='outer-btn-background'
+        inputColorOuter='input-color-outer'
+        inputBorderColor='input-border-color-outer'
         deleteGroup={props.allEndRingDelete}
         close={props.openCloseEndInputWindow}
         hideInputComponent={props.hideEndInputComponent}

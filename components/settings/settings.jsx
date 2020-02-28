@@ -1,8 +1,29 @@
 import React from 'react';
 
+
+
 const Settings = props => {
+
+  const changeColor = () => {
+    props.inputOuterRings('#8D230F')
+    props.titleInnerRings('#8D230F')
+
+    props.titleOuterRings('#C99E10')
+    props.inputInnerRings('#C99E10')
+
+    props.searchBg('#1E434C')
+    props.searchPostBtnHover('#C99E10')
+
+    props.searchPostBtn('#Ba5536')
+    
+
+    props.sidebarBg('693D3D')
+}
+
   return (
     <div className={`settings-container  ${props.class} `}>
+
+    <div>
       <ul>
         <li onClick={() => props.wallpaperValue(0)}>Bakgrunn 1</li>
         <li onClick={() => props.wallpaperValue(1)}>Bakgrunn 2</li>
@@ -19,6 +40,19 @@ const Settings = props => {
         <li onClick={() => props.wallpaperValue(12)}>Bakgrunn 13</li>
         <li onClick={() => props.wallpaperValue(13)}>Bakgrunn 14</li>
       </ul>
+
+</div>
+ 
+
+ <div>
+      <ul>
+        <li onClick={changeColor}>Change Color</li>
+      </ul>
+ </div>
+
+
+
+
       <button className="btn-settings" onClick={props.closeSettings}>
         Lukk
       </button>

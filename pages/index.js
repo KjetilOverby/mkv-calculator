@@ -5,9 +5,9 @@ import App from '../components/App';
 
 const Home = props => {
   const wallpaper = [
-    'https://images.unsplash.com/photo-1449156733864-dd5471bb7427?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-    'https://images.unsplash.com/photo-1568832359672-e36cf5d74f54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
     'https://images.unsplash.com/photo-1488415032361-b7e238421f1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80 ',
+    'https://images.unsplash.com/photo-1568832359672-e36cf5d74f54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+    'https://images.unsplash.com/photo-1449156733864-dd5471bb7427?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     'https://images.unsplash.com/photo-1529405643518-5cf24fddfc0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80 ',
     'https://images.unsplash.com/photo-1530982011887-3cc11cc85693?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1778&q=80',
     ' https://images.unsplash.com/photo-1560372610-931c8343bc43?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
@@ -23,18 +23,27 @@ const Home = props => {
 
   const [wallpaperValue, setWallpaperValue] = useState(0);
   const [faneTitle, setFaneTitle] = useState('');
-
+  
   /***************  colors ******************/
 
   const [innerRing, setInnerRing] = useState('linear-gradient(rgb(112, 200, 153),rgb(31, 58, 47))');
   const [outerRings, setOuterRings] = useState('linear-gradient(rgb(128, 180, 204), rgb(28, 28, 82))');
-  // same color
+
+  // same color bright - dark
   const [inputOuterRings, setInputOuterRings] = useState('#004445')
   const [titleInnerRings, setTitleInnerRings] = useState('#004445')
-  // same color
+  // same color dark bright
   const [titleOuterRings, setTitleOuterRings] = useState('#6FB98F')
   const [inputInnerRings, setinputInnerRings] = useState('#6FB98F')
+   // searh component
 
+   const [searchBg, setSearchBg] = useState('#004445')
+   const [searchPostBtn, setSearchPostBtn] = useState('#6FB98F')
+   const [searchPostBtnHover, setSearchPostBtnHover] = useState('#004445')
+
+   // Sidebar
+
+   const [sidebarBg, setSidebarBg] = useState('#021C1E')
   return (
     <div>
       <Head>
@@ -43,7 +52,24 @@ const Home = props => {
         <title>{faneTitle}</title>
       </Head>
 
-      <App wallpaperValue={setWallpaperValue} faneTitle={setFaneTitle} />
+      <App 
+      wallpaperValue={setWallpaperValue} 
+      faneTitle={setFaneTitle} 
+
+      innerRing={setInnerRing}
+      outerRings={setOuterRings}
+      
+      inputOuterRings={setInputOuterRings}
+      titleInnerRings={setTitleInnerRings}
+      titleOuterRings={setTitleOuterRings}
+      inputInnerRings={setinputInnerRings}
+      searchBg={setSearchBg}
+      searchPostBtn={setSearchPostBtn}
+      searchPostBtnHover={setSearchPostBtnHover}
+      sidebarBg={setSidebarBg}
+      />
+      
+
 
       <style global jsx>{`
           :root {
@@ -54,17 +80,19 @@ const Home = props => {
             --input-inner-rings: ${inputInnerRings};
             --input-title-outer-rings: ${titleOuterRings};
             --input-title-inner-rings: ${titleInnerRings};
+            --searchPost: ${searchBg};
+            --searchPostBtn: ${searchPostBtn};
+            --searchPostBtnHover: ${searchPostBtnHover};
+            
+            --sidebarBg: ${sidebarBg};
             --main-dark: #080f5b;
             --brighter-dark: #d4dfdd;
             --middle-bright: #15db95;
             --darker-bright: #d14c4c;
             --bright: #e4c580;
 
-            --searchPost: linear-gradient(
-              rgba(23, 20, 20, 1),
-              rgba(247, 110, 0, 1)
-            );
-            --searchPostBtn: rgba(247, 118, 0, 1);
+            
+            
 
             --blue: rgb(128, 180, 204);
             --rustyRed: #984b43;

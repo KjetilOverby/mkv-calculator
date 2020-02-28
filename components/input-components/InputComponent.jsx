@@ -15,8 +15,8 @@ const InputComponent = props => {
           type="text"
           value={props.value}
           onChange={props.inputDataOnChange}
-          className={`input-fields ${props.inputColor}`}
-        />
+          className={`input-fields ${props.inputColor} ${props.inputColorOuter} ${props.inputBorderColor}`}
+        /> 
         <button className={`btn-common-input ${props.backgroundBtn}`}>
           Legg til
         </button>
@@ -65,10 +65,22 @@ const InputComponent = props => {
             outline: none;
             margin-right: 0.7rem;
             
+            
           }
 
-           .input-color-green {
-               border-bottom: 1px solid white
+           .input-border-color-outer {
+               border-bottom: 1px solid var(--input-inner-rings)
+               
+           }
+           .input-border-color-inner {
+               border-bottom: 1px solid var(--input-outer-rings)
+               
+           }
+           .input-color-outer {
+            color: var(--input-inner-rings)
+           }
+           .input-color-inner {
+            color: var(--input-outer-rings)
            }
 
           .common-input-form {
