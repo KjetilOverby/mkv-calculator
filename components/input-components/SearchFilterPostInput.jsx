@@ -45,7 +45,7 @@ const SearchFilterPostInput = props => {
       className={`raw-input-container search-post-background ${props.hideSearchPostInput} `}
     >
       <div className="title-container">
-        <h1 className="title color-title-arkiv">Søk</h1>
+        {/* <h1 className="title color-title-arkiv">Søk</h1> */}
       </div>
 
       <div className="button-container">

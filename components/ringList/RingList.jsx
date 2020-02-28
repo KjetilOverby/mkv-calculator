@@ -69,7 +69,7 @@ const RingList = props => {
               .ring-list-container {
                   height: 100vh;
                   width: 16vw;
-                  background: var(--outer-ring);
+                  background: var(--input-outer-rings);
                   position: absolute;
                   right: -16vw;
                   display: flex;

@@ -1,15 +1,10 @@
-import React, { useState, useContext } from 'react'
-import Head from 'next/head'
+import React, { useState, useContext } from 'react';
+import Head from 'next/head';
 
-import App from '../components/App'
+import App from '../components/App';
 
-
-
-const Home = (props) => {
-
-  
+const Home = props => {
   const wallpaper = [
-    
     'https://images.unsplash.com/photo-1449156733864-dd5471bb7427?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     'https://images.unsplash.com/photo-1568832359672-e36cf5d74f54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
     'https://images.unsplash.com/photo-1488415032361-b7e238421f1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80 ',
@@ -24,32 +19,60 @@ const Home = (props) => {
     'https://images.unsplash.com/photo-1580137189272-c9379f8864fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
     'https://images.unsplash.com/photo-1521193089946-7aa29d1fe776?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
     'https://images.unsplash.com/photo-1515511856280-7b23f68d2996?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1506&q=80'
-  ]
-  
+  ];
 
-  const [wallpaperValue, setWallpaperValue] = useState(0)
-  const [faneTitle, setFaneTitle] = useState('')
- 
- 
+  const [wallpaperValue, setWallpaperValue] = useState(0);
+  const [faneTitle, setFaneTitle] = useState('');
 
-  
-return (
-  <div>
-    <Head>
-      
-      <script src="https://kit.fontawesome.com/f889c3af6d.js"></script>
-      <link rel="icon" href="/favicon.ico" />
-      <title>{faneTitle}</title>
-     
-      
-    </Head>
-   
-     <App wallpaperValue={setWallpaperValue} faneTitle={setFaneTitle}/>
-   
-    
-     <style global jsx>{`
-        
-        :root {
+  /***************  colors ******************/
+
+  const [innerRing, setInnerRing] = useState('linear-gradient(rgb(112, 200, 153),rgb(31, 58, 47))');
+  const [outerRings, setOuterRings] = useState('linear-gradient(rgb(128, 180, 204), rgb(28, 28, 82))');
+  // same color
+  const [inputOuterRings, setInputOuterRings] = useState('#004445')
+  const [titleInnerRings, setTitleInnerRings] = useState('#004445')
+  // same color
+  const [titleOuterRings, setTitleOuterRings] = useState('#6FB98F')
+  const [inputInnerRings, setinputInnerRings] = useState('#6FB98F')
+
+  return (
+    <div>
+      <Head>
+        <script src="https://kit.fontawesome.com/f889c3af6d.js"></script>
+        <link rel="icon" href="/favicon.ico" />
+        <title>{faneTitle}</title>
+      </Head>
+
+      <App wallpaperValue={setWallpaperValue} faneTitle={setFaneTitle} />
+
+      <style global jsx>{`
+          :root {
+            
+            --outer-ring: ${outerRings};
+            --inner-ring: ${innerRing};
+            --input-outer-rings: ${inputOuterRings};
+            --input-inner-rings: ${inputInnerRings};
+            --input-title-outer-rings: ${titleOuterRings};
+            --input-title-inner-rings: ${titleInnerRings};
+            --main-dark: #080f5b;
+            --brighter-dark: #d4dfdd;
+            --middle-bright: #15db95;
+            --darker-bright: #d14c4c;
+            --bright: #e4c580;
+
+            --searchPost: linear-gradient(
+              rgba(23, 20, 20, 1),
+              rgba(247, 110, 0, 1)
+            );
+            --searchPostBtn: rgba(247, 118, 0, 1);
+
+            --blue: rgb(128, 180, 204);
+            --rustyRed: #984b43;
+            --labels: linear-gradient(gray, gray);
+
+             
+          }
+          /*         :root {
   --main-dark: #080f5b;
   --brighter-dark: #d4dfdd;
   --middle-bright: #15db95;
@@ -64,25 +87,24 @@ return (
   --inner-ring: linear-gradient(rgb(112, 200, 153),rgb(31, 58, 47));
   --outer-ring: linear-gradient(rgb(128, 180, 204),rgb(28, 28, 82));
   --labels: linear-gradient(gray, gray)
-}
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),
-            url(${wallpaper[wallpaperValue]});
-          background-size: cover;
-          heigth: 100vh;
-          width: 100vw;
-          overflow: hidden;
-          box-sizing: border-box;
-}
+} */
+          body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+              'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+              'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),
+              url(${wallpaper[wallpaperValue]});
+            background-size: cover;
+            heigth: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            box-sizing: border-box;
+          }
 
-
-/* https://images.unsplash.com/photo-1579706783492-081a217cd55e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80 
+          /* https://images.unsplash.com/photo-1579706783492-081a217cd55e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80 
 
  https://images.unsplash.com/photo-1577255714682-69db9b067fda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80 
 
@@ -98,24 +120,24 @@ body {
 
 */
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+          code {
+            font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+              monospace;
+          }
 
-@media only screen and (max-width: 1600px) {
-  * {
-    font-size: .8vw
-  }
-}
-@media only screen and (max-width: 400px) {
-  * {
-    font-size: .9vw
-  }
-}
+          @media only screen and (max-width: 1600px) {
+            * {
+              font-size: 0.8vw;
+            }
+          }
+          @media only screen and (max-width: 400px) {
+            * {
+              font-size: 0.9vw;
+            }
+          }
         `}
-     </style>
-   </div>
-)
-}
-export default Home
+      </style>
+    </div>
+  );
+};
+export default Home;

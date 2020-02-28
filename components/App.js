@@ -903,12 +903,12 @@ const App = props => {
         }
         .open-close-menu-btn {
           height: 3rem;
-          width: 7vw;
+          width: 8vw;
           position: absolute;
           left: 2rem;
           bottom: 4rem;
           outline: none;
-          border-radius: 5px;
+         
           background-color: lightblue;
           font-size: 15px;
           color: rgb(42, 42, 83);

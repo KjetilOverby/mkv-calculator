@@ -46,7 +46,7 @@ const SideBar = props => {
         .sidebar-container {
           width: 16vw;
           height: 100vh;
-          background: linear-gradient(rgb(68, 83, 70), black);
+          background: linear-gradient(#538874, #1e3b36);
           position: absolute;
           left: 0;
           top: 0;
@@ -64,9 +64,9 @@ const SideBar = props => {
         }
         .sidebar-buttons {
           height: 3.5rem;
-          width: 14rem;
+          width: 17rem;
           margin-bottom: 1rem;
-          border-radius: 5px;
+          
           outline: none;
 
           color: #065535;
@@ -85,12 +85,13 @@ const SideBar = props => {
           color: white; 
         }
         .sidebar-button-raw {
-            background: linear-gradient(120deg, var(--middle-bright) 50%, teal 50%);
+            background: linear-gradient(120deg, var(--input-inner-rings) 50%, var(--input-outer-rings) 50%);
           background-size: 220%;
         }
 
         .sidebar-button-fill {
-            background: linear-gradient(120deg, var(--blue) 50%, dodgerblue 50%);
+            background: linear-gradient(120deg, var(--input-outer-rings) 50%, var(--input-inner-rings) 50%);
+            color: var(--input-inner-rings);
           background-size: 220%;
         }
 

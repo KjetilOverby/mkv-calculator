@@ -4,6 +4,8 @@ import InputComponent from './InputComponent';
 
 const EndRingInput = props => {
   const color = 'color-title-outer'
+  const inputColor = 'input-color-green'
+  const placeholder = 'Ringer bak'
   return (
     <div>
       <InputComponent 
@@ -18,6 +20,8 @@ const EndRingInput = props => {
         close={props.openCloseEndInputWindow}
         hideInputComponent={props.hideEndInputComponent}
         color={color}
+        inputColor={inputColor}
+        placeholder={placeholder}
       />
     </div>
   );

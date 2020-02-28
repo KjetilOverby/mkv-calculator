@@ -140,20 +140,24 @@ const RawList = (props) => {
               </div>
             <style jsx>{`
                  table {
-                     background: #3D9970;
-                     width: 100%
+                     
+                     background: var(--input-inner-rings);
+                     width: 100%;
                  }
                  th, td {
                      text-align: center;
                      font-size: 1.3rem;
                      font-weight: bold;
-                     padding: .3rem .2rem
+                     padding: .3rem .2rem;
+                      
                  }
                   tr.even {
-                      background: #AAAAAA
+                    color: var(--input-inner-rings);
+                    background: var(--input-outer-rings);
+                      
                   }
                   tr {
-                      
+                    color: var(--input-outer-rings);
                   }
                   tr:hover {
                       background: black;
@@ -167,10 +171,11 @@ const RawList = (props) => {
                 .raw-list-container {
                     height: 100vh;
                   width: 16vw;
-                  background: var(--inner-ring);
+                  background: var(--input-outer-rings);
                   position: absolute;
                   right: -16vw;
-                  z-index: 100
+                  z-index: 100;
+                  color var(--input-inner-rings)
                 }
 
                 .raw-list {
