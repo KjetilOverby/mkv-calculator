@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const Settings = props => {
   const defaultColor = () => {
@@ -162,38 +163,41 @@ const Settings = props => {
     props.deleteBtn('orangered');
     props.deleteBtnHover('black');
   };
-
+   
+  const H1 = styled.h1`
+      color: white;
+  `
   return (
     <div className={`settings-container  ${props.class} `}>
+    <H1>Bakgrunner</H1>
       <div>
         <ul>
-          <li onClick={() => props.wallpaperValue(0)}>Bakgrunn 1</li>
-          <li onClick={() => props.wallpaperValue(1)}>Bakgrunn 2</li>
-          <li onClick={() => props.wallpaperValue(2)}>Bakgrunn 3</li>
-          <li onClick={() => props.wallpaperValue(3)}>Bakgrunn 4</li>
-          <li onClick={() => props.wallpaperValue(4)}>Bakgrunn 5</li>
-          <li onClick={() => props.wallpaperValue(5)}>Bakgrunn 6</li>
+          <li onClick={() => props.wallpaperValue(0)}>Northern light</li>
+          <li onClick={() => props.wallpaperValue(1)}>Blue Plant</li>
+          <li onClick={() => props.wallpaperValue(2)}>Montain Road</li>
+          <li onClick={() => props.wallpaperValue(3)}>Gray Texture</li>
+          <li onClick={() => props.wallpaperValue(4)}>Sunny Atmosphere</li>
+          <li onClick={() => props.wallpaperValue(5)}>Night Sky</li>
           <li onClick={() => props.wallpaperValue(6)}>Bakgrunn 7</li>
-          <li onClick={() => props.wallpaperValue(7)}>Bakgrunn 8</li>
-          <li onClick={() => props.wallpaperValue(8)}>Bakgrunn 9</li>
-          <li onClick={() => props.wallpaperValue(9)}>Bakgrunn 10</li>
-          <li onClick={() => props.wallpaperValue(10)}>Bakgrunn 11</li>
-          <li onClick={() => props.wallpaperValue(11)}>Bakgrunn 12</li>
+          <li onClick={() => props.wallpaperValue(7)}>Outer Space</li>
+          <li onClick={() => props.wallpaperValue(8)}>Evening Montain</li>
+          <li onClick={() => props.wallpaperValue(9)}>Africa</li>
+       
          
         
         </ul>
       </div>
-
+        <H1>Farge Tema</H1>
       <div>
         <ul>
-          <li onClick={defaultColor}>Default</li>
-          <li onClick={changeColor}>Color Theme</li>
-          <li onClick={changeColor2}>Color Theme 2</li>
-          <li onClick={changeColor3}>Color Theme 3</li>
-          <li onClick={changeColor4}>Color Theme 4</li>
-          <li onClick={changeColor5}>Color Theme 5</li>
-          <li onClick={changeColor6}>Color Theme 6</li>
-          <li onClick={changeColor7}>Transparent</li>
+          <li onClick={defaultColor}>Watery Blue-Greens</li>
+          <li onClick={changeColor}>Versatile</li>
+          <li onClick={changeColor2}>Neutrals</li>
+          <li onClick={changeColor3}>Purple Mint</li>
+          <li onClick={changeColor4}>Color Black Purple</li>
+          <li onClick={changeColor5}>Black Orange</li>
+          <li onClick={changeColor6}>Blue Mint</li>
+          <li onClick={changeColor7}>Orange Transparency</li>
         </ul>
       </div>
 
@@ -223,7 +227,7 @@ const Settings = props => {
           margin-bottom: 1rem;
           border-radius: 5px;
           outline: none;
-          color: #065535;
+          color: #D09683;
           font-size: 13px;
           border: none;
           position: absolute;
@@ -238,12 +242,12 @@ const Settings = props => {
           text-decoration: none;
 
           transition: background 0.3s, color 0.3s;
-          background: linear-gradient(120deg, orange 50%, orangered 50%);
+          background: linear-gradient(120deg, #73605B  50%, #D09683 50%);
           background-size: 220%;
         }
         .btn-settings:hover {
           background-position: 100%;
-          color: yellow;
+          color: #73605B;
         }
 
         .settings-container ul li {
