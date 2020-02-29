@@ -845,7 +845,7 @@ const App = props => {
             bladeThickness={bladeThickness}
             bladeThicknessTop={sagSnitt}
             ringValue={(Number(rawInputrings.input) + Number(vigg) * 2).toFixed(
-              2
+              1
             )}
             rawInputWindow={rawInputWindow}
             rawValue={rawInputrings.input}
