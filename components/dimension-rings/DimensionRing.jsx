@@ -15,11 +15,12 @@ const DimensionRings = props => {
     padding: 1rem;
     margin-left: .5rem;
     font-style: italic;
-    font-size: 1rem;
+    
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    
     
     
   `;
@@ -73,6 +74,10 @@ const DimensionRings = props => {
       
 
       <style jsx>{`
+      p {
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
         .blade-supercontainer {
           display: inline-block;
           max-width: 500px;

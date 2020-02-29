@@ -51,64 +51,64 @@ const Settings = props => {
 
 
 
-    props.inputOuterRings('#720017')
-    props.titleInnerRings('#720017')
+    props.inputOuterRings('#372c2e')
+    props.titleInnerRings('#372c2e')
 
-    props.titleOuterRings('#D8D583')
-    props.inputInnerRings('#D8D583')
+    props.titleOuterRings('#DE9E48')
+    props.inputInnerRings('#DE9E48')
 
-    props.searchBg('#720017')
+    props.searchBg('#372c2e')
     
 
-    props.searchPostBtn('#D8D583')
-    props.searchPostBtnHover('#720017')
+    props.searchPostBtn('#DE9E48')
+    props.searchPostBtnHover('#372c2e')
 
-    props.sidebarBg('#270101')
+    props.sidebarBg('#563727')
 
-    props.deleteBtn('#D9AC2A')
-    props.deleteBtnHover('#763F02')
+    props.deleteBtn('#De9E48')
+    props.deleteBtnHover('#7a431d')
 }
   const changeColor3 = () => {
 
 
 
-    props.inputOuterRings('#8D2F23')
-    props.titleInnerRings('#8D2F23')
+    props.inputOuterRings('#2e3047')
+    props.titleInnerRings('#2e3047')
 
-    props.titleOuterRings('#212027')
-    props.inputInnerRings('#212027')
+    props.titleOuterRings('#3bba9c')
+    props.inputInnerRings('#3bba9c')
 
-    props.searchBg('#8D2F23')
+    props.searchBg('#2e3047')
     
 
-    props.searchPostBtn('#212027')
-    props.searchPostBtnHover('#F22F08')
+    props.searchPostBtn('#3bba9c')
+    props.searchPostBtnHover('#2e3047')
 
-    props.sidebarBg('#594346')
+    props.sidebarBg('#3C3F58')
 
-    props.deleteBtn('#f22f08')
-    props.deleteBtnHover('#212027')
+    props.deleteBtn('#707793')
+    props.deleteBtnHover('#3BBA9c')
 }
   const changeColor4 = () => {
 
 
 
-    props.inputOuterRings('#8A5D59')
-    props.titleInnerRings('#8A5D59')
+    props.inputOuterRings('#000')
+    props.titleInnerRings('#000')
 
-    props.titleOuterRings('#F4F2B1')
-    props.inputInnerRings('#F4F2B1')
+    props.titleOuterRings('#9615db')
+    props.inputInnerRings('#9615db')
 
-    props.searchBg('#8A5D59')
+    props.searchBg('#000')
     
 
-    props.searchPostBtn('#F4F2B1')
-    props.searchPostBtnHover('#8A5D59')
+    props.searchPostBtn('#9615db')
+    props.searchPostBtnHover('#000')
 
-    props.sidebarBg('#415939')
+    props.sidebarBg('#2d3032')
 
-    props.deleteBtn('#D75404')
-    props.deleteBtnHover('#F08B33')
+    props.deleteBtn('#555759')
+    props.deleteBtnHover('#d2d3d3')
 }
   const changeColor5 = () => {
 
@@ -126,7 +126,7 @@ const Settings = props => {
     props.searchPostBtn('#F08b33')
     props.searchPostBtnHover('#07000E')
 
-    props.sidebarBg('#8A2C02')
+    props.sidebarBg('#202020')
 
     props.deleteBtn('#D75404')
     props.deleteBtnHover('#EECC8D')
@@ -135,22 +135,43 @@ const Settings = props => {
 
 
 
-    props.inputOuterRings('#23345C')
-    props.titleInnerRings('#23345C')
+    props.inputOuterRings('#051622')
+    props.titleInnerRings('#051622')
 
-    props.titleOuterRings('#Bd8A44')
-    props.inputInnerRings('#Bd8A44')
+    props.titleOuterRings('#1ba098')
+    props.inputInnerRings('#1ba098')
 
-    props.searchBg('#23345C')
+    props.searchBg('#051622')
     
 
-    props.searchPostBtn('#Bd8A44')
-    props.searchPostBtnHover('#23345C')
+    props.searchPostBtn('#1ba098')
+    props.searchPostBtnHover('#051622')
 
-    props.sidebarBg('#582A20')
+    props.sidebarBg('#2b2b2a')
 
-    props.deleteBtn('#F1BA48')
-    props.deleteBtnHover('#BD8A44')
+    props.deleteBtn('#DEB992')
+    props.deleteBtnHover('#1ba098')
+}
+  const changeColor7 = () => {
+
+
+
+    props.inputOuterRings('black')
+    props.titleInnerRings('black')
+
+    props.titleOuterRings('orangered')
+    props.inputInnerRings('orangered')
+
+    props.searchBg('')
+    
+
+    props.searchPostBtn('orangered')
+    props.searchPostBtnHover('black')
+
+    props.sidebarBg('')
+
+    props.deleteBtn('orangered')
+    props.deleteBtnHover('black')
 }
 
   return (
@@ -186,6 +207,7 @@ const Settings = props => {
         <li onClick={changeColor4}>Color Theme 4</li>
         <li onClick={changeColor5}>Color Theme 5</li>
         <li onClick={changeColor6}>Color Theme 6</li>
+        <li onClick={changeColor7}>Transparent</li>
       </ul>
  </div>
 

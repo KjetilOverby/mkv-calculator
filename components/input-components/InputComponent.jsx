@@ -133,10 +133,10 @@ const InputComponent = props => {
             margin: 0.4rem 0;
           }
           .btn-common-input {
-            height: 5vh;
+            height: 3vh;
             width: 12rem;
             margin: 0.2rem 0.5rem;
-
+             
             outline: none;
             border: none;
             font-weigth: 100;
@@ -164,7 +164,7 @@ const InputComponent = props => {
           }
           @media only screen and (max-width: 1600px) {
             .btn-common-input {
-              height: 5vh;
+              height: 4.5vh;
             }
           }
         `}
