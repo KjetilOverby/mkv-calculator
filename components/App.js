@@ -411,6 +411,17 @@ const App = props => {
   };
   const openSettings = () => {
     setHideSettings('show-settings');
+    if(rawInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if(startInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if (searchPostWindow) {
+      setTypeDisplayMove('stay-down')
+    } else if(endInputWindow) {
+      setTypeDisplayMove('stay-down')
+    } else {
+      setTypeDisplayMove('stay-up')
+    }
   };
 
   useEffect(() => {
@@ -759,6 +770,7 @@ const App = props => {
         postListHover={props.postListHover}
         deleteBtn={props.deleteBtn}
         deleteBtnHover={props.deleteBtnHover}
+
       />
       {sidebar && (
         <SideBar

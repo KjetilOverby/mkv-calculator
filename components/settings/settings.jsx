@@ -178,10 +178,10 @@ const Settings = props => {
           <li onClick={() => props.wallpaperValue(3)}>Gray Texture</li>
           <li onClick={() => props.wallpaperValue(4)}>Sunny Atmosphere</li>
           <li onClick={() => props.wallpaperValue(5)}>Night Sky</li>
-          <li onClick={() => props.wallpaperValue(6)}>Bakgrunn 7</li>
+          <li onClick={() => props.wallpaperValue(6)}>Purple Sky</li>
           <li onClick={() => props.wallpaperValue(7)}>Outer Space</li>
           <li onClick={() => props.wallpaperValue(8)}>Evening Montain</li>
-          <li onClick={() => props.wallpaperValue(9)}>Africa</li>
+         
        
          
         
@@ -218,6 +218,8 @@ const Settings = props => {
           top: 0;
           z-index: 500;
          
+          
+         
          
         
         }
@@ -252,14 +254,15 @@ const Settings = props => {
 
         .settings-container ul li {
           list-style: none;
-          transition: 0.5s;
+          transition: 0.3s;
           font-size: 1.2rem;
           color: seashell;
          
           margin-bottom: .1rem;
-          width: 14vw;
-          padding: .5rem;
+          width: 13vw;
+          padding: .5rem 1.5rem;
           margin-left: -4rem;
+          
           background: linear-gradient(120deg, rgba(255, 255, 255, .1) 50%, tan 50%);
           background-size: 220%;
         }
