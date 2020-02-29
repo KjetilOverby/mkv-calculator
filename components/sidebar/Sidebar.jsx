@@ -80,13 +80,14 @@ const SideBar = props => {
         }
         .sidebar-buttons:hover {
           
-        
+          
           background-position: 100%;
-          color: white; 
+          color: var(--input-outer-rings) ; 
         }
         .sidebar-button-raw {
-            background: linear-gradient(120deg, var(--input-inner-rings) 50%, var(--input-outer-rings) 50%);
+            background: linear-gradient(120deg, var(--input-outer-rings) 50%, var(--input-inner-rings) 50%);
           background-size: 220%;
+          color: var(--input-inner-rings)
         }
 
         .sidebar-button-fill {
@@ -102,6 +103,9 @@ const SideBar = props => {
         .post-arkiv {
             background: linear-gradient(120deg, var(--searchPostBtn) 50%, var(--searchPostBtnHover) 50%);
           background-size: 220%;
+        }
+        .post-arkiv:hover {
+          color: var(--input-inner-rings);
         }
 
         hr {

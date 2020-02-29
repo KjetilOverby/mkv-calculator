@@ -49,7 +49,7 @@ const InputComponent = props => {
             color: #7a2801;
           }
           .color-title-raw {
-            color: var(--input-title-inner-rings);
+            color: var(--input-title-outer-rings);
           }
           .color-title-outer {
             color: var(--input-title-outer-rings);
@@ -57,15 +57,24 @@ const InputComponent = props => {
 
           .input-fields {
             height: 3vh;
-            font-size: 1vw;
-            width: 8.8rem;
+            font-size: 1.5vw;
+            width: 13rem;
             border: none;
             background: transparent;
             padding: 0.3rem 0.7rem;
             outline: none;
             margin-right: 0.7rem;
+            font-weight: 100;
             
             
+            
+          }
+          input {
+            color: var(--input-title-outer-rings);
+           
+          }
+          input::placeholder {
+            color: var(--input-title-outer-rings);
           }
 
            .input-border-color-outer {
@@ -73,14 +82,14 @@ const InputComponent = props => {
                
            }
            .input-border-color-inner {
-               border-bottom: 1px solid var(--input-outer-rings)
+               border-bottom: 1px solid var(--input-inner-rings)
                
            }
            .input-color-outer {
             color: var(--input-inner-rings)
            }
            .input-color-inner {
-            color: var(--input-outer-rings)
+            color: var(--input-inner-rings)
            }
 
           .common-input-form {
@@ -89,7 +98,7 @@ const InputComponent = props => {
             padding-top: 1.5rem;
           }
           .raw-input-background {
-            background: var(--input-inner-rings);
+            background: var(--input-outer-rings);
           }
           .outer-rings-background {
             background: var(--input-outer-rings);
@@ -148,8 +157,8 @@ const InputComponent = props => {
             color: white;
           }
           .raw-btn-background {
-            background: var(--input-title-inner-rings);
-            color: var(--input-inner-rings);
+            background: var(--input-title-outer-rings);
+            color: var(--input-outer-rings);
           }
           .outer-btn-background {
             background: var(--input-title-outer-rings);

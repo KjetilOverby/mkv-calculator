@@ -5,6 +5,9 @@ import React from 'react';
 const Settings = props => {
 
  const defaultColor = () => {
+  props.innerRing('linear-gradient(#6FB98F, #004445)')
+  props.outerRings('linear-gradient(rgb(128, 180, 204), rgb(28, 28, 82))') 
+
   props.inputOuterRings('#004445')
   props.titleInnerRings('#004445')
 
@@ -25,8 +28,8 @@ const Settings = props => {
 
   const changeColor = () => {
 
-  /*   props.innerRing('linear-gradient(#8D230F,#C99E10')
-    props.outerRings('linear-gradient(blue, black)') */
+    props.innerRing('linear-gradient(#525B56, #132226)')
+    props.outerRings('linear-gradient(#BE9063, #040C0E)') 
 
     props.inputOuterRings('#132226')
     props.titleInnerRings('#132226')
@@ -49,7 +52,8 @@ const Settings = props => {
 }
   const changeColor2 = () => {
 
-
+    props.innerRing('linear-gradient(#563727, #132226)')
+    props.outerRings('linear-gradient(#DE9E48, #372c2e)') 
 
     props.inputOuterRings('#372c2e')
     props.titleInnerRings('#372c2e')
@@ -70,7 +74,8 @@ const Settings = props => {
 }
   const changeColor3 = () => {
 
-
+    props.innerRing('linear-gradient(#707793, #132226)')
+    props.outerRings('linear-gradient(#3bba9c, #2e3047)') 
 
     props.inputOuterRings('#2e3047')
     props.titleInnerRings('#2e3047')
@@ -91,7 +96,8 @@ const Settings = props => {
 }
   const changeColor4 = () => {
 
-
+    props.innerRing('linear-gradient(#9615db, #132226)')
+    props.outerRings('linear-gradient(#9615db, #000)') 
 
     props.inputOuterRings('#000')
     props.titleInnerRings('#000')
@@ -111,7 +117,8 @@ const Settings = props => {
     props.deleteBtnHover('#d2d3d3')
 }
   const changeColor5 = () => {
-
+    props.innerRing('linear-gradient(#D75404, #07000E)')
+    props.outerRings('linear-gradient(#F08b33, #07000E)') 
 
 
     props.inputOuterRings('#07000E')
@@ -133,7 +140,8 @@ const Settings = props => {
 }
   const changeColor6 = () => {
 
-
+    props.innerRing('linear-gradient(#DEB992, #051622)')
+    props.outerRings('linear-gradient(#1ba098, #051622)') 
 
     props.inputOuterRings('#051622')
     props.titleInnerRings('#051622')
@@ -154,7 +162,8 @@ const Settings = props => {
 }
   const changeColor7 = () => {
 
-
+    props.innerRing('linear-gradient(orangered ,black)')
+    props.outerRings('linear-gradient(orangered ,black)') 
 
     props.inputOuterRings('black')
     props.titleInnerRings('black')
