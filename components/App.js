@@ -113,7 +113,7 @@ const App = props => {
       setModalOpen(true);
     } else if (rawInput === '') {
       setWriteValModal(true);
-    } else if (rawInput > 80) {
+    } else if (rawInput > 120) {
       setTooHighModal(true);
     } else if (rawInput < 20) {
       setTooLowModal(true);
