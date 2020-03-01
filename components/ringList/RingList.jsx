@@ -134,6 +134,13 @@ const RingList = props => {
                }
                  
               }
+
+              @media only screen and (max-width: 800px) {
+              .ring-list-container {
+                width: 50vw;
+                right: -35vw;
+              }
+          }
             `}</style>
     </div>
   );

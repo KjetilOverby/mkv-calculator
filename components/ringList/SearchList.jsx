@@ -19,10 +19,14 @@ const SearchList = props => {
     overflow: auto;
 
     width: 100%;
+
+
+
+   
   `;
 
   return (
-    <div className={props.openSearchList}>
+    <div className={`post-list-container ${props.openSearchList}`}>
       <PostList>
         {props.sortPost.map((post, index) => (
           <h3 id={post.type.id} key={post.type.id} onClick={getPost}>
@@ -120,7 +124,16 @@ const SearchList = props => {
                   100% {transform: translateX(16vw) }
                }
                  
-              }
+               @media only screen and (max-width: 800px) {
+               .post-list-container {
+                 width: 100vw;
+                 overflow: auto;
+                
+               }
+               h3 {
+                 font-size: 5rem;
+               }
+          }
             `}</style>
     </div>
   );

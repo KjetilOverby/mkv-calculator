@@ -125,6 +125,20 @@ const SideBar = props => {
           width: 80%;
           margin: 4rem 0;
         }
+    
+        @media only screen and (max-width: 800px) {
+            .sidebar-container {
+              width: 50vw;
+             
+            }
+            .sidebar-buttons {
+              font-size: 4rem;
+              height: 9rem;
+              width: 45rem;
+            }
+          }
+
+
       `}</style>
     </div>
   );

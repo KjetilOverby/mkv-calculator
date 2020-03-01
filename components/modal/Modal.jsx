@@ -23,24 +23,28 @@ const Modal = props => {
           animation: fadeIn .5s
         }
         .modal h1 {
-            color: #f03434;
+            color: var(--input-title-inner-rings);
             font-size: 4rem
         }
         .modal p {
             font-size: 1.5rem;
+            color: var(--input-title-inner-rings);
 
         }
         .modal button {
             height: 2rem;
             width:5rem;
-            background: #ffec8b;
+            background: var(--input-title-inner-rings);
+            color: var(--input-title-outer-rings);
             border-radius: 5px;
             border: none;
             transition: .5s;
+            outline: none;
         }
         .modal button:hover {
-            background: #f4d03f
-        }
+            background: var(--input-title-outer-rings);
+            color: var(--input-title-inner-rings)
+                    }
 
         @keyframes fadeIn {
           from {
@@ -74,7 +78,7 @@ const Modal = props => {
         .modal {
           height: 30vh;
           width: 50vw;
-          background: var(--bright);
+          background: var(--input-title-outer-rings);
           position: absolute;
           left: 50%;
           margin-left: -50vh;

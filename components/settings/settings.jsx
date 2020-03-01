@@ -187,7 +187,7 @@ const Settings = props => {
         
         </ul>
       </div>
-        <H1>Farge Tema</H1>
+        <H1><span style={{color: 'indianred'}}>Farge</span> Tema</H1>
       <div>
         <ul>
           <li onClick={defaultColor}>Watery Blue-Greens</li>
@@ -225,9 +225,9 @@ const Settings = props => {
         }
         .btn-settings {
           height: 3.5rem;
-          width: 14rem;
+          width: 14vw;
           margin-bottom: 1rem;
-          border-radius: 5px;
+         
           outline: none;
           color: #D09683;
           font-size: 13px;
@@ -298,6 +298,23 @@ const Settings = props => {
             transform: translateX(-16vw);
           }
         }
+
+
+
+        @media only screen and (max-width: 800px) {
+          .settings-container {
+            width: 50vw;
+            left: -60vw;
+          }
+          .show-settings {
+            left: -20vw;
+          }
+          .settings-container ul li {
+            font-size: 3rem;
+            width: 40vw;
+          }
+          }
+
       `}</style>
     </div>
   );

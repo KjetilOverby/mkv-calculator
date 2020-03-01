@@ -67,7 +67,7 @@ const App = props => {
   const [openBladeThicknessChooser, setOpenBladeThicknessChooser] = useState(
     false
   );
-
+ 
   /*********************** startRing input ***********************/
 
   const [startRingInput, setStartRingInput] = useState('');
@@ -553,6 +553,7 @@ const App = props => {
     setRingDelete('ring-delete');
     setStartRingDelete('start-delete');
     setEndRingDelete('end-delete');
+    
     setPostIndex();
 
     setTimeout(() => {
@@ -889,6 +890,9 @@ const App = props => {
 
       {/*  <h1 style={{ color: 'white' }}>{lengthStartAxl}</h1>
       <h1 style={{ color: 'white' }}>{dimensionRingAddition}</h1> */}
+
+
+      
 
       <style global jsx>{`
         .ring-component-container {

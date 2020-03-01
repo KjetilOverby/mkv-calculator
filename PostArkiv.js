@@ -2,6 +2,7 @@ import { createContext } from 'react';
 import uuid from 'uuid/v4';
 
 const DataPost = createContext([
+  
   {
     type: { name: '2x25 - 18% - 4.0', id: uuid() },
     bladType: "2.6 - 4.0",
@@ -563,7 +564,59 @@ const DataPost = createContext([
     shims: 0.5
   },
       /**************** 2.8 - 4.2 12-18% ******************/
-
+      {
+        type: { name: '1 blad i midten - 4.2', id: uuid() },
+        bladType: "2.8 - 4.2",
+        bladeThickness: ['2.8'],
+        sagSnitt: ['4.2'],
+        percent: '',
+        startRings: [
+          { input: '6', id: uuid() },
+          { input: '10', id: uuid() },
+          { input: '37.5', id: uuid() },
+          { input: '66.4', id: uuid() },
+          { input: '78.7', id: uuid() },
+          
+        ],
+        rawInput: [
+          
+         
+        ],
+        endRings: [
+          { input: '54.6', id: uuid() },
+          { input: '46.9', id: uuid() },
+          { input: '25.6', id: uuid() },
+          { input: '10', id: uuid() },
+          { input: '78.7', id: uuid() },
+        ],
+        sagsnitt: [0],
+        
+      },
+      {
+        type: { name: '1x100 - 4.2', id: uuid() },
+        bladType: "2.8 - 4.2",
+        bladeThickness: ['2.8'],
+        sagSnitt: ['4.2'],
+        percent: '',
+        startRings: [
+          { input: '11', id: uuid() },
+          { input: '80', id: uuid() },
+          { input: '53.1', id: uuid() }
+          
+        ],
+        rawInput: [
+          
+          { input: 104.8, id: uuid() }
+        ],
+        endRings: [
+          { input: '37.5', id: uuid() },
+          { input: '25.1', id: uuid() },
+          { input: '20', id: uuid() },
+          { input: '78.7', id: uuid() }
+        ],
+        sagsnitt: [4.2],
+        
+      },
      
      
       {
