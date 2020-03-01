@@ -120,7 +120,8 @@ const SideBar = props => {
         }
 
         hr {
-          background: gray;
+        
+          color: var(--input-inner-rings);
           width: 80%;
           margin: 4rem 0;
         }
