@@ -108,20 +108,21 @@ const SideBar = props => {
           background-size: 220%;
         }
         .post-arkiv {
+          color: var(--input-inner-rings);
           background: linear-gradient(
             120deg,
-            var(--searchPostBtn) 50%,
-            var(--searchPostBtnHover) 50%
+            var(--searchPostBtnHover) 50%,
+            var(--searchPostBtn) 50%
           );
           background-size: 220%;
         }
         .post-arkiv:hover {
-          color: var(--input-inner-rings);
+          color: var(--input-outer-rings);
         }
 
         hr {
         
-          color: var(--input-inner-rings);
+          color: var(--input-outer-rings);
           width: 80%;
           margin: 4rem 0;
         }

@@ -200,6 +200,32 @@ const DataPost = createContext([
     sagsnitt: [4.0, 4.0]
   },
   {
+    type: { name: '2x65 - 18% - 4.0', id: uuid() },
+    bladType: "2.6 - 4.0",
+    bladeThickness: ['2.6'],
+    sagSnitt: ['4.0'],
+    percent: '18',
+    startRings: [
+      { input: 1, id: uuid() },
+      { input: 46.9, id: uuid() },
+      { input: 78.7, id: uuid() }
+     
+    ],
+    rawInput: [
+      
+      { input: 68.1, ring: 66.4, shims: 2.8, shims: 2.8, shims2: 0.3, id: uuid() },
+      { input: 68.1, ring: 66.4, shims: 2.8, shims: 2.8, shims2: 0.3, id: uuid() }
+      
+      
+    ],
+    endRings: [
+      { input: 53.1, id: uuid() },
+      { input: 12, id: uuid() },
+      { input: 78.7, id: uuid() }
+    ],
+    sagsnitt: [4.0, 4.0]
+  },
+  {
     type: { name: '2x34 - 18% - 4.0', id: uuid() },
     bladType: "2.6 - 4.0",
     bladeThickness: ['2.6'],
