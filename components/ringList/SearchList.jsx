@@ -41,6 +41,7 @@ const SearchList = props => {
           width: 80%;
            cursor: pointer;
            transition: .2s;
+           font-weight: 600;
            font-size: 1.2rem;
            border: 1px solid var(--input-inner-rings);
            color: var(--input-inner-rings);
@@ -48,6 +49,7 @@ const SearchList = props => {
            border-radius: 5px;
            padding: .5rem .5rem;
            margin-left:1rem;
+
            transition: background 0.3s, color 0.3s;
           background: linear-gradient(120deg, transparent 50%, var(--input-inner-rings) 50%);
           background-size: 220%;
@@ -102,7 +104,7 @@ const SearchList = props => {
                    }
               .show-search-list {
                   display: block;
-                  animation: showSearchList .2s;
+                  animation: showSearchList .4s;
                   -webkit-animation-fill-mode: forwards, none;
                   right: -16vw;
                   display: flex;
@@ -112,7 +114,7 @@ const SearchList = props => {
 
               }
               .hide-search-list {
-                animation: hideSearchList .2s;
+                animation: hideSearchList .4s;
                 -webkit-animation-fill-mode: forwards, none;
                   right: 0;
                   

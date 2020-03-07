@@ -186,14 +186,14 @@ const RawList = (props) => {
                 }
                 .show-raw-list {
                   display: block;
-                  animation: showRawList .2s;
+                  animation: showRawList .4s;
                   -webkit-animation-fill-mode: forwards, none;
                   
                   right: -16vw;
 
               }
               .hide-raw-list {
-                animation: hideRawList .2s;
+                animation: hideRawList .4s;
                 -webkit-animation-fill-mode: forwards, none;
                 
                   right: 0;

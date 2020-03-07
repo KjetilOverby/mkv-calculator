@@ -121,11 +121,11 @@ const InputComponent = props => {
             margin-left: -34vw;
           }
           .hide-input-component {
-            animation: hideInputComponent 0.2s forwards, none;
+            animation: hideInputComponent 0.4s forwards, none;
             top: 0;
           }
           .show-input-component {
-            animation: showInputComponent 0.2s forwards, none;
+            animation: showInputComponent 0.4s forwards, none;
           }
           @keyframes hideInputComponent {
             100% {

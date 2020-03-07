@@ -111,7 +111,7 @@ const RingList = props => {
                    }
               .show-ring-list {
                   display: block;
-                  animation: showRingList .2s;
+                  animation: showRingList .4s;
                   -webkit-animation-fill-mode: forwards, none;
                   right: -16vw;
                   display: flex;
@@ -121,7 +121,7 @@ const RingList = props => {
 
               }
               .hide-ring-list {
-                animation: hideRingList .2s;
+                animation: hideRingList .4s;
                 -webkit-animation-fill-mode: forwards, none;
                   right: 0;
                   
