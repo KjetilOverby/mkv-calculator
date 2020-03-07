@@ -7,7 +7,7 @@ const TypeDisplay = (props) => {
     const Container = styled.div`
         position: absolute;
         background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
-        width: 50rem;
+        min-width: 50rem;
         display: flex;
         justify-content: center;
         color: orange;
