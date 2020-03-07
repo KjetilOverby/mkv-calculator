@@ -2363,6 +2363,56 @@ const DataPost = createContext([
     sagsnitt: [4.2, 4.2, 4.2, 4.2]
   },
   {
+    type: { name: '3x31 - 18% - 4.2 (32.2)', id: uuid() },
+    bladType: "2.8 - 4.2",
+    bladeThickness: ['2.8'],
+    sagSnitt: ['4.2'],
+    percent: '18',
+    startRings: [
+      { input: 12, id: uuid() },
+      { input: 40, id: uuid() },
+      { input: 25.6, id: uuid() },
+      { input: 66.4, id: uuid() }
+    ],
+    rawInput: [
+      { input: 32.2, ring: 30.4, shims: 3.2, id: uuid() },
+      { input: 32.2, ring: 30.4, shims: 3.2, id: uuid() },
+      { input: 32.2, ring: 30.4, shims: 3.2, id: uuid() }
+    ],
+    endRings: [
+      { input: 27.6, id: uuid() },
+      { input: 44.9, id: uuid() },
+      { input: 10, id: uuid() },
+      { input: 78.7, id: uuid() }
+    ],
+    sagsnitt: [4.2, 4.2, 4.2]
+  },
+  {
+    type: { name: '4x31 - 18% - 4.2 (32.2)', id: uuid() },
+    bladType: "2.8 - 4.2",
+    bladeThickness: ['2.8'],
+    sagSnitt: ['4.2'],
+    percent: '18',
+    startRings: [
+      { input: 5, id: uuid() },
+      { input: 80, id: uuid() },
+      { input: 40.8, id: uuid() }
+    ],
+    rawInput: [
+      { input: 32.2, ring: 30.4, shims: 3.2, id: uuid() },
+      { input: 32.2, ring: 30.4, shims: 3.2, id: uuid() },
+      { input: 32.2, ring: 30.4, shims: 3.2, id: uuid() },
+      { input: 32.2, ring: 30.4, shims: 3.2, id: uuid() }
+    ],
+    endRings: [
+      { input: 34.6, id: uuid() },
+      { input: 40, id: uuid() },
+      { input: 2, id: uuid() },
+      { input: 66.4, id: uuid() }
+    ],
+    sagsnitt: [4.2, 4.2, 4.2, 4.2]
+  },
+  {
     type: { name: '4x50/38 - 18% - 4.2', id: uuid() },
     bladType: "2.8 - 4.2",
     bladeThickness: ['2.8'],
