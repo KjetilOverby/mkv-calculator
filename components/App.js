@@ -548,6 +548,8 @@ const App = props => {
   };
 
   /*********************** Delete ***********************/
+
+  const [disableDeleteAllBtn, setDisableDeleteAllBtn] = useState(false)
   const masterDelete = () => {
     setBladeDelete('blade-delete');
     setRingDelete('ring-delete');
@@ -576,8 +578,7 @@ const App = props => {
       setEndLabel([]);
       setEndRingInputData([]);
       setEndRingInputForLabel([0]);
-      setEndLabel(217.2);
-      setStartLabel(200);
+      
       setBladeDelete('');
       setRingDelete('');
       setStartRingDelete('');
@@ -585,6 +586,7 @@ const App = props => {
       setDeleteTransition('');
       setSagSnittSum([sagSnitt]);
       setBladeThickness(bladeThickness);
+      
     }, 1000);
   };
 
@@ -711,6 +713,7 @@ const App = props => {
             setSagSnittSum([...post.sagsnitt]);
 
             setTestingContext(false);
+            setDisableDeleteAllBtn(true)
           }
         }, [testingContext]);
       })}
@@ -781,6 +784,7 @@ const App = props => {
           openCloseSearchPostInput={openCloseSearchPostInput}
           masterDelete={masterDelete}
           openSettings={openSettings}
+          disableDeleteAllBtn={disableDeleteAllBtn}
         />
       )}
 

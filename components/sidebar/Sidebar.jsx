@@ -24,13 +24,15 @@ const SideBar = props => {
       <button
         onClick={props.masterDelete}
         className="sidebar-buttons delete-all"
+        disabled={props.disableDeleteAllBtn}
       >
-        Slett all data
+        {props.disableDeleteAllBtn ? 'Disabled' : 'Slett post'}
       </button>
       <hr />
       <button
         onClick={props.openCloseSearchPostInput}
         className="sidebar-buttons post-arkiv"
+
       >
         Post arkiv
       </button>
