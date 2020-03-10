@@ -132,7 +132,7 @@ const App = props => {
     }
   };
 
-  const [disableDeleteAllBtn, setDisableDeleteAllBtn] = useState(true)
+  const [disableDeleteAllBtn, setDisableDeleteAllBtn] = useState(false)
   /************************** Lifecycle **********************/
 
   useEffect(() => {
@@ -209,18 +209,32 @@ const App = props => {
   /***************** Set labels **********************/
 
 
-  
+  const [fillValueStartStatic, setFillValueStartStatic] = useState()
+  const [fillEndValueStatic, setFillEndValueStatic] = useState()
  
 
   useEffect(() => {
-    setStartLabel(
-      200 - (sagSnittSumCalculated + rawInputDataSum) / 2 - startRingsumForLabel
-    );
-    setEndLabel(
-      217.2 -
-        (sagSnittSumCalculated + rawInputDataSum) / 2 -
-        endRingInputForLabel
-    );
+    const dividedBladeThickness = bladeThickness/2
+    const ringValue = rawInputDataSum + sagSnittSumCalculated
+    const minusOnStartLabel = (ringValue) / 2;
+    const fillValueEnd = 217.2 - (minusOnStartLabel + dividedBladeThickness).toFixed(2);
+    const fillValueStart = 200 - (minusOnStartLabel + dividedBladeThickness).toFixed(2);
+if(fillValueStart === startRingsumForLabel) {
+    setStartLabel(0)
+} else if(startRingsumForLabel != fillValueStart) {
+  setStartLabel((fillValueStart - startRingsumForLabel).toFixed(2));
+}
+   
+
+
+   if(fillValueEnd === endRingInputForLabel) {
+     setEndLabel('0')
+   } else if (endRingInputForLabel !=fillValueEnd) {
+    setEndLabel((fillValueEnd - endRingInputForLabel).toFixed(2));
+   }
+
+    setFillValueStartStatic(fillValueStart.toFixed(1))
+    setFillEndValueStatic(fillValueEnd.toFixed(1))
   });
 
   useEffect(() => {
@@ -276,14 +290,14 @@ const App = props => {
   useEffect(() => {
     const endLabelCalc = Number(sagSnitt) + Number(endLabel);
 
-    if (endLabelCalc <= 7 && endLabelCalc >= 4) {
+    if (endLabel <= 0.05 && endLabel >= -0.05) {
       setCorrectLabel('label-container-correct');
     } else {
       setCorrectLabel('');
     }
     const startLabelCalc = Number(sagSnitt) + Number(startLabel);
 
-    if (startLabelCalc <= 7 && startLabelCalc >= 4) {
+    if (startLabel <= 0.05 && startLabel >= -0.05) {
       setCorrectLabel2('label-container-correct2');
     } else {
       setCorrectLabel2('');
@@ -854,9 +868,10 @@ setRawInputData([]);
 
       <div className="ring-component-container">
         <Hylse
-          startLabelStatic={200 - startLabelStatic}
-          startLabel={(startLabel - bladeThickness / 2).toFixed(2)}
-          endLabel={(endLabel - bladeThickness / 2).toFixed(2)}
+          startLabelStatic={fillValueStartStatic}
+          EndLabelStatic={fillEndValueStatic}
+          startLabel={startLabel}
+          endLabel={endLabel}
           correctLabel={correctLabel}
           correctLabel2={correctLabel2}
         />

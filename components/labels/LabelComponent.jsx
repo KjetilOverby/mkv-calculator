@@ -9,15 +9,17 @@ const LabelComponent = props => {
           
           position: absolute;
           left: -3rem;
-          bottom: -15rem;
+          bottom: -10rem;
           width: 6rem;
-          border-radius: 10px;
+          border-radius: 5px;
           display: flex;
           justify-content: center;
+          align-items: center;
           font-size: 1.5rem;
           color: white;
           font-weight: bold;
           background: red;
+          height: 4.5vh;
           
           
 
