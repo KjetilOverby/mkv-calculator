@@ -56,18 +56,24 @@ const App = props => {
 
   /*********************** Blade **************************/
   const [bladeThickness, setBladeThickness] = useState(2.8);
+  const [BladeThicknessHalf, setBladeThicknessHalf] = useState(bladeThickness / 2)
   const [bladeThicknesSum, setBladeThicknesSum] = useState([bladeThickness]);
 
   const [sagSnitt, setSagSnitt] = useState(4.2);
 
   const [sagSnittSum, setSagSnittSum] = useState([0]);
-  const [sagSnittSumCalculated, setSagSnittSumCalculated] = useState([]);
+  const [sagSnittSumCalculated, setSagSnittSumCalculated] = useState([0]);
   const vigg = 0.7;
 
   const [openBladeThicknessChooser, setOpenBladeThicknessChooser] = useState(
     false
   );
  
+ 
+
+
+
+
   /*********************** startRing input ***********************/
 
   const [startRingInput, setStartRingInput] = useState('');
@@ -91,6 +97,7 @@ const App = props => {
         { input: startRingInput, id: uuid() }
       ]);
       setSagSnittSum([...sagSnittSum, sagSnitt]);
+     
 
       setStartRingInput('');
       setPostIndex();
@@ -119,64 +126,44 @@ const App = props => {
       setTooLowModal(true);
     } else {
       setRawInputData([...rawInputData, { input: rawInput, id: uuid() }]);
-
+     
       setRawInput('');
       setPostIndex();
     }
   };
+
+  const [disableDeleteAllBtn, setDisableDeleteAllBtn] = useState(true)
   /************************** Lifecycle **********************/
 
   useEffect(() => {
-    setStartRingInputData([]);
+    //setStartRingInputData([]);
     setEndRingInputData([]);
     setRawInputData([]);
-    setRawInputDataSum([0]);
-    setRawInputDataSumForLabel([0]);
-    setStartRingsumForLabel([0]);
-    setSagSnittSumCalculated([0]);
-    setSagSnittSum([0]);
+    //setRawInputDataSum([0]);
+    //setRawInputDataSumForLabel([0]);
+    //setStartRingsumForLabel([0]);
+    //setSagSnittSumCalculated([0]);
+    //setSagSnittSum([0]);
     setEndLabel([]);
     setEndRingInputData([]);
-    setEndRingInputForLabel([0]);
-    setEndLabel(217.2);
-    setStartLabel(200);
+    //setEndRingInputForLabel([0]);
+    //setEndLabel(217.2);
+    //setStartLabel(200);
     setBladeDelete('');
     setRingDelete('');
     setStartRingDelete('');
     setEndRingDelete('');
     setDeleteTransition('');
-    setSagSnittSum([sagSnitt]);
+    //setSagSnittSum([sagSnitt]);
     setHideSettings('hide-settings');
+   
   }, []);
 
   const [finalCalcLabel, setFinalCalcLabel] = useState('');
   useEffect(() => {
     setStartLabelStatic(startRingsumForLabel);
   });
-  /*   useEffect(() => {
-    if (startRingInputData.length > 0) {
-      setStartRingsumForLabel(
-        startRingInputData.reduce(
-          (num, { input }) => Number(num) + Number(input),
-          0
-        )
-      );
-    }
-  });
-  useEffect(() => {
-    if (endRingInputData.length > 0) {
-      setEndRingInputForLabel(
-        endRingInputData.reduce(
-          (num, { input }) => Number(num) + Number(input),
-          0
-        )
-      );
-    }
-  });
-  useEffect(() => {
-    setSagSnittSum([...sagSnittSum, sagSnitt]);
-  }, [sagSnitt]);
-  
+ 
 
 
   /***************Start ring sum calculations *******************/
@@ -203,14 +190,27 @@ const App = props => {
 
   /*******************Sagsnitt sum calculations *******************/
   useEffect(() => {
+   
     setRawInputDataSum(
       rawInputData.reduce((num, { input }) => Number(num) + Number(input), 0)
     );
+    
     setSagSnittSum([...sagSnittSum, sagSnitt]);
-
     setSagSnittSumCalculated(sagSnittSum.reduce((num1, num2) => num1 + num2));
-  }, [rawInputData]);
+    
+    
+  }, [rawInputData])
+
+  
+  
+ 
+
+
   /***************** Set labels **********************/
+
+
+  
+ 
 
   useEffect(() => {
     setStartLabel(
@@ -224,11 +224,16 @@ const App = props => {
   });
 
   useEffect(() => {
+   
+
     if (sagSnittSum.length > 0) {
       setSagSnittSumCalculated(sagSnittSum.reduce((num1, num2) => num1 + num2));
     }
     setSagSnittSum([0]);
   }, [sagSnitt]);
+
+
+ 
 
   /*************************************************** */
   useEffect(() => {
@@ -317,6 +322,7 @@ const App = props => {
 
   /*********************** SawBlade thickness ***********************/
   const blade1 = () => {
+    setBladeThicknessHalf(2.2/2)
     setBladeThickness(2.2);
     setSagSnitt(3.6);
     if (rawInputData) {
@@ -327,6 +333,7 @@ const App = props => {
     setOpenBladeThicknessChooser(false);
   };
   const blade2 = () => {
+    setBladeThicknessHalf(2.4/2)
     setBladeThickness(2.4);
     setSagSnitt(3.8);
     if (rawInputData) {
@@ -337,6 +344,7 @@ const App = props => {
     setOpenBladeThicknessChooser(false);
   };
   const blade3 = () => {
+    setBladeThicknessHalf(2.6 / 2)
     setBladeThickness(2.6);
     setSagSnitt((4.0).toFixed(1));
     if (rawInputData) {
@@ -347,16 +355,21 @@ const App = props => {
     setOpenBladeThicknessChooser(false);
   };
   const blade4 = () => {
+   setBladeThicknessHalf(2.8/2)
     setBladeThickness(2.8);
     setSagSnitt(4.2);
     if (rawInputData) {
       let blade4 = new Array(rawInputData.length).fill(4.2);
       setSagSnittSum(blade4);
+    
+     
       setPostIndex();
-    }
+      
+    } 
     setOpenBladeThicknessChooser(false);
   };
   const blade5 = () => {
+    setBladeThicknessHalf(3.0/2)
     setBladeThickness((3.0).toFixed(1));
     setSagSnitt(4.4);
     if (rawInputData) {
@@ -367,6 +380,7 @@ const App = props => {
     setOpenBladeThicknessChooser(false);
   };
   const blade6 = () => {
+    setBladeThicknessHalf(3.2/2)
     setBladeThickness(3.2);
     setSagSnitt(4.6);
     if (rawInputData) {
@@ -549,9 +563,9 @@ const App = props => {
 
   /*********************** Delete ***********************/
 
-  const [disableDeleteAllBtn, setDisableDeleteAllBtn] = useState(false)
+ 
   const masterDelete = () => {
-    setBladeDelete('blade-delete');
+  /*   setBladeDelete('blade-delete');
     setRingDelete('ring-delete');
     setStartRingDelete('start-delete');
     setEndRingDelete('end-delete');
@@ -560,34 +574,39 @@ const App = props => {
 
     setTimeout(() => {
       setDeleteTransition('delete-transition');
-    }, 400);
-
-    setTimeout(() => {
-      setStartRingInputData([]);
-      setEndRingInputData([]);
-      setRawInputData([]);
+setRawInputData([]);
       setRawInputDataSum([0]);
       setRawInputDataSumForLabel([0]);
       setStartRingsumForLabel([0]);
       setSagSnittSumCalculated([0]);
+      setSagSnittSum([sagSnitt]);
 
-      setRawInput('');
-      setStartRingInput('');
-      setEndRingInput('');
+      setStartRingInputData([]);
+      setStartRingsumForLabel([0])
 
-      setEndLabel([]);
+      setEndLabel(217.2);
+      setStartLabel(200);
+      
       setEndRingInputData([]);
       setEndRingInputForLabel([0]);
-      
+      blade4()
+     }, 400);
+    setTimeout(() => {
+     setRawInput('');
+      setStartRingInput('');
+      setEndRingInput('');
       setBladeDelete('');
       setRingDelete('');
       setStartRingDelete('');
       setEndRingDelete('');
       setDeleteTransition('');
-      setSagSnittSum([sagSnitt]);
-      setBladeThickness(bladeThickness);
       
-    }, 1000);
+    }, 1000); */
+    allStartRingDelete()
+    allRawInputDelete()
+    allEndRingDelete()
+    blade4()
+      
   };
 
   const allStartRingDelete = () => {
@@ -614,7 +633,7 @@ const App = props => {
       setSagSnittSumCalculated([0]);
       setSagSnittSum([sagSnitt]);
       setEndLabel(217.2);
-      setStartLabel(200);
+      //setStartLabel(200);
       setBladeDelete('');
       setRingDelete('');
       setDeleteTransition('');
@@ -697,6 +716,10 @@ const App = props => {
   });
 
   const [clickIndexPost, setClickIndexPost] = useState();
+
+
+  
+
 
   return (
     <div className="app-container">

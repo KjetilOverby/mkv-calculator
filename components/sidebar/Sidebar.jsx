@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+
 const SideBar = props => {
   return (
     <div className="sidebar-container">
@@ -109,6 +111,7 @@ const SideBar = props => {
           );
           background-size: 220%;
         }
+       
         .post-arkiv {
           color: var(--input-inner-rings);
           background: linear-gradient(

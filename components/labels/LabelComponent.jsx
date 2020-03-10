@@ -15,9 +15,9 @@ const LabelComponent = props => {
           display: flex;
           justify-content: center;
           font-size: 1.5rem;
-          color: var(--bright);
+          color: white;
           font-weight: bold;
-          background: indianred;
+          background: red;
           
           
 
@@ -28,12 +28,12 @@ const LabelComponent = props => {
       
        
         .label-container-correct {
-            background: linear-gradient(rgb(1, 152, 117), rgb(38, 194, 129));
-            
+            background: var(--input-title-inner-rings);
+            color: var(--input-title-outer-rings);
         }
         .label-container-correct2 {
-            background: linear-gradient(rgb(1, 152, 117), rgb(38, 194, 129));
-            
+            background: var(--input-title-inner-rings);
+            color: var(--input-title-outer-rings);
         }
         @media only screen and (max-width: 1600px) {
           .label-container p {

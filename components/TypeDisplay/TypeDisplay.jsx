@@ -6,11 +6,11 @@ const TypeDisplay = (props) => {
 
     const Container = styled.div`
         position: absolute;
-        background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
+        background: var(--input-title-inner-rings);
         min-width: 50rem;
         display: flex;
         justify-content: center;
-        color: orange;
+        color: var(--input-title-outer-rings);
         border-radius: 10px;
         top: 80vh;
         left: 50%;
