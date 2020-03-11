@@ -4,8 +4,8 @@ import DataPost from '../../PostArkiv';
 
 const SearchFilterPostInput = props => {
   const Button = styled.button`
-    height: 3.5rem;
-    width: 14rem;
+    height: 2.5rem;
+    width: 8rem;
     margin-bottom: 1rem;
     border-radius: 5px;
     outline: none;
@@ -26,8 +26,10 @@ const SearchFilterPostInput = props => {
   `;
   const H3container = styled.div`
     position: absolute;
-    left: 56vw;
+    left: 50vw;
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
   `;
   const ButtonContainer = styled.div`
     position: absolute;
@@ -69,6 +71,7 @@ const SearchFilterPostInput = props => {
 
         <H3container>
           <H3>Antall poster: {poster.length}</H3>
+          <H3>Søkeresultat: {props.searchResult}</H3>
         </H3container>
       </div>
 
@@ -91,6 +94,8 @@ const SearchFilterPostInput = props => {
           transition: background 0.5s, color 0.5s;
           color: var(--input-inner-rings);
           border: 1px solid var(--input-inner-rings);
+          margin-left: -53vw;
+          margin-top: 5vh;
         }
         .close-btn:hover {
           background-position: 100%;

@@ -84,24 +84,24 @@ const Settings = props => {
     props.deleteBtnHover('#3BBA9c');
   };
   const changeColor4 = () => {
-    props.innerRing('linear-gradient(#9615db, #132226)');
-    props.outerRings('linear-gradient(#9615db, #000)');
+    props.innerRing('linear-gradient(#9e672c, #000)');
+    props.outerRings('linear-gradient(120deg, #0d1c33, #191b1f)');
 
-    props.inputOuterRings('#000');
-    props.titleInnerRings('#000');
+    props.inputOuterRings('#0d1c33');
+    props.titleInnerRings('#0d1c33');
 
-    props.titleOuterRings('#9615db');
-    props.inputInnerRings('#9615db');
+    props.titleOuterRings('#9e672c');
+    props.inputInnerRings('#9e672c');
 
-    props.searchBg('#000');
+    props.searchBg('#0d1c33');
 
-    props.searchPostBtn('#9615db');
-    props.searchPostBtnHover('#000');
+    props.searchPostBtn('#9e672c');
+    props.searchPostBtnHover('#0d1c33');
 
     props.sidebarBg('#2d3032');
 
-    props.deleteBtn('#555759');
-    props.deleteBtnHover('#d2d3d3');
+    props.deleteBtn(' #9e672c');
+    props.deleteBtnHover('#0d1c33');
   };
   const changeColor5 = () => {
     props.innerRing('linear-gradient(#D75404, #07000E)');
@@ -178,7 +178,7 @@ const Settings = props => {
           <li onClick={() => props.wallpaperValue(3)}>Gray Texture</li>
           <li onClick={() => props.wallpaperValue(4)}>Sunny Atmosphere</li>
           <li onClick={() => props.wallpaperValue(5)}>Night Sky</li>
-          <li onClick={() => props.wallpaperValue(6)}>Purple Sky</li>
+          <li onClick={() => props.wallpaperValue(6)}>Clean color</li>
           <li onClick={() => props.wallpaperValue(7)}>Outer Space</li>
           <li onClick={() => props.wallpaperValue(8)}>Evening Montain</li>
          
@@ -194,7 +194,7 @@ const Settings = props => {
           <li onClick={changeColor}>Versatile</li>
           <li onClick={changeColor2}>Neutrals</li>
           <li onClick={changeColor3}>Purple Mint</li>
-          <li onClick={changeColor4}>Color Black Purple</li>
+          <li onClick={changeColor4}>Blue Gold</li>
           <li onClick={changeColor5}>Black Orange</li>
           <li onClick={changeColor6}>Blue Mint</li>
           <li onClick={changeColor7}>Orange Transparency</li>

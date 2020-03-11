@@ -710,6 +710,7 @@ setRawInputData([]);
   };
 
   const [getSearchPostArkivInput, setgetSearchPostArkivInput] = useState('');
+  const [searchResult, setSearchResult] = useState()
 
   const searchPostArkivInputFunc = e => {
     setgetSearchPostArkivInput(e.target.value);
@@ -719,7 +720,21 @@ setRawInputData([]);
     setSortPost(
       poster.filter(post => post.type.name.includes(getSearchPostArkivInput))
     );
+ 
+  
+    
   }, [getSearchPostArkivInput]);
+
+  useEffect(() => {
+
+    if(getSearchPostArkivInput === ''){
+     
+      setSearchResult('Ingen søk')
+    } else {
+    setSearchResult(poster.filter(post => post.type.name.includes(getSearchPostArkivInput)).length)
+    
+    }
+  })
 
   useEffect(() => {
     if (postIndex === undefined) {
@@ -766,6 +781,7 @@ setRawInputData([]);
         getSearchPostArkivInput={getSearchPostArkivInput}
         searchPostArkivInputFunc={searchPostArkivInputFunc}
         searchInput={getSearchPostArkivInput}
+        searchResult={searchResult}
       />
 
       {modalOpen && <TooMany openCloseModal={openCloseModal} />}
@@ -954,17 +970,17 @@ setRawInputData([]);
           bottom: 4rem;
           outline: none;
 
-          background-color: lightblue;
+          background-color: var(--input-title-outer-rings);
           font-size: 15px;
-          color: rgb(42, 42, 83);
+          color: var(--input-title-outer-rings);
           z-index: 110;
           border: none;
           transition: background 0.5s, color 0.5s;
-          background: linear-gradient(120deg, cadetblue 50%, darkslategray 50%);
+          background: linear-gradient(120deg, var(--input-title-inner-rings) 50%, var(--input-title-outer-rings) 50%);
           background-size: 220%;
         }
         .open-close-menu-btn:hover {
-          color: white;
+          color: var(--input-title-inner-rings);
           background-position: 100%;
         }
         .app-container {
