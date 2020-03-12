@@ -20,6 +20,7 @@ const RawInput = (props) => {
              color={color}
              inputColor={inputColor}
              placeholder={placeHolderRaw}
+             xInput={props.xInput}
             
              />
         </div>

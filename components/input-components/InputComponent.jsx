@@ -7,6 +7,7 @@ const InputComponent = props => {
     >
       <div className="title-container">
         <h3 className={`title ${props.color}`}>{props.title}</h3>
+        {/* {props.submit && <h4>{props.xInput} X</h4>} */}
       </div>
       <form onSubmit={props.submit} className="common-input-form">
         <input
@@ -41,6 +42,7 @@ const InputComponent = props => {
             position: absolute;
             left: 2rem;
             top: 40%;
+            color: var(--input-title-outer-rings);
           }
           .title {
             font-size: 2.3rem;

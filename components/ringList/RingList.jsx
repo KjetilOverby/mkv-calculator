@@ -24,6 +24,7 @@ const RingList = props => {
           <li onClick={() => props.getRings(11.5)}>11.5</li>
           <li onClick={() => props.getRings(11.75)}>11.75</li>
           <li onClick={() => props.getRings(12)}>12</li>
+          <li onClick={() => props.getRings(12.25)}>12.25</li>
           <li onClick={() => props.getRings(12.5)}>12.5</li>
           <li onClick={() => props.getRings(12.75)}>12.75</li>
           <li onClick={() => props.getRings(15)}>15</li>

@@ -3963,6 +3963,95 @@ const DataPost = createContext([
     ],
     sagsnitt: [4.4, 4.4, 4.4, 4.4]
   },
+
+  //**************** 4.4 12% *******************/    
+  {
+    type: { name: '3x50 - 12% - 4.4 (52.2/53,2)', id: uuid() },
+    bladType: "3.0 - 4.4",
+    bladeThickness: ['3.0'],
+    sagSnitt: ['4.4'],
+    percent: '12',
+    startRings: [
+      { input: 5, id: uuid() },
+      { input: 80, id: uuid() },
+      { input: 27.6, id: uuid() }
+    ],
+    rawInput: [
+      
+      { input: 53.2, id: uuid() },
+      { input: 52.2, ring: 53.1, shims: 0.5, id: uuid() },
+      { input: 53.2, id: uuid() }
+    ],
+    endRings: [
+      { input: 47.9, id: uuid() },
+      { input: 3.2, id: uuid() },
+      { input: 78.7, id: uuid() },
+     
+    ],
+    sagsnitt: [4.4, 4.4, 4.4]
+  },
+  {
+    type: { name: '3x50 - 12% - 4.4 (52.7/53.2)', id: uuid() },
+    bladType: "3.0 - 4.4",
+    bladeThickness: ['3.0'],
+    sagSnitt: ['4.4'],
+    percent: '12',
+    startRings: [
+      { input: 12.25, id: uuid() },
+      { input: 21.4, id: uuid() },
+      { input: 78.7, id: uuid() }
+    ],
+    rawInput: [
+      
+      { input: 53.2, id: uuid() },
+      { input: 52.7, ring: 53.1, shims: 1, id: uuid() },
+      { input: 53.2, id: uuid() }
+    ],
+    endRings: [
+      { input: 34.6, id: uuid() },
+      { input: 11.25, id: uuid() },
+      { input: 5, id: uuid() },
+      { input: 78.7, id: uuid() },
+     
+    ],
+    sagsnitt: [4.4, 4.4, 4.4]
+  },
+  {
+    type: { name: '4x33 - 12% - 4.4', id: uuid() },
+    bladType: "3.0 - 4.4",
+    bladeThickness: ['3.0'],
+    sagSnitt: ['4.4'],
+    percent: '12',
+    startRings: [
+      { input: 11, id: uuid() },
+      { input: 30.4, id: uuid() },
+      { input: 78.7, id: uuid() }
+    ],
+    rawInput: [
+      { input: 34.8, ring: 30.4, shims: 3.2, shims2: 2.6, id: uuid() },
+      { input: 34.8, ring: 34.6, shims: 1, shims2: 0.3, shims3: 0.3, id: uuid() },
+      { input: 34.8, ring: 34.6, shims: 1, shims2: 0.3, shims3: 0.3, id: uuid() },
+      { input: 34.8, ring: 30.4, shims: 3.2, shims2: 2.6, id: uuid() }
+   
+    ],
+    endRings: [
+      { input: 54.6, id: uuid() },
+      { input: 4, id: uuid() },
+      { input: 78.7, id: uuid() },
+     
+    ],
+    sagsnitt: [4.4, 4.4, 4.4, 4.4]
+  },
+
+
+
+
+
+
+  //**************** 4.4 18/12% *******************/
+
+
+
   //**************** 4.6 18% *******************/
 
   {

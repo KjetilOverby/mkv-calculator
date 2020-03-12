@@ -233,8 +233,8 @@ if(fillValueStart === startRingsumForLabel) {
     setEndLabel((fillValueEnd - endRingInputForLabel).toFixed(2));
    }
 
-    setFillValueStartStatic(fillValueStart.toFixed(1))
-    setFillEndValueStatic(fillValueEnd.toFixed(1))
+    setFillValueStartStatic(fillValueStart.toFixed(2))
+    setFillEndValueStatic(fillValueEnd.toFixed(2))
   });
 
   useEffect(() => {
@@ -245,8 +245,13 @@ if(fillValueStart === startRingsumForLabel) {
     }
     setSagSnittSum([0]);
   }, [sagSnitt]);
+/************* Labels rawInput ********************/
 
-
+const [xInput, setxInput] = useState()
+useEffect(() => {
+  setxInput(rawInputData.length)
+  
+})
  
 
   /*************************************************** */
@@ -859,6 +864,7 @@ setRawInputData([]);
         allRawInputDelete={allRawInputDelete}
         openCloseRawInputWindow={openCloseRawInputWindow}
         hideRawInputComponent={hideRawInputComponent}
+        xInput={xInput}
       />
 
       {openBladeThicknessChooser && (
