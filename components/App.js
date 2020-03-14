@@ -175,6 +175,8 @@ const App = props => {
           0
         )
       );
+     
+      
     }
   });
   useEffect(() => {
@@ -219,23 +221,35 @@ const App = props => {
     const minusOnStartLabel = (ringValue) / 2;
     const fillValueEnd = 217.2 - (minusOnStartLabel + dividedBladeThickness).toFixed(2);
     const fillValueStart = 200 - (minusOnStartLabel + dividedBladeThickness).toFixed(2);
-if(fillValueStart === startRingsumForLabel) {
+    
+   
+
+if(fillValueStart == startRingsumForLabel) {
     setStartLabel(0)
 } else if(startRingsumForLabel != fillValueStart) {
   setStartLabel((fillValueStart - startRingsumForLabel).toFixed(2));
-}
+} 
+  
+  
    
 
 
    if(fillValueEnd === endRingInputForLabel) {
      setEndLabel('0')
-   } else if (endRingInputForLabel !=fillValueEnd) {
+   } else if (endRingInputForLabel != fillValueEnd) {
     setEndLabel((fillValueEnd - endRingInputForLabel).toFixed(2));
    }
 
     setFillValueStartStatic(fillValueStart.toFixed(2))
     setFillEndValueStatic(fillValueEnd.toFixed(2))
+
+
+ 
   });
+
+ 
+  
+  
 
   useEffect(() => {
    
@@ -584,43 +598,7 @@ useEffect(() => {
 
  
   const masterDelete = () => {
-  /*   setBladeDelete('blade-delete');
-    setRingDelete('ring-delete');
-    setStartRingDelete('start-delete');
-    setEndRingDelete('end-delete');
-    
-    setPostIndex();
 
-    setTimeout(() => {
-      setDeleteTransition('delete-transition');
-setRawInputData([]);
-      setRawInputDataSum([0]);
-      setRawInputDataSumForLabel([0]);
-      setStartRingsumForLabel([0]);
-      setSagSnittSumCalculated([0]);
-      setSagSnittSum([sagSnitt]);
-
-      setStartRingInputData([]);
-      setStartRingsumForLabel([0])
-
-      setEndLabel(217.2);
-      setStartLabel(200);
-      
-      setEndRingInputData([]);
-      setEndRingInputForLabel([0]);
-      blade4()
-     }, 400);
-    setTimeout(() => {
-     setRawInput('');
-      setStartRingInput('');
-      setEndRingInput('');
-      setBladeDelete('');
-      setRingDelete('');
-      setStartRingDelete('');
-      setEndRingDelete('');
-      setDeleteTransition('');
-      
-    }, 1000); */
     allStartRingDelete()
     allRawInputDelete()
     allEndRingDelete()
