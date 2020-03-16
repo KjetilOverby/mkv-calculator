@@ -23,6 +23,7 @@ import DataPost from '../PostArkiv';
 import TypeDisplay from './TypeDisplay/TypeDisplay';
 import postArkiv40 from '../poster/postArkiv4.0';
 import SearchFilterPostInput from './input-components/SearchFilterPostInput';
+import ShimsCalculator from './shims-calculator/ShimsCalculator';
 
 const App = props => {
   /*********************** CSS Variables **************************/
@@ -452,6 +453,18 @@ useEffect(() => {
   /*********************** Open and Close ***********************/
 
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [openShimsCalculator, setOpenShimsCalculator] = useState(false)
+
+  const openCloseShimsCalculator = () => {
+    setOpenShimsCalculator(!openShimsCalculator)
+    
+     setStartInputWindow(true)
+     setEndInputWindow(false)
+     setRawInputWindow(false)
+     setSearchPostWindow(false)
+     
+     
+  }
 
   const closeSettings = () => {
     setHideSettings('hide-settings');
@@ -524,6 +537,7 @@ useEffect(() => {
     setEndInputWindow(false);
     setStartInputWindow(false);
     setgetSearchPostArkivInput('');
+    setOpenShimsCalculator(false)
     if (rawInputWindow) {
       setTypeDisplayMove('stay-down');
     } else if (endInputWindow) {
@@ -818,6 +832,7 @@ useEffect(() => {
           openCloseStartInputWindow={openCloseStartInputWindow}
           openCloseEndInputWindow={openCloseEndInputWindow}
           openCloseSearchPostInput={openCloseSearchPostInput}
+          openCloseShimsCalculator={openCloseShimsCalculator}
           masterDelete={masterDelete}
           openSettings={openSettings}
           disableDeleteAllBtn={disableDeleteAllBtn}
@@ -928,10 +943,16 @@ useEffect(() => {
             endInputWindow={endInputWindow}
           />
         ))}
+
+        {openShimsCalculator &&  <ShimsCalculator />}
+
+
+        
+
+
       </div>
 
-      {/*  <h1 style={{ color: 'white' }}>{lengthStartAxl}</h1>
-      <h1 style={{ color: 'white' }}>{dimensionRingAddition}</h1> */}
+ 
 
 
       

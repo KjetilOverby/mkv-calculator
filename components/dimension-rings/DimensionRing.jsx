@@ -20,7 +20,7 @@ const DimensionRings = props => {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    
+   
     
     
   `;

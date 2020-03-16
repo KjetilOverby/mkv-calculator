@@ -38,7 +38,8 @@ const SideBar = props => {
       >
         Post arkiv
       </button>
-
+       
+      <button onClick={props.openCloseShimsCalculator} className="sidebar-buttons post-arkiv">Skims Kalkulator</button>
       <img
         onClick={props.openSettings}
         src="https://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/512/settings-icon.png"

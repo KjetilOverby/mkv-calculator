@@ -153,12 +153,12 @@ const Settings = props => {
     props.titleOuterRings('orangered');
     props.inputInnerRings('orangered');
 
-    props.searchBg('');
+    props.searchBg('#0f0f0f');
 
     props.searchPostBtn('orangered');
     props.searchPostBtnHover('black');
 
-    props.sidebarBg('');
+    props.sidebarBg('#0f0f0f');
 
     props.deleteBtn('orangered');
     props.deleteBtnHover('black');
