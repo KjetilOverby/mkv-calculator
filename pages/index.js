@@ -161,7 +161,7 @@ const Home = props => {
 
           @media only screen and (max-width: 1600px) {
             * {
-              font-size: 0.8vw;
+              font-size: .8vw;
             }
           }
           @media only screen and (max-width: 400px) {

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import DataPost from '../../PostArkiv';
 
@@ -38,6 +38,12 @@ const SearchFilterPostInput = props => {
   `;
 
   const poster = useContext(DataPost);
+
+  const searchInput = useRef()
+
+  useEffect(() => {
+    searchInput.current.focus()
+  })
   return (
     <div
       className={`raw-input-container search-post-background ${props.hideSearchPostInput} `}
@@ -56,6 +62,7 @@ const SearchFilterPostInput = props => {
               onChange={props.searchPostArkivInputFunc}
               value={props.searchInput}
               autoComplete="off"
+              ref={searchInput}
             />
           </form>
 

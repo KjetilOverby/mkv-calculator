@@ -9,14 +9,22 @@ const StartInputContainer = styled.div`
 const H1 = styled.h1`
   margin-right: 3rem;
   color: var(--input-inner-rings);
+  
+  width: 10rem;
+  @media only screen and (max-width: 1600px) {
+           font-size: 2.2rem;
+          }
 `
 
 const Input = styled.input`
    background: transparent;
    border: none;
    border-bottom: 2px solid var(--input-inner-rings);
-   font-size: 1.5rem;
-   color: var(--input-inner-rings)
+   font-size: 1.8rem;
+   color: var(--input-inner-rings);
+   @media only screen and (max-width: 1600px) {
+           font-size: 2.5rem;
+          }
 `
 const InputCommonComponent = (props) => {
     return (

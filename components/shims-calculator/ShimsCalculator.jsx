@@ -16,31 +16,23 @@ const ShimsContainer = styled.div`
   align-items: center;
   padding-top: 20vh;
   
-  
+  z-index: 10;
  
   
 `;
 
-const AboveInputContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  position: absolute;
-  width: 40vw;
-`;
 
 const OutInputContainer = styled.div`
   display: flex;
   flex-direction: row;
+
+ 
 `;
-const InputContainer = styled.div`
-  width: 15vw;
-  align-items: center;
-`;
+
 
 const OutputContainer = styled.div`
   width: 30vw;
+ 
 `;
 
 const RawInputComponentStyle = styled.div`
@@ -55,7 +47,7 @@ const Button = styled.button`
   width: 9vw;
   border: none;
   
- 
+  font-size: 1rem;
   background: linear-gradient(
     120deg,
     var(--input-outer-rings) 50%,
@@ -178,8 +170,9 @@ const ShimsCalculator = () => {
     <>
       
       <ShimsContainer>
+      <div className='f-size-container'>
       <h1 style={{color: 'var(--input-inner-rings)', marginBottom: '10vh', fontSize: '3rem', fontWeight: '100'}}>Skims Kalkulator</h1>
-        <Button style={{position: 'absolute', top: '40vh', right: '35vw'}} onClick={reset}>Reset</Button>
+        <Button style={{position: 'absolute', top: '23rem', right: '35vw'}} onClick={reset}>Reset</Button>
         {rawInputBool && (
           <RawInputComponent
             inputRef={inputRef}
@@ -251,9 +244,14 @@ const ShimsCalculator = () => {
             )}
           </OutputContainer>
         </OutInputContainer>
+        </div>
       </ShimsContainer>
 
       <style jsx>{`
+
+@media only screen and (max-width: 1600px) {
+          h1{ font-size: 2.2rem;}
+          }
         input {
           width: 4vw;
         }
@@ -265,6 +263,7 @@ const ShimsCalculator = () => {
         .title-before-val {
           width: 15rem;
          color: var(--input-inner-rings);
+        
         }
         .val {
           color: var(--input-inner-rings);
