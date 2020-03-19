@@ -172,7 +172,7 @@ const ShimsCalculator = () => {
       <ShimsContainer>
       <div className='f-size-container'>
       <h1 style={{color: 'var(--input-inner-rings)', marginBottom: '10vh', fontSize: '3rem', fontWeight: '100'}}>Skims Kalkulator</h1>
-        <Button style={{position: 'absolute', top: '23rem', right: '35vw'}} onClick={reset}>Reset</Button>
+        <Button style={{position: 'absolute', top: '25rem', right: '32vw'}} onClick={reset}>Reset</Button>
         {rawInputBool && (
           <RawInputComponent
             inputRef={inputRef}

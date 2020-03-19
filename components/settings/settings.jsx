@@ -172,15 +172,15 @@ const Settings = props => {
     <H1>Bakgrunner</H1>
       <div>
         <ul>
-          <li onClick={() => props.wallpaperValue(0)}>Northern light</li>
+          <li onClick={() => props.wallpaperValue(0)}>Green Water</li>
           <li onClick={() => props.wallpaperValue(1)}>Blue Plant</li>
-          <li onClick={() => props.wallpaperValue(2)}>Montain Road</li>
+          <li onClick={() => props.wallpaperValue(2)}>Water Dew</li>
           <li onClick={() => props.wallpaperValue(3)}>Gray Texture</li>
-          <li onClick={() => props.wallpaperValue(4)}>Sunny Atmosphere</li>
+          <li onClick={() => props.wallpaperValue(4)}>Rope</li>
           <li onClick={() => props.wallpaperValue(5)}>Night Sky</li>
           <li onClick={() => props.wallpaperValue(6)}>Clean color</li>
-          <li onClick={() => props.wallpaperValue(7)}>Outer Space</li>
-          <li onClick={() => props.wallpaperValue(8)}>Evening Montain</li>
+          <li onClick={() => props.wallpaperValue(7)}>Wooden Wall</li>
+          <li onClick={() => props.wallpaperValue(8)}>Evening Light</li>
          
        
          

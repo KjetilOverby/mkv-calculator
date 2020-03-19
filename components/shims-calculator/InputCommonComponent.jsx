@@ -12,7 +12,7 @@ const H1 = styled.h1`
   
   width: 10rem;
   @media only screen and (max-width: 1600px) {
-           font-size: 2.2rem;
+           font-size: 2rem;
           }
 `
 
@@ -23,7 +23,7 @@ const Input = styled.input`
    font-size: 1.8rem;
    color: var(--input-inner-rings);
    @media only screen and (max-width: 1600px) {
-           font-size: 2.5rem;
+           font-size: 1.8rem;
           }
 `
 const InputCommonComponent = (props) => {
