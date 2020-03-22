@@ -1,6 +1,16 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 
 const InputComponent = props => {
+
+  const ringinput = useRef()
+  useEffect(() => {
+    
+    if(props.rawInputWindowForRef || props.startInputWindowForRef || props.endInputWindowForRef) {
+     ringinput.current.focus()
+    }
+
+    
+  })
   return (
     <div
       className={`raw-input-container ${props.background} ${props.hideInputComponent}`}
@@ -17,6 +27,8 @@ const InputComponent = props => {
           value={props.value}
           onChange={props.inputDataOnChange}
           className={`input-fields ${props.inputColor} ${props.inputColorOuter} ${props.inputBorderColor}`}
+          ref={ringinput}
+
         /> 
         <button className={`btn-common-input ${props.backgroundBtn}`}>
           Legg til

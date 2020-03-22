@@ -105,7 +105,7 @@ const ShimsCalculator = () => {
     setRawValueSC(getRawInputSC);
     setRawInputBool(false);
     setRingInputBool(true);
-    console.log('from rawExecute: ' + inputRef.current);
+   
   };
   const getRingInputSCMethod = e => {
     setGetRingValueSC(e.target.value);
@@ -132,9 +132,11 @@ const ShimsCalculator = () => {
     const rawValVigg = Number(rawValueSC) + viggSc;
     setShimsCalcSC(xValRingVal.toFixed(1));
     setXvalueSc(rawValVigg.toFixed(1));
-
-    inputRef.current.focus();
+    inputRef.current.focus()
+   
+   
   });
+  
 
   const inputRef = useRef();
 

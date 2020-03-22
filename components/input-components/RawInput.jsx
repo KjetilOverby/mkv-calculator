@@ -5,6 +5,11 @@ const RawInput = (props) => {
     const color = 'color-title-raw'
     const inputColor = 'input-color-green'
     const placeHolderRaw = 'Råmål'
+
+
+
+
+
     return (
         <div>
             <InputComponent
@@ -21,6 +26,7 @@ const RawInput = (props) => {
              inputColor={inputColor}
              placeholder={placeHolderRaw}
              xInput={props.xInput}
+             rawInputWindowForRef={props.rawInputWindowForRef}     
             
              />
         </div>

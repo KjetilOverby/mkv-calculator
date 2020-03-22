@@ -25,6 +25,7 @@ const EndRingInput = props => {
         color={color}
         inputColor={inputColor}
         placeholder={placeholder}
+        endInputWindowForRef={props.endInputWindowForRef}
       />
     </div>
   );

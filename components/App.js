@@ -569,6 +569,7 @@ useEffect(() => {
       setTypeDisplayMove('movingTypeDisplayDown');
     }
   };
+  
   const openCloseRawInputWindow = () => {
     setRawInputWindow(!rawInputWindow);
     setStartInputWindow(false);
@@ -847,6 +848,8 @@ useEffect(() => {
         allStartRingDelete={allStartRingDelete}
         openCloseStartInputWindow={openCloseStartInputWindow}
         hideStartInputComponent={hideStartInputComponent}
+        startInputWindowForRef={startInputWindow}
+
       />
 
       <RawInput
@@ -858,6 +861,8 @@ useEffect(() => {
         openCloseRawInputWindow={openCloseRawInputWindow}
         hideRawInputComponent={hideRawInputComponent}
         xInput={xInput}
+        rawInputWindowForRef={rawInputWindow}
+
       />
 
       {openBladeThicknessChooser && (
@@ -879,6 +884,7 @@ useEffect(() => {
         allEndRingDelete={allEndRingDelete}
         openCloseEndInputWindow={openCloseEndInputWindow}
         hideEndInputComponent={hideEndInputComponent}
+        endInputWindowForRef={endInputWindow}
       />
 
       <div className="ring-component-container">
@@ -944,7 +950,7 @@ useEffect(() => {
           />
         ))}
 
-        {openShimsCalculator &&  <ShimsCalculator />}
+        {openShimsCalculator &&  <ShimsCalculator openShimsCalculator={openShimsCalculator} />}
 
 
         

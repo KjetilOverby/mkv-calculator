@@ -26,6 +26,7 @@ const StartRingInput = (props) => {
                 color={color}
                 inputColor={inputColor}
                 placeholder={placeholder}
+                startInputWindowForRef={props.startInputWindowForRef}
                 
               
             />

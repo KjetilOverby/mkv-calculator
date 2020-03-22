@@ -43,6 +43,8 @@ const SearchFilterPostInput = props => {
 
   useEffect(() => {
     searchInput.current.focus()
+    
+    
   })
   return (
     <div
