@@ -275,7 +275,7 @@ const Settings = props => {
 
         .show-settings {
           display: block;
-          animation: showSettings 0.2s;
+          animation: showSettings 0.5s;
           -webkit-animation-fill-mode: forwards, none;
           left: -16vw;
           display: flex;
@@ -283,7 +283,7 @@ const Settings = props => {
           flex-direction: column;
         }
         .hide-settings {
-          animation: hideSettings 0.2s;
+          animation: hideSettings 0.5s;
           -webkit-animation-fill-mode: forwards, none;
           right: 0;
         }
