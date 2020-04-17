@@ -492,9 +492,10 @@ const DataPost = createContext([
     sagSnitt: ['3.8'],
     percent: '12',
     startRings: [
-      { input: 1, id: uuid() },
-      { input: 40, id: uuid() },
-      { input: 78.7, id: uuid() }
+      { input: 12, id: uuid() },
+      { input: 20, id: uuid() },
+      { input: 53.1, id: uuid() },
+      { input: 34.6, id: uuid() }
     ],
     rawInput: [
       
