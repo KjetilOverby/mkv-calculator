@@ -21,6 +21,7 @@ const Input = styled.input`
    border: none;
    border-bottom: 2px solid var(--input-inner-rings);
    font-size: 1.8rem;
+   outline: none;
    color: var(--input-inner-rings);
    @media only screen and (max-width: 1600px) {
            font-size: 1.8rem;
