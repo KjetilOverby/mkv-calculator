@@ -1,9 +1,18 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Head from 'next/head';
 
 import App from '../components/App';
 
+import ReactGA from 'react-ga'
+
 const Home = props => {
+
+  // Google analytics
+
+  useEffect(() => {
+    ReactGA.initialize('UA-165295838-2');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, [])
   const wallpaper = [
     'https://images.unsplash.com/photo-1582208695996-cebe24b00f27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80 ',
     'https://images.unsplash.com/photo-1530533718754-001d2668365a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
