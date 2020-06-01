@@ -4232,10 +4232,10 @@ const DataPost = createContext([
       { input: 66.4, id: uuid() },
     ],
     rawInput: [
-      { input: 44.5, id: uuid() },
-      { input: 51.7, id: uuid() },
       { input: 51.7, id: uuid() },
       { input: 44.5, id: uuid() },
+      { input: 44.5, id: uuid() },
+      { input: 51.7, id: uuid() },
     ],
     endRings: [
       { input: 78.7, id: uuid() },
