@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext, createContext } from 'react';
+import Hylse2 from './hylse/hylse2';
 import Hylse from './hylse/hylse';
+import Hylse3 from './hylse/hylse3';
 import SideBar from './sidebar/Sidebar';
 import RawInput from './input-components/RawInput';
 import DimensionRings from './dimension-rings/DimensionRing';
@@ -888,7 +890,7 @@ useEffect(() => {
       />
 
       <div className="ring-component-container">
-        <Hylse
+        <Hylse3
           startLabelStatic={fillValueStartStatic}
           EndLabelStatic={fillEndValueStatic}
           startLabel={startLabel}
@@ -1010,23 +1012,26 @@ useEffect(() => {
           color: var(--darker-bright);
         }
         .blade {
-          height: 25rem;
+          height: 30rem;
           width: 0.4rem;
           background-color: yellow;
           position: relative;
           cursor: pointer;
+          z-index: 12;
+          margin-right: .3em;
+          margin-top: 1.5rem
         }
 
         .blade-thickness-top {
           position: absolute;
-          bottom: 25.2rem;
+          bottom: 30.2rem;
           left: 50%;
           transform: translateX(-50%);
           color: yellow;
         }
         .blade-thickness-bottom {
           position: absolute;
-          top: 25.2rem;
+          top: 30.2rem;
           left: 50%;
           transform: translateX(-50%);
           color: yellow;

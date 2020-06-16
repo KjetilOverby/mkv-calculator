@@ -16,7 +16,7 @@ const ShimsContainer = styled.div`
   align-items: center;
   padding-top: 20vh;
   
-  z-index: 10;
+  z-index: 50;
  
   
 `;

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const StartInputContainer = styled.div`
   display: flex;
   align-items: center;
+  
 
 `
 const H1 = styled.h1`

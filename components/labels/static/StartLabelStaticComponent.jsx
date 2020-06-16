@@ -10,6 +10,7 @@ const StartLabelStaticComponent = (props) => {
             .start-label-static-component-container {
                 position: absolute;
                 bottom: 12rem;
+                z-index: 20
             }
             .start-label-static-component-container h1 {
                 font-style: italic;

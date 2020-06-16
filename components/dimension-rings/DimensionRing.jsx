@@ -9,7 +9,7 @@ const DimensionRings = props => {
   
     position: absolute;
     color: indianred;
-    top: 17rem;
+    top: 22rem;
     width: 2.2rem;
     border-radius: 5px;
     padding: 1rem;
@@ -90,13 +90,15 @@ const DimensionRings = props => {
           color: var(--darker-bright);
         }
         .blade {
-          height: 25rem;
+          height: 30rem;
           width: 0.4rem;
           background-color: yellow;
           position: relative;
           cursor: pointer;
           animation-name: bladeAnimation;
           animation-duration: 0.5s;
+          z-index: 12;
+          margin-right: 0.3em
         }
 
         /************ delete blade animation  ***************/
@@ -157,14 +159,14 @@ const DimensionRings = props => {
         }
         .blade-thickness-top {
           position: absolute;
-          bottom: 25.2rem;
+          bottom: 30.2rem;
           left: 50%;
           transform: translateX(-50%);
           color: yellow;
         }
         .blade-thickness-bottom {
           position: absolute;
-          top: 25.2rem;
+          top: 30.2rem;
           left: 50%;
           transform: translateX(-50%);
           color: yellow;
@@ -174,7 +176,7 @@ const DimensionRings = props => {
           position: absolute;
           left: 50%;
           transform: translateX(-50%);
-          top: 2.8rem;
+          top: 6rem;
           border: 1px solid transparent;
           padding: 0.3rem;
           border-radius: 5px;
