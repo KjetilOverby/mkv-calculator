@@ -33,7 +33,7 @@ const DistanceRing = (props) => {
     
     height: 11rem;
     width: 3.2rem;
-    margin: 1.3em .4rem 0 0;
+    margin: 1.1em .4rem 0 0;
     display: flex;
     justify-content: center;
     padding: .5rem .7rem;

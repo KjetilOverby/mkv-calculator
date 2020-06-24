@@ -75,7 +75,7 @@ const Hylse = props => {
         }
         .hylse-kile {
           height: 2.8rem;
-          width: 71.3rem;
+          width: 70.7rem;
           background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.8)) , url('https://image.freepik.com/free-photo/metallic-textured-background_53876-89540.jpg');
           background-position: center;
           box-shadow: inset 12px 2px 3px -2px rgba(0,0,0,.8);
@@ -153,7 +153,7 @@ const Hylse = props => {
           margin-top: 8rem;
         }
         .hylse-end {
-          height: 8.5rem;
+          height: 8.9rem;
           width: 5rem;
           background: linear-gradient(rgb(175, 175, 175), rgb(85, 85, 85));
           position: absolute;
@@ -166,7 +166,7 @@ const Hylse = props => {
           border-top-right-radius: 5px;
         }
         .gang {
-          height: 8.5rem;
+          height: 8.9rem;
           width: 0.1rem;
           background: rgb(56, 56, 56);
           margin: 0 0.1rem;
