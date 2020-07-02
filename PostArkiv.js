@@ -1744,7 +1744,7 @@ const DataPost = createContext([
     sagsnitt: [4.0, 4.0, 4.0, 4.0],
   },
   {
-    type: { name: '4x34 - 12% - 4.0', id: uuid() },
+    type: { name: '4x34 - 12% - 4.0(35.6)', id: uuid() },
     bladType: '2.6 - 4.0',
     bladeThickness: ['2.6'],
     sagSnitt: ['4.0'],
@@ -4098,6 +4098,30 @@ const DataPost = createContext([
     sagsnitt: [4.4, 4.4, 4.4, 4.4],
   },
   {
+    type: { name: '4x33 - 18% - 4.4', id: uuid() },
+    bladType: '3.0 - 4.4',
+    bladeThickness: ['3.0'],
+    sagSnitt: ['4.4'],
+    percent: '18',
+    startRings: [
+      { input: 80, id: uuid() },
+      { input: 41.3, id: uuid() },
+    ],
+    rawInput: [
+      { input: 34.2, ring: 34.6, shims: 1, id: uuid() },
+      { input: 34.2, ring: 34.6, shims: 1, id: uuid() },
+      { input: 34.2, ring: 34.6, shims: 1, id: uuid() },
+      { input: 34.2, ring: 34.6, shims: 1, id: uuid() },
+    ],
+    endRings: [
+      { input: 54.6, id: uuid() },
+      { input: 3.2, id: uuid() },
+      { input: 2, id: uuid() },
+      { input: 78.7, id: uuid() },
+    ],
+    sagsnitt: [4.4, 4.4, 4.4, 4.4],
+  },
+  {
     type: { name: '4x38/25 - 18% - 4.4', id: uuid() },
     bladType: '3.0 - 4.4',
     bladeThickness: ['3.0'],
@@ -5213,6 +5237,30 @@ const DataPost = createContext([
     endRings: [
       { input: 40, id: uuid() },
       { input: 2.2, id: uuid() },
+      { input: 78.7, id: uuid() },
+    ],
+    sagsnitt: [4.6, 4.6, 4.6, 4.6],
+  },
+  {
+    type: { name: '4x50/38 - 12/18% - 4.6 (52.7)', id: uuid() },
+    bladType: '3.2 - 4.6',
+    bladeThickness: ['3.2'],
+    sagSnitt: ['4.6'],
+    percent: '12/18',
+    startRings: [
+      { input: 4, id: uuid() },
+      { input: 40, id: uuid() },
+      { input: 53.1, id: uuid() },
+    ],
+    rawInput: [
+      { input: 39.4, id: uuid() },
+      { input: 52.7, ring: 53.1, shims: 1, id: uuid() },
+      { input: 52.7, ring: 53.1, shims: 1, id: uuid() },
+      { input: 39.4, id: uuid() },
+    ],
+    endRings: [
+      { input: 34.6, id: uuid() },
+      { input: 1, id: uuid() },
       { input: 78.7, id: uuid() },
     ],
     sagsnitt: [4.6, 4.6, 4.6, 4.6],
