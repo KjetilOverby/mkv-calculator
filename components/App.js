@@ -135,7 +135,6 @@ const App = props => {
     }
   };
 
-  const [disableDeleteAllBtn, setDisableDeleteAllBtn] = useState(false)
   /************************** Lifecycle **********************/
 
   useEffect(() => {
@@ -222,30 +221,48 @@ const App = props => {
     const dividedBladeThickness = bladeThickness/2
     const ringValue = rawInputDataSum + sagSnittSumCalculated
     const minusOnStartLabel = (ringValue) / 2;
-    const fillValueEnd = 217.2 - (minusOnStartLabel + dividedBladeThickness).toFixed(2);
-    const fillValueStart = 200 - (minusOnStartLabel + dividedBladeThickness).toFixed(2);
     
-   
 
-if(fillValueStart == startRingsumForLabel) {
+    const BladesAndRawRingSum = Number(ringValue) + Number(bladeThickness)
+    const BladesAndRawRingSumDivided = BladesAndRawRingSum / 2
+
+   
+    
+    const singleBlade = (bladeThickness + 1.4)
+    const restBlades = rawInputData.length * singleBlade
+   const valueBetweenBlades = Number(rawInputDataSum) + Number(restBlades) + Number(singleBlade)
+   const valueBetweenBladesDivided = valueBetweenBlades / 2
+
+
+   const fillValueStart = 200 - valueBetweenBladesDivided + .7;
+   const fillValueStartSaved = 200 - (minusOnStartLabel + dividedBladeThickness).toFixed(2);
+   
+   const fillValueEnd = 217.2 - valueBetweenBladesDivided + .7;
+   const fillValueEndSaved = 217.2 - (minusOnStartLabel + dividedBladeThickness).toFixed(2);
+
+   const calcForSavedPostFirst = fillValueStartSaved <= startRingsumForLabel
+
+if(calcForSavedPostFirst) {
     setStartLabel(0)
-} else if(startRingsumForLabel != fillValueStart) {
+    setFillValueStartStatic(fillValueStartSaved.toFixed(2))
+} else  {
   setStartLabel((fillValueStart - startRingsumForLabel).toFixed(2));
+  setFillValueStartStatic(fillValueStart.toFixed(2))
 } 
   
   
-   
 
 
-   if(fillValueEnd === endRingInputForLabel) {
-     setEndLabel('0')
-   } else if (endRingInputForLabel != fillValueEnd) {
+   if(fillValueEndSaved <= endRingInputForLabel ) {
+     setEndLabel(0)
+     setFillEndValueStatic(fillValueEndSaved.toFixed(2))
+   } else {
     setEndLabel((fillValueEnd - endRingInputForLabel).toFixed(2));
+    setFillEndValueStatic(fillValueEnd.toFixed(2))
    }
 
-    setFillValueStartStatic(fillValueStart.toFixed(2))
-    setFillEndValueStatic(fillValueEnd.toFixed(2))
-
+   
+  
 
  
   });
@@ -357,6 +374,7 @@ useEffect(() => {
   const [startLabelStatic, setStartLabelStatic] = useState();
 
   /*********************** SawBlade thickness ***********************/
+ 
   const blade1 = () => {
     setBladeThicknessHalf(2.2/2)
     setBladeThickness(2.2);
@@ -746,10 +764,6 @@ useEffect(() => {
 
   const [clickIndexPost, setClickIndexPost] = useState();
 
-
-  
-
-
   return (
     <div className="app-container">
       <TypeDisplay typeDisplayMove={typeDisplayMove} postIndex={postIndex} />
@@ -765,7 +779,6 @@ useEffect(() => {
             setSagSnittSum([...post.sagsnitt]);
 
             setTestingContext(false);
-            setDisableDeleteAllBtn(true)
           }
         }, [testingContext]);
       })}
@@ -838,7 +851,6 @@ useEffect(() => {
           openCloseShimsCalculator={openCloseShimsCalculator}
           masterDelete={masterDelete}
           openSettings={openSettings}
-          disableDeleteAllBtn={disableDeleteAllBtn}
         />
       )}
 

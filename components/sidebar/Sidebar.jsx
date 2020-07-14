@@ -28,7 +28,7 @@ const SideBar = props => {
         className="sidebar-buttons delete-all"
         disabled={props.disableDeleteAllBtn}
       >
-        {props.disableDeleteAllBtn ? 'Disabled' : 'Slett post'}
+        {props.disableDeleteAllBtn ? 'Disabled' : 'Nullstill'}
       </button>
       <hr />
       <button

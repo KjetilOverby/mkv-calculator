@@ -13,7 +13,7 @@ const DistanceRing = (props) => {
        {props.startInputWindow && <i onClick={props.singleRingDelete} className='delete-button-ring fas fa-trash-alt'></i>}
 
 
-      {/*  {props.rawInputWindow && <i onClick={props.singleRingDelete} className='delete-button-ring fas fa-trash-alt'></i>} */}
+       {props.rawInputWindow && <i onClick={props.singleRingDelete} className='delete-button-ring fas fa-trash-alt'></i>}
 
       {props.endInputWindow && <i onClick={props.singleRingDelete} className='delete-button-ring fas fa-trash-alt'></i>}
 
