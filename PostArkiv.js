@@ -1431,6 +1431,30 @@ const DataPost = createContext([
     sagsnitt: [4.0, 4.0],
   },
   {
+    type: { name: '2x40 - 12% - 4.0 (41.8)', id: uuid() },
+    bladType: '2.6 - 4.0',
+    bladeThickness: ['2.6'],
+    sagSnitt: ['4.0'],
+    percent: '12',
+    startRings: [
+      { input: 5, id: uuid() },
+      { input: 20, id: uuid() },
+      { input: 80, id: uuid() },
+      { input: 47.9, id: uuid() },
+    ],
+    rawInput: [
+      { input: 41.8, ring: 40.8, shims: 2.4, id: uuid() },
+      { input: 41.8, ring: 40.8, shims: 2.4, id: uuid() },
+    ],
+    endRings: [
+      { input: 37.5, id: uuid() },
+      { input: 46.9, id: uuid() },
+      { input: 7, id: uuid() },
+      { input: 78.7, id: uuid() },
+    ],
+    sagsnitt: [4.0, 4.0],
+  },
+  {
     type: { name: '2x50 - 12% - 4.0', id: uuid() },
     bladType: '2.6 - 4.0',
     bladeThickness: ['2.6'],
@@ -1981,6 +2005,31 @@ const DataPost = createContext([
     endRings: [
       { input: 44.9, id: uuid() },
       { input: 5, id: uuid() },
+      { input: 78.7, id: uuid() },
+    ],
+    sagsnitt: [4.0, 4.0, 4.0, 4.0],
+  },
+  {
+    type: { name: '4x40/25 - 12/18% - 4.0(41.8)', id: uuid() },
+    bladType: '2.6 - 4.0',
+    bladeThickness: ['2.6'],
+    sagSnitt: ['4.0'],
+    percent: '12/18',
+    startRings: [
+      { input: 4, id: uuid() },
+      { input: 40, id: uuid() },
+      { input: 78.7, id: uuid() },
+    ],
+    rawInput: [
+      { input: 26.2, id: uuid() },
+      { input: 41.8, ring: '40.8', shims: '2.4', id: uuid() },
+      { input: 41.8, ring: '40.8', shims: '2.4', id: uuid() },
+      { input: 26.2, id: uuid() },
+    ],
+    endRings: [
+      { input: 34.6, id: uuid() },
+      { input: 25.6, id: uuid() },
+      { input: 1, id: uuid() },
       { input: 78.7, id: uuid() },
     ],
     sagsnitt: [4.0, 4.0, 4.0, 4.0],

@@ -3,16 +3,15 @@ import Head from 'next/head';
 
 import App from '../components/App';
 
-import ReactGA from 'react-ga'
+import ReactGA from 'react-ga';
 
-const Home = props => {
-
+const Home = (props) => {
   // Google analytics
 
-  useEffect(() => {
-    ReactGA.initialize('UA-165295838-2');
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, [])
+  // useEffect(() => {
+  //   ReactGA.initialize('UA-165295838-2');
+  //   ReactGA.pageview(window.location.pathname + window.location.search);
+  // }, [])
   const wallpaper = [
     'https://images.unsplash.com/photo-1582208695996-cebe24b00f27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80 ',
     'https://images.unsplash.com/photo-1530533718754-001d2668365a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
@@ -22,35 +21,39 @@ const Home = props => {
     ' https://images.unsplash.com/photo-1520997719764-6cdf09e93606?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
     'https://images.unsplash.com/photo-1508615121316-fe792af62a63?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
     'https://images.unsplash.com/photo-1506508618093-6fe5ce3def4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80',
-    'https://images.unsplash.com/photo-1530648914613-cf6c85bb0eb0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'
+    'https://images.unsplash.com/photo-1530648914613-cf6c85bb0eb0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
   ];
 
   const [wallpaperValue, setWallpaperValue] = useState(0);
   const [faneTitle, setFaneTitle] = useState('');
-  
+
   /***************  colors ******************/
 
-  const [innerRing, setInnerRing] = useState('linear-gradient(#6FB98F, #004445)');
-  const [outerRings, setOuterRings] = useState('linear-gradient(rgb(128, 180, 204), rgb(28, 28, 82))');
+  const [innerRing, setInnerRing] = useState(
+    'linear-gradient(#6FB98F, #004445)'
+  );
+  const [outerRings, setOuterRings] = useState(
+    'linear-gradient(rgb(128, 180, 204), rgb(28, 28, 82))'
+  );
 
   // same color bright - dark
-  const [inputOuterRings, setInputOuterRings] = useState('#004445')
-  const [titleInnerRings, setTitleInnerRings] = useState('#004445')
+  const [inputOuterRings, setInputOuterRings] = useState('#004445');
+  const [titleInnerRings, setTitleInnerRings] = useState('#004445');
   // same color dark bright
-  const [titleOuterRings, setTitleOuterRings] = useState('#6FB98F')
-  const [inputInnerRings, setinputInnerRings] = useState('#6FB98F')
-   // searh component
+  const [titleOuterRings, setTitleOuterRings] = useState('#6FB98F');
+  const [inputInnerRings, setinputInnerRings] = useState('#6FB98F');
+  // searh component
 
-   const [searchBg, setSearchBg] = useState('#004445')
-   const [searchPostBtn, setSearchPostBtn] = useState('#6FB98F')
-   const [searchPostBtnHover, setSearchPostBtnHover] = useState('#004445')
-   const [postListHover, setPostListHover] = useState('#004445')
+  const [searchBg, setSearchBg] = useState('#004445');
+  const [searchPostBtn, setSearchPostBtn] = useState('#6FB98F');
+  const [searchPostBtnHover, setSearchPostBtnHover] = useState('#004445');
+  const [postListHover, setPostListHover] = useState('#004445');
 
-   // Sidebar
+  // Sidebar
 
-   const [sidebarBg, setSidebarBg] = useState('#021C1E')
-   const [deleteBtn, setDeleteBtn] = useState('#D75B66')
-   const [deleteBtnHover, setDeleteBtnHover] = useState('#D24136')
+  const [sidebarBg, setSidebarBg] = useState('#021C1E');
+  const [deleteBtn, setDeleteBtn] = useState('#D75B66');
+  const [deleteBtnHover, setDeleteBtnHover] = useState('#D24136');
   return (
     <div>
       <Head>
@@ -59,31 +62,27 @@ const Home = props => {
         <title>{faneTitle}</title>
       </Head>
 
-      <App 
-      wallpaperValue={setWallpaperValue} 
-      faneTitle={setFaneTitle} 
-
-      innerRing={setInnerRing}
-      outerRings={setOuterRings}
-      
-      inputOuterRings={setInputOuterRings}
-      titleInnerRings={setTitleInnerRings}
-      titleOuterRings={setTitleOuterRings}
-      inputInnerRings={setinputInnerRings}
-      searchBg={setSearchBg}
-      searchPostBtn={setSearchPostBtn}
-      searchPostBtnHover={setSearchPostBtnHover}
-      sidebarBg={setSidebarBg}
-      deleteBtn={setDeleteBtn}
-      deleteBtnHover={setDeleteBtnHover}
-      postListHover={setPostListHover}
+      <App
+        wallpaperValue={setWallpaperValue}
+        faneTitle={setFaneTitle}
+        innerRing={setInnerRing}
+        outerRings={setOuterRings}
+        inputOuterRings={setInputOuterRings}
+        titleInnerRings={setTitleInnerRings}
+        titleOuterRings={setTitleOuterRings}
+        inputInnerRings={setinputInnerRings}
+        searchBg={setSearchBg}
+        searchPostBtn={setSearchPostBtn}
+        searchPostBtnHover={setSearchPostBtnHover}
+        sidebarBg={setSidebarBg}
+        deleteBtn={setDeleteBtn}
+        deleteBtnHover={setDeleteBtnHover}
+        postListHover={setPostListHover}
       />
-      
 
-
-      <style global jsx>{`
+      <style global jsx>
+        {`
           :root {
-            
             --outer-ring: ${outerRings};
             --inner-ring: ${innerRing};
             --input-outer-rings: ${inputOuterRings};
@@ -94,11 +93,10 @@ const Home = props => {
             --searchPostBtn: ${searchPostBtn};
             --searchPostBtnHover: ${searchPostBtnHover};
             --post-list-hover: ${postListHover};
-            
+
             --sidebarBg: ${sidebarBg};
             --deleteBtn: ${deleteBtn};
             --deleteBtnHover: ${deleteBtnHover};
-
 
             --main-dark: #080f5b;
             --brighter-dark: #d4dfdd;
@@ -106,14 +104,9 @@ const Home = props => {
             --darker-bright: #d14c4c;
             --bright: #e4c580;
 
-            
-            
-
             --blue: rgb(128, 180, 204);
             --rustyRed: #984b43;
             --labels: linear-gradient(gray, gray);
-
-             
           }
           /*         :root {
   --main-dark: #080f5b;
@@ -170,7 +163,7 @@ const Home = props => {
 
           @media only screen and (max-width: 1600px) {
             * {
-              font-size: .8vw;
+              font-size: 0.8vw;
             }
           }
           @media only screen and (max-width: 400px) {
